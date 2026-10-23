@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Knowledge Post | Cloudwise AI</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="knowledgeform.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVIGATION
+         ===================================================== -->
+
+    <div class="knowledge-top-nav">
+
+        <a href="knowledgehub.html"
+           class="back-button">
+
+            <span>←</span>
+
+            Back to Knowledge Hub
+
+        </a>
+
+
+        <div class="knowledge-nav-title">
+
+            <span class="knowledge-nav-icon">
+                ▤
+            </span>
+
+            <strong>
+                Knowledge Hub
+            </strong>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         PAGE
+         ===================================================== -->
+
+    <main class="knowledge-form-page">
+
+
+        <!-- =================================================
+             POST
+             ================================================= -->
+
+        <article class="knowledge-form-card">
+
+
+            <!-- LOADING -->
+
+            <div id="postLoading"
+                 style="
+                    padding:40px;
+                    text-align:center;
+                    color:#a2b1c3;
+                 ">
+
+                Loading post...
+
+            </div>
+
+
+
+            <!-- POST CONTENT -->
+
+            <div id="postContent"
+                 style="display:none;">
+
+
+                <!-- POST HEADER -->
+
+                <div class="post-detail-header">
+
+
+                    <span id="postBadge"
+                          class="post-badge">
+
+                        ARTICLE
+
+                    </span>
+
+
+                    <h1 id="postTitle"></h1>
+
+
+                    <div class="post-meta">
+
+                        <span id="postAuthor"></span>
+
+                        <span>·</span>
+
+                        <span id="postDate"></span>
+
+                        <span>·</span>
+
+                        <span id="postCategory"></span>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- POST CONTENT -->
+
+                <div id="postBody"
+                     class="post-detail-content">
+                </div>
+
+
+
+                <!-- TAGS -->
+
+                <div id="postTags"
+                     class="post-tags">
+                </div>
+
+
+
+                <!-- RATING -->
+
+                <div class="post-actions">
+
+                    <span>
+                        Rate this post:
+                    </span>
+
+
+                    <div id="ratingStars"
+                         class="rating-stars">
+
+
+                        <button
+                            class="rating-star"
+                            data-rating="1"
+                            type="button">
+
+                            ★
+
+                        </button>
+
+
+                        <button
+                            class="rating-star"
+                            data-rating="2"
+                            type="button">
+
+                            ★
+
+                        </button>
+
+
+                        <button
+                            class="rating-star"
+                            data-rating="3"
+                            type="button">
+
+                            ★
+
+                        </button>
+
+
+                        <button
+                            class="rating-star"
+                            data-rating="4"
+                            type="button">
+
+                            ★
+
+                        </button>
+
+
+                        <button
+                            class="rating-star"
+                            data-rating="5"
+                            type="button">
+
+                            ★
+
+                        </button>
+
+
+                    </div>
+
+
+                    <span id="ratingSummary">
+                        0 ratings
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+        </article>
+
+
+
+        <!-- =================================================
+             COMMENTS
+             ================================================= -->
+
+        <section class="comments-section">
+
+
+            <h2 id="commentsTitle">
+                Comments
+            </h2>
+
+
+
+            <!-- COMMENTS LIST -->
+
+            <div id="commentsList">
+
+                <div style="
+                    color:#718198;
+                    padding:20px 0;
+                ">
+
+                    Loading comments...
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ADD COMMENT / ANSWER -->
+
+            <div class="knowledge-form-card">
+
+
+                <div class="form-group">
+
+
+                    <label
+                        class="form-label"
+                        for="commentInput"
+                        id="commentLabel">
+
+                        Add a comment
+
+                    </label>
+
+
+                    <textarea
+                        id="commentInput"
+                        class="form-textarea"
+                        style="min-height:140px;"
+                        placeholder="Share your thoughts or experience..."
+                    ></textarea>
+
+
+                </div>
+
+
+
+                <div class="form-actions">
+
+
+                    <button
+                        type="button"
+                        class="form-btn form-btn-primary"
+                        id="postCommentBtn">
+
+                        Post Comment
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script>
+
+
+        /* =====================================================
+           API
+           ===================================================== */
+
+        const API_BASE =
+            "http://127.0.0.1:8000";
+
+
+        const token =
+            localStorage.getItem(
+                "cloudwise_access_token"
+            );
+
+
+
+        /* =====================================================
+           GET POST ID
+           ===================================================== */
+
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+
+        const postId =
+            params.get("id");
+
+
+
+        /* =====================================================
+           ELEMENTS
+           ===================================================== */
+
+        const postLoading =
+            document.getElementById(
+                "postLoading"
+            );
+
+
+        const postContent =
+            document.getElementById(
+                "postContent"
+            );
+
+
+        const postBadge =
+            document.getElementById(
+                "postBadge"
+            );
+
+
+        const postTitle =
+            document.getElementById(
+                "postTitle"
+            );
+
+
+        const postAuthor =
+            document.getElementById(
+                "postAuthor"
+            );
+
+
+        const postDate =
+            document.getElementById(
+                "postDate"
+            );
+
+
+        const postCategory =
+            document.getElementById(
+                "postCategory"
+            );
+
+
+        const postBody =
+            document.getElementById(
+                "postBody"
+            );
+
+
+        const postTags =
+            document.getElementById(
+                "postTags"
+            );
+
+
+        const ratingStars =
+            document.getElementById(
+                "ratingStars"
+            );
+
+
+        const ratingSummary =
+            document.getElementById(
+                "ratingSummary"
+            );
+
+
+        const commentsList =
+            document.getElementById(
+                "commentsList"
+            );
+
+
+        const commentsTitle =
+            document.getElementById(
+                "commentsTitle"
+            );
+
+
+        const commentInput =
+            document.getElementById(
+                "commentInput"
+            );
+
+
+        const commentLabel =
+            document.getElementById(
+                "commentLabel"
+            );
+
+
+        const postCommentBtn =
+            document.getElementById(
+                "postCommentBtn"
+            );
+
+
+        let currentPost = null;
+
+
+
+        /* =====================================================
+           AUTHENTICATION
+           ===================================================== */
+
+        if (!token) {
+
+            alert(
+                "Please log in to continue."
+            );
+
+            window.location.href =
+                "login.html";
+
+        }
+
+
+
+        /* =====================================================
+           LOAD POST
+           ===================================================== */
+
+        async function loadPost() {
+
+
+            if (!postId) {
+
+                postLoading.textContent =
+                    "Post not found.";
+
+                return;
+
+            }
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        `${API_BASE}/api/knowledge/posts/${postId}`,
+                        {
+                            method: "GET",
+
+                            headers: {
+                                "Authorization":
+                                    "Bearer " + token,
+
+                                "Accept":
+                                    "application/json"
+                            }
+                        }
+                    );
+
+
+                if (!response.ok) {
+
+                    const errorData =
+                        await response
+                            .json()
+                            .catch(() => null);
+
+                    throw new Error(
+                        errorData?.detail ||
+                        "Unable to load post."
+                    );
+
+                }
+
+
+                const post =
+                    await response.json();
+
+
+                console.log(
+                    "Post response:",
+                    post
+                );
+
+
+                currentPost =
+                    post;
+
+
+                renderPost(post);
+
+
+                await loadComments();
+
+
+            }
+            catch (error) {
+
+                console.error(
+                    "Post loading error:",
+                    error
+                );
+
+
+                postLoading.textContent =
+                    error.message;
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           RENDER POST
+           ===================================================== */
+
+        function renderPost(post) {
+
+
+            /* CONTENT TYPE */
+
+            postBadge.textContent =
+                (
+                    post.content_type ||
+                    "article"
+                ).toUpperCase();
+
+
+
+            /* TITLE */
+
+            postTitle.textContent =
+                post.title ||
+                "Untitled";
+
+
+
+            /* AUTHOR
+
+               Backend returns:
+
+               "author": {
+                   "id": 4,
+                   "name": "First Last"
+               }
+            */
+
+            postAuthor.textContent =
+                post.author?.name ||
+                "Unknown Author";
+
+
+
+            /* CATEGORY */
+
+            postCategory.textContent =
+                post.category ||
+                "General";
+
+
+
+            /* DATE */
+
+            if (post.created_at) {
+
+                const date =
+                    new Date(
+                        post.created_at
+                    );
+
+
+                postDate.textContent =
+                    date.toLocaleDateString(
+                        "en-IN",
+                        {
+                            day: "numeric",
+                            month: "short",
+                            year: "numeric"
+                        }
+                    );
+
+            }
+            else {
+
+                postDate.textContent =
+                    "";
+
+            }
+
+
+
+            /* BODY */
+
+            postBody.textContent =
+                post.content ||
+                "";
+
+
+
+            /* TAGS */
+
+            postTags.innerHTML =
+                "";
+
+
+            let tags = [];
+
+
+            try {
+
+                if (
+                    Array.isArray(
+                        post.tags
+                    )
+                ) {
+
+                    tags =
+                        post.tags;
+
+                }
+                else if (
+                    typeof post.tags ===
+                    "string"
+                ) {
+
+                    tags =
+                        JSON.parse(
+                            post.tags
+                        );
+
+                }
+
+            }
+            catch (error) {
+
+                tags = [];
+
+            }
+
+
+
+            tags.forEach(
+                function(tag) {
+
+                    const tagElement =
+                        document.createElement(
+                            "span"
+                        );
+
+
+                    tagElement.className =
+                        "post-tag";
+
+
+                    tagElement.textContent =
+                        tag;
+
+
+                    postTags.appendChild(
+                        tagElement
+                    );
+
+                }
+            );
+
+
+
+            /* RATING */
+
+            const average =
+                Number(
+                    post.rating ||
+                    0
+                );
+
+
+            const ratingCount =
+                Number(
+                    post.rating_count ||
+                    0
+                );
+
+
+            if (ratingCount > 0) {
+
+                ratingSummary.textContent =
+                    `${average.toFixed(1)} / 5 · ${ratingCount} ratings`;
+
+            }
+            else {
+
+                ratingSummary.textContent =
+                    "0 ratings";
+
+            }
+
+
+
+            /* SHOW POST */
+
+            postLoading.style.display =
+                "none";
+
+
+            postContent.style.display =
+                "block";
+
+
+
+            /* COMMENT UI */
+
+            updateCommentUI();
+
+        }
+
+
+
+        /* =====================================================
+           LOAD COMMENTS
+           ===================================================== */
+
+        async function loadComments() {
+
+            try {
+
+
+                const response =
+                    await fetch(
+                        `${API_BASE}/api/knowledge/posts/${postId}/comments`,
+                        {
+                            method: "GET",
+
+                            headers: {
+                                "Authorization":
+                                    "Bearer " + token,
+
+                                "Accept":
+                                    "application/json"
+                            }
+                        }
+                    );
+
+
+                console.log(
+                    "Comments API status:",
+                    response.status
+                );
+
+
+                if (!response.ok) {
+
+                    const errorData =
+                        await response
+                            .json()
+                            .catch(() => null);
+
+
+                    throw new Error(
+                        errorData?.detail ||
+                        "Unable to load comments."
+                    );
+
+                }
+
+
+                const data =
+                    await response.json();
+
+
+                console.log(
+                    "Comments API response:",
+                    data
+                );
+
+
+                /*
+                 * BACKEND RESPONSE:
+                 *
+                 * {
+                 *     "count": 2,
+                 *     "comments": [
+                 *         {...},
+                 *         {...}
+                 *     ]
+                 * }
+                 */
+
+
+                const comments =
+                    Array.isArray(
+                        data.comments
+                    )
+                        ? data.comments
+                        : [];
+
+
+                console.log(
+                    "Comments:",
+                    comments
+                );
+
+
+                renderComments(
+                    comments
+                );
+
+
+            }
+            catch (error) {
+
+                console.error(
+                    "Comments loading error:",
+                    error
+                );
+
+
+                commentsTitle.textContent =
+                    "Comments";
+
+
+                commentsList.innerHTML = `
+
+                    <div style="
+                        color:#ff6b7a;
+                        padding:20px 0;
+                    ">
+
+                        Unable to load comments.
+
+                    </div>
+
+                `;
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           RENDER COMMENTS
+           ===================================================== */
+
+        function renderComments(
+            comments
+        ) {
+
+
+            commentsList.innerHTML =
+                "";
+
+
+            if (
+                !comments ||
+                comments.length === 0
+            ) {
+
+                commentsTitle.textContent =
+                    "Comments";
+
+
+                commentsList.innerHTML = `
+
+                    <div style="
+                        color:#718198;
+                        padding:20px 0;
+                    ">
+
+                        No comments yet.
+                        Be the first to comment.
+
+                    </div>
+
+                `;
+
+
+                return;
+
+            }
+
+
+
+            commentsTitle.textContent =
+                `Comments (${comments.length})`;
+
+
+
+            comments.forEach(
+                function(comment) {
+
+
+                    const card =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    card.className =
+                        "comment-card";
+
+
+
+                    /*
+                     * BACKEND RETURNS:
+                     *
+                     * author: {
+                     *     id: 4,
+                     *     name: "First Last"
+                     * }
+                     */
+
+
+                    const authorName =
+                        comment.author?.name ||
+                        "Unknown User";
+
+
+
+                    const avatar =
+                        authorName
+                            .charAt(0)
+                            .toUpperCase();
+
+
+
+                    /* DATE */
+
+                    let date = "";
+
+
+                    if (
+                        comment.created_at
+                    ) {
+
+                        date =
+                            new Date(
+                                comment.created_at
+                            ).toLocaleDateString(
+                                "en-IN",
+                                {
+                                    day: "numeric",
+                                    month: "short",
+                                    year: "numeric"
+                                }
+                            );
+
+                    }
+
+
+
+                    /* ANSWER BADGE */
+
+                    let answerBadge =
+                        "";
+
+
+                    if (
+                        comment.is_answer
+                    ) {
+
+                        answerBadge = `
+
+                            <span
+                                class="post-badge"
+                                style="margin-left:auto;">
+
+                                ANSWER
+
+                            </span>
+
+                        `;
+
+                    }
+
+
+
+                    /* CARD */
+
+                    card.innerHTML = `
+
+                        <div class="comment-header">
+
+
+                            <div class="comment-avatar">
+
+                                ${escapeHtml(
+                                    avatar
+                                )}
+
+                            </div>
+
+
+
+                            <div>
+
+                                <div
+                                    class="comment-author">
+
+                                    ${escapeHtml(
+                                        authorName
+                                    )}
+
+                                </div>
+
+
+                                <div
+                                    class="comment-time">
+
+                                    ${escapeHtml(
+                                        date
+                                    )}
+
+                                </div>
+
+                            </div>
+
+
+                            ${answerBadge}
+
+
+                        </div>
+
+
+
+                        <div class="comment-content">
+
+                            ${escapeHtml(
+                                comment.content ||
+                                ""
+                            )}
+
+                        </div>
+
+                    `;
+
+
+                    commentsList.appendChild(
+                        card
+                    );
+
+                }
+            );
+
+        }
+
+
+
+        /* =====================================================
+           COMMENT / ANSWER UI
+           ===================================================== */
+
+        function updateCommentUI() {
+
+
+            if (!currentPost) {
+
+                return;
+
+            }
+
+
+            if (
+                currentPost.content_type ===
+                "question"
+            ) {
+
+
+                commentLabel.textContent =
+                    "Post an answer";
+
+
+                commentInput.placeholder =
+                    "Share your solution or experience...";
+
+
+                postCommentBtn.textContent =
+                    "Post Answer";
+
+            }
+            else {
+
+
+                commentLabel.textContent =
+                    "Add a comment";
+
+
+                commentInput.placeholder =
+                    "Share your thoughts or experience...";
+
+
+                postCommentBtn.textContent =
+                    "Post Comment";
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           POST COMMENT / ANSWER
+           ===================================================== */
+
+        postCommentBtn.addEventListener(
+            "click",
+            async function() {
+
+
+                const content =
+                    commentInput.value.trim();
+
+
+                if (!content) {
+
+                    alert(
+                        currentPost?.content_type ===
+                        "question"
+
+                            ? "Please enter your answer."
+
+                            : "Please enter a comment."
+                    );
+
+                    return;
+
+                }
+
+
+
+                postCommentBtn.disabled =
+                    true;
+
+
+                postCommentBtn.textContent =
+                    "Posting...";
+
+
+
+                try {
+
+
+                    const query =
+                        new URLSearchParams({
+
+                            content:
+                                content,
+
+                            is_answer:
+                                currentPost?.content_type ===
+                                "question"
+                                    ? "true"
+                                    : "false"
+
+                        });
+
+
+
+                    const response =
+                        await fetch(
+                            `${API_BASE}/api/knowledge/posts/${postId}/comments?${query.toString()}`,
+                            {
+                                method: "POST",
+
+                                headers: {
+
+                                    "Authorization":
+                                        "Bearer " + token,
+
+                                    "Accept":
+                                        "application/json"
+
+                                }
+
+                            }
+                        );
+
+
+
+                    if (!response.ok) {
+
+                        const errorData =
+                            await response
+                                .json()
+                                .catch(
+                                    () => null
+                                );
+
+
+                        throw new Error(
+                            errorData?.detail ||
+                            "Unable to post comment."
+                        );
+
+                    }
+
+
+
+                    console.log(
+                        "Comment posted successfully."
+                    );
+
+
+
+                    /* CLEAR INPUT */
+
+                    commentInput.value =
+                        "";
+
+
+
+                    /* RELOAD COMMENTS */
+
+                    await loadComments();
+
+
+
+                    alert(
+                        currentPost?.content_type ===
+                        "question"
+
+                            ? "Answer posted successfully!"
+
+                            : "Comment posted successfully!"
+                    );
+
+
+                }
+                catch (error) {
+
+                    console.error(
+                        "Comment error:",
+                        error
+                    );
+
+
+                    alert(
+                        error.message
+                    );
+
+                }
+                finally {
+
+                    postCommentBtn.disabled =
+                        false;
+
+
+                    postCommentBtn.textContent =
+                        currentPost?.content_type ===
+                        "question"
+
+                            ? "Post Answer"
+
+                            : "Post Comment";
+
+                }
+
+            }
+        );
+
+
+
+        /* =====================================================
+           RATING
+           ===================================================== */
+
+        ratingStars.addEventListener(
+            "click",
+            async function(event) {
+
+
+                const star =
+                    event.target.closest(
+                        ".rating-star"
+                    );
+
+
+                if (!star) {
+
+                    return;
+
+                }
+
+
+                const rating =
+                    Number(
+                        star.dataset.rating
+                    );
+
+
+                if (
+                    !rating ||
+                    rating < 1 ||
+                    rating > 5
+                ) {
+
+                    return;
+
+                }
+
+
+
+                try {
+
+
+                    const query =
+                        new URLSearchParams({
+
+                            rating:
+                                rating
+
+                        });
+
+
+
+                    const response =
+                        await fetch(
+                            `${API_BASE}/api/knowledge/posts/${postId}/rating?${query.toString()}`,
+                            {
+                                method: "POST",
+
+                                headers: {
+
+                                    "Authorization":
+                                        "Bearer " + token,
+
+                                    "Accept":
+                                        "application/json"
+
+                                }
+
+                            }
+                        );
+
+
+
+                    if (!response.ok) {
+
+                        const errorData =
+                            await response
+                                .json()
+                                .catch(
+                                    () => null
+                                );
+
+
+                        throw new Error(
+                            errorData?.detail ||
+                            "Unable to submit rating."
+                        );
+
+                    }
+
+
+
+                    /* HIGHLIGHT STARS */
+
+                    document
+                        .querySelectorAll(
+                            ".rating-star"
+                        )
+                        .forEach(
+                            function(button) {
+
+                                const value =
+                                    Number(
+                                        button.dataset.rating
+                                    );
+
+
+                                button.classList.toggle(
+                                    "active",
+                                    value <= rating
+                                );
+
+                            }
+                        );
+
+
+
+                    /* GET UPDATED POST */
+
+                    const updatedResponse =
+                        await fetch(
+                            `${API_BASE}/api/knowledge/posts/${postId}`,
+                            {
+                                method: "GET",
+
+                                headers: {
+
+                                    "Authorization":
+                                        "Bearer " + token,
+
+                                    "Accept":
+                                        "application/json"
+
+                                }
+
+                            }
+                        );
+
+
+
+                    if (
+                        updatedResponse.ok
+                    ) {
+
+                        const updatedPost =
+                            await updatedResponse.json();
+
+
+                        currentPost =
+                            updatedPost;
+
+
+                        const average =
+                            Number(
+                                updatedPost.rating ||
+                                0
+                            );
+
+
+                        const count =
+                            Number(
+                                updatedPost.rating_count ||
+                                0
+                            );
+
+
+                        ratingSummary.textContent =
+                            count > 0
+
+                                ? `${average.toFixed(1)} / 5 · ${count} ratings`
+
+                                : "0 ratings";
+
+                    }
+
+
+
+                    alert(
+                        "Rating submitted successfully!"
+                    );
+
+
+                }
+                catch (error) {
+
+                    console.error(
+                        "Rating error:",
+                        error
+                    );
+
+
+                    alert(
+                        error.message
+                    );
+
+                }
+
+            }
+        );
+
+
+
+        /* =====================================================
+           ESCAPE HTML
+           ===================================================== */
+
+        function escapeHtml(
+            value
+        ) {
+
+            return String(value)
+
+                .replace(
+                    /&/g,
+                    "&amp;"
+                )
+
+                .replace(
+                    /</g,
+                    "&lt;"
+                )
+
+                .replace(
+                    />/g,
+                    "&gt;"
+                )
+
+                .replace(
+                    /"/g,
+                    "&quot;"
+                )
+
+                .replace(
+                    /'/g,
+                    "&#039;"
+                );
+
+        }
+
+
+
+        /* =====================================================
+           START
+           ===================================================== */
+
+        loadPost();
+
+
+    </script>
+
+
+</body>
+
+</html>

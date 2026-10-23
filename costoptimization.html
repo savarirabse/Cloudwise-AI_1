@@ -1,0 +1,3731 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+
+        content="width=device-width, initial-scale=1.0">
+
+
+
+    <title>Cost Optimization | CloudWise AI</title>
+
+
+
+    <link rel="preconnect"
+
+        href="https://fonts.googleapis.com">
+
+
+
+    <link rel="preconnect"
+
+        href="https://fonts.gstatic.com"
+
+        crossorigin>
+
+
+
+    <link
+
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+
+        rel="stylesheet">
+
+
+
+    <link rel="stylesheet"
+
+        href="costoptimization.css">
+
+</head>
+
+
+
+<body>
+
+
+
+    <!-- =========================*
+
+         TOP NAVIGATION
+    ========================== -->
+
+
+
+    <div class="cost-top-nav">
+
+
+
+        <a href="index.html"
+
+            class="back-button">
+
+
+
+            <span>←</span>
+
+            Back
+
+
+
+        </a>
+
+
+
+        <div class="cost-nav-title">
+
+
+
+            <span class="cost-nav-icon">
+
+                $
+
+            </span>
+
+
+
+            <strong>
+
+                Cost Optimization
+
+            </strong>
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+    <!-- =========================*
+
+         MAIN CONTENT
+    ========================== -->
+
+
+
+    <main class="cost-page">
+
+
+
+        <!-- HERO -->
+
+
+
+        <section class="cost-hero">
+
+
+
+            <div class="eyebrow">
+
+                CLOUD COST INTELLIGENCE
+
+            </div>
+
+
+
+            <h1>
+
+                Cost Optimization
+
+            </h1>
+
+
+
+            <p class="hero-description">
+
+                Analyze your cloud spending, identify optimization
+
+                opportunities, and estimate how much you could save
+
+                every month and over the next 12 months.
+
+            </p>
+
+
+
+        </section>
+
+
+
+
+
+        <!-- =========================*
+
+             BILL INPUT
+        ========================== -->
+
+
+
+        <section class="cost-card">
+
+
+
+            <div class="section-heading">
+
+
+
+                <div>
+
+                    <span class="section-number">01</span>
+
+
+
+                    <div>
+
+                        <h2>
+
+                            Your cloud bill
+
+                        </h2>
+
+
+
+                        <p>
+
+                            Enter your current monthly cloud spending.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+            <div class="bill-input-row">
+
+
+
+                <div class="currency-wrapper">
+
+
+
+                    <label for="currency">
+
+                        Currency
+
+                    </label>
+
+
+
+                    <select id="currency">
+
+
+
+                        <option value="USD">
+
+                            USD
+
+                        </option>
+
+
+
+                        <option value="INR">
+
+                            INR
+
+                        </option>
+
+
+
+                        <option value="EUR">
+
+                            EUR
+
+                        </option>
+
+
+
+                        <option value="GBP">
+
+                            GBP
+
+                        </option>
+
+
+
+                    </select>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="bill-wrapper">
+
+
+
+                    <label for="monthlyBill">
+
+                        Monthly cloud spend
+
+                    </label>
+
+
+
+                    <div class="money-input">
+
+
+
+                        <span id="currencySymbol">
+
+                            $
+
+                        </span>
+
+
+
+                        <input
+
+                            type="number"
+
+                            id="monthlyBill"
+
+                            min="0"
+
+                            value="22000"
+
+                            placeholder="22000">
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </section>
+
+
+
+
+
+
+
+        <!-- =========================*
+
+             SERVICE SPEND
+        ========================== -->
+
+
+
+        <section class="cost-card">
+
+
+
+            <div class="section-heading">
+
+
+
+                <div>
+
+
+
+                    <span class="section-number">
+
+                        02
+
+                    </span>
+
+
+
+                    <div>
+
+
+
+                        <h2>
+
+                            Where your money goes
+
+                        </h2>
+
+
+
+                        <p>
+
+                            Break down your monthly cloud spending
+
+                            by service.
+
+                        </p>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+            <div class="service-grid">
+
+
+
+                <div class="service-item">
+
+
+
+                    <label for="compute">
+
+                        <span class="service-icon">▣</span>
+
+                        Compute
+
+                    </label>
+
+
+
+                    <div class="service-input">
+
+
+
+                        <span class="input-symbol">
+
+                            $
+
+                        </span>
+
+
+
+                        <input
+
+                            type="number"
+
+                            id="compute"
+
+                            value="12000"
+
+                            min="0">
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="service-item">
+
+
+
+                    <label for="storage">
+
+                        <span class="service-icon">◫</span>
+
+                        Storage
+
+                    </label>
+
+
+
+                    <div class="service-input">
+
+
+
+                        <span class="input-symbol">
+
+                            $
+
+                        </span>
+
+
+
+                        <input
+
+                            type="number"
+
+                            id="storage"
+
+                            value="3000"
+
+                            min="0">
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="service-item">
+
+
+
+                    <label for="database">
+
+                        <span class="service-icon">▤</span>
+
+                        Database
+
+                    </label>
+
+
+
+                    <div class="service-input">
+
+
+
+                        <span class="input-symbol">
+
+                            $
+
+                        </span>
+
+
+
+                        <input
+
+                            type="number"
+
+                            id="database"
+
+                            value="4000"
+
+                            min="0">
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="service-item">
+
+
+
+                    <label for="network">
+
+                        <span class="service-icon">⌁</span>
+
+                        Network
+
+                    </label>
+
+
+
+                    <div class="service-input">
+
+
+
+                        <span class="input-symbol">
+
+                            $
+
+                        </span>
+
+
+
+                        <input
+
+                            type="number"
+
+                            id="network"
+
+                            value="1500"
+
+                            min="0">
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="service-item">
+
+
+
+                    <label for="other">
+
+                        <span class="service-icon">•••</span>
+
+                        Other
+
+                    </label>
+
+
+
+                    <div class="service-input">
+
+
+
+                        <span class="input-symbol">
+
+                            $
+
+                        </span>
+
+
+
+                        <input
+
+                            type="number"
+
+                            id="other"
+
+                            value="1500"
+
+                            min="0">
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </section>
+
+
+
+
+
+
+
+        <!-- =========================*
+
+             WORKLOAD PROFILE
+        ========================== -->
+
+
+
+        <section class="cost-card">
+
+
+
+            <div class="section-heading">
+
+
+
+                <div>
+
+
+
+                    <span class="section-number">
+
+                        03
+
+                    </span>
+
+
+
+                    <div>
+
+
+
+                        <h2>
+
+                            How you run things
+
+                        </h2>
+
+
+
+                        <p>
+
+                            Adjust these profiles to improve the
+
+                            accuracy of your optimization estimate.
+
+                        </p>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+            <div class="profile-list">
+
+
+
+                <!-- CPU -->
+
+
+
+                <div class="profile-row">
+
+
+
+                    <div class="profile-info">
+
+
+
+                        <div class="profile-title">
+
+                            Average server CPU use
+
+                        </div>
+
+
+
+                        <div class="profile-description">
+
+                            How much compute capacity is typically used?
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                    <div class="range-area">
+
+
+
+                        <input
+
+                            type="range"
+
+                            id="cpu"
+
+                            min="5"
+
+                            max="90"
+
+                            value="25">
+
+
+
+                        <span
+
+                            class="range-value"
+
+                            id="cpuValue">
+
+                            25%
+
+                        </span>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+                <!-- Always on -->
+
+
+
+                <div class="profile-row">
+
+
+
+                    <div class="profile-info">
+
+
+
+                        <div class="profile-title">
+
+                            Always-on predictable workloads
+
+                        </div>
+
+
+
+                        <div class="profile-description">
+
+                            Percentage of workloads that run continuously.
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                    <div class="range-area">
+
+
+
+                        <input
+
+                            type="range"
+
+                            id="alwaysOn"
+
+                            min="0"
+
+                            max="100"
+
+                            value="60">
+
+
+
+                        <span
+
+                            class="range-value"
+
+                            id="alwaysOnValue">
+
+                            60%
+
+                        </span>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+                <!-- Dev test -->
+
+
+
+                <div class="profile-row">
+
+
+
+                    <div class="profile-info">
+
+
+
+                        <div class="profile-title">
+
+                            Dev/test compute
+
+                        </div>
+
+
+
+                        <div class="profile-description">
+
+                            Percentage of compute used for development
+
+                            and testing.
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                    <div class="range-area">
+
+
+
+                        <input
+
+                            type="range"
+
+                            id="devTest"
+
+                            min="0"
+
+                            max="80"
+
+                            value="30">
+
+
+
+                        <span
+
+                            class="range-value"
+
+                            id="devTestValue">
+
+                            30%
+
+                        </span>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+                <!-- Cold data -->
+
+
+
+                <div class="profile-row">
+
+
+
+                    <div class="profile-info">
+
+
+
+                        <div class="profile-title">
+
+                            Cold data
+
+                        </div>
+
+
+
+                        <div class="profile-description">
+
+                            Percentage of stored data rarely accessed.
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                    <div class="range-area">
+
+
+
+                        <input
+
+                            type="range"
+
+                            id="coldData"
+
+                            min="0"
+
+                            max="90"
+
+                            value="40">
+
+
+
+                        <span
+
+                            class="range-value"
+
+                            id="coldDataValue">
+
+                            40%
+
+                        </span>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </section>
+
+
+
+
+
+
+
+        <!-- =========================*
+
+             IMPACT SUMMARY
+        ========================== -->
+
+
+
+        <section class="impact-grid">
+
+
+
+            <div class="impact-card primary-impact">
+
+
+
+                <div class="impact-label">
+
+                    ESTIMATED MONTHLY SAVINGS
+
+                </div>
+
+
+
+                <div
+
+                    class="impact-value"
+
+                    id="monthlySavings">
+
+                    $0
+
+                </div>
+
+
+
+                <div
+
+                    class="impact-subtext"
+
+                    id="monthlySavingsPercent">
+
+                    0% of monthly spend
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+            <div class="impact-card">
+
+
+
+                <div class="impact-label">
+
+                    ESTIMATED ANNUAL SAVINGS
+
+                </div>
+
+
+
+                <div
+
+                    class="impact-value"
+
+                    id="annualSavings">
+
+                    $0
+
+                </div>
+
+
+
+                <div class="impact-subtext">
+
+                    Based on current optimization opportunities
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+            <div class="impact-card">
+
+
+
+                <div class="impact-label">
+
+                    OPTIMIZATION POTENTIAL
+
+                </div>
+
+
+
+                <div
+
+                    class="impact-value"
+
+                    id="optimizationPercent">
+
+                    0%
+
+                </div>
+
+
+
+                <div class="impact-subtext">
+
+                    Estimated reduction in cloud spend
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </section>
+
+
+
+
+
+
+
+        <p id="saveStatus" role="status" aria-live="polite"
+           style="margin: 12px 0; color: #718198; font-size: 13px;">
+            Changes are calculated locally. Edit an input while signed in to save your results.
+        </p>
+
+        <!-- =========================*
+
+             SAVINGS OPPORTUNITIES
+        ========================== -->
+
+
+
+        <section class="cost-card">
+
+
+
+            <div class="section-heading">
+
+
+
+                <div>
+
+
+
+                    <span class="section-number">
+
+                        04
+
+                    </span>
+
+
+
+                    <div>
+
+
+
+                        <h2>
+
+                            Savings opportunities
+
+                        </h2>
+
+
+
+                        <p>
+
+                            Potential optimization actions based on
+
+                            your workload profile.
+
+                        </p>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+            <div id="opportunities"
+
+                class="opportunity-list">
+
+            </div>
+
+
+
+        </section>
+
+
+
+
+
+
+
+        <!-- =========================*
+
+             CURRENT VS OPTIMIZED
+        ========================== -->
+
+
+
+        <section class="cost-card">
+
+
+
+            <div class="section-heading">
+
+
+
+                <div>
+
+
+
+                    <span class="section-number">
+
+                        05
+
+                    </span>
+
+
+
+                    <div>
+
+
+
+                        <h2>
+
+                            Current vs optimized spend
+
+                        </h2>
+
+
+
+                        <p>
+
+                            Estimated monthly spending after applying
+
+                            the identified optimization opportunities.
+
+                        </p>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+            <div class="comparison-table-wrapper">
+
+
+
+                <table class="comparison-table">
+
+
+
+                    <thead>
+
+
+
+                        <tr>
+
+                            <th>Service</th>
+
+                            <th>Current spend</th>
+
+                            <th>Potential savings</th>
+
+                            <th>Optimized spend</th>
+
+                        </tr>
+
+
+
+                    </thead>
+
+
+
+                    <tbody id="comparisonBody">
+
+                    </tbody>
+
+
+
+                </table>
+
+
+
+            </div>
+
+        </section>
+    </main>
+
+
+
+
+
+
+
+    <!-- =========================*
+
+         JAVASCRIPT
+    ========================== -->
+
+
+
+    <script>
+
+
+
+        /* ==========================================
+
+           DATA
+        ========================================== */
+
+
+
+        const services = {
+
+
+
+            compute: 12000,
+
+            storage: 3000,
+
+            database: 4000,
+
+            network: 1500,
+
+            other: 1500
+
+
+
+        };
+
+
+
+
+
+        const profiles = {
+
+
+
+            cpu: 25,
+
+            alwaysOn: 60,
+
+            devTest: 30,
+
+            coldData: 40
+
+
+
+        };
+
+
+
+
+
+        /* ==========================================
+
+           ELEMENTS
+        ========================================== */
+
+
+
+        const monthlyBill =
+
+            document.getElementById("monthlyBill");
+
+
+
+        const currency =
+
+            document.getElementById("currency");
+
+
+
+        const currencySymbol =
+
+            document.getElementById("currencySymbol");
+
+
+
+        const monthlySavings =
+
+            document.getElementById("monthlySavings");
+
+
+
+        const annualSavings =
+
+            document.getElementById("annualSavings");
+
+
+
+        const monthlySavingsPercent =
+
+            document.getElementById("monthlySavingsPercent");
+
+
+
+        const optimizationPercent =
+
+            document.getElementById("optimizationPercent");
+
+
+
+        const opportunities =
+
+            document.getElementById("opportunities");
+
+
+
+        const comparisonBody =
+
+            document.getElementById("comparisonBody");
+
+
+        const saveStatus =
+
+            document.getElementById("saveStatus");
+
+
+
+
+
+        /* ==========================================
+
+           CURRENCY
+        ========================================== */
+
+
+
+        const currencySymbols = {
+
+
+
+            USD: "$",
+
+            INR: "₹",
+
+            EUR: "€",
+
+            GBP: "£"
+
+
+
+        };
+
+
+
+
+
+        function getSymbol() {
+
+
+
+            return currencySymbols[currency.value] || "$";
+
+
+
+        }
+
+
+
+
+
+        function updateCurrency() {
+
+
+
+            const symbol = getSymbol();
+
+
+
+            currencySymbol.textContent = symbol;
+
+
+
+            document.querySelectorAll(".input-symbol")
+
+                .forEach(function (element) {
+
+
+
+                    element.textContent = symbol;
+
+
+
+                });
+
+
+
+            calculate();
+
+
+
+        }
+
+
+
+
+
+        function formatMoney(value) {
+
+
+
+            return new Intl.NumberFormat(
+
+                undefined,
+
+                {
+
+                    style: "currency",
+
+                    currency: currency.value,
+
+                    maximumFractionDigits: 0
+
+                }
+
+            ).format(value);
+
+
+
+        }
+
+
+
+
+
+
+
+        /* ==========================================
+
+           RANGE VALUES
+        ========================================== */
+
+
+
+        function updateRangeValue(
+
+            inputId,
+
+            outputId
+
+        ) {
+
+
+
+            const input =
+
+                document.getElementById(inputId);
+
+
+
+            const output =
+
+                document.getElementById(outputId);
+
+
+
+            output.textContent =
+
+                input.value + "%";
+
+
+
+        }
+
+
+
+
+
+        function setupRange(
+
+            inputId,
+
+            outputId
+
+        ) {
+
+
+
+            const input =
+
+                document.getElementById(inputId);
+
+
+
+            input.addEventListener(
+
+                "input",
+
+                function () {
+
+
+
+                    updateRangeValue(
+
+                        inputId,
+
+                        outputId
+
+                    );
+
+
+
+                    hasUserEdited = true;
+                    calculate();
+                    scheduleCalculationSave();
+
+
+
+                }
+
+            );
+
+
+
+        }
+
+
+
+
+
+        setupRange("cpu", "cpuValue");
+
+
+
+        setupRange("alwaysOn", "alwaysOnValue");
+
+
+
+        setupRange("devTest", "devTestValue");
+
+
+
+        setupRange("coldData", "coldDataValue");
+
+
+
+
+
+
+
+        /* ==========================================
+
+           SAVINGS CALCULATION
+        ========================================== */
+
+
+
+        function calculateSavings() {
+
+
+
+            const bill =
+
+                Number(monthlyBill.value) || 0;
+
+
+
+
+
+            const cpu =
+
+                Number(
+
+                    document.getElementById("cpu").value
+
+                );
+
+
+
+
+
+            const alwaysOn =
+
+                Number(
+
+                    document.getElementById("alwaysOn").value
+
+                );
+
+
+
+
+
+            const devTest =
+
+                Number(
+
+                    document.getElementById("devTest").value
+
+                );
+
+
+
+
+
+            const coldData =
+
+                Number(
+
+                    document.getElementById("coldData").value
+
+                );
+
+
+
+
+
+            /*
+
+                Original optimization levers*
+
+                and sequential calculation.*
+
+            */
+
+
+
+            const computeSpend =
+
+                Number(
+
+                    document.getElementById("compute").value
+
+                ) || 0;
+
+
+
+
+
+            const storageSpend =
+
+                Number(
+
+                    document.getElementById("storage").value
+
+                ) || 0;
+
+
+
+
+
+            const databaseSpend =
+
+                Number(
+
+                    document.getElementById("database").value
+
+                ) || 0;
+
+
+
+
+
+            const networkSpend =
+
+                Number(
+
+                    document.getElementById("network").value
+
+                ) || 0;
+
+
+
+
+
+            const otherSpend =
+
+                Number(
+
+                    document.getElementById("other").value
+
+                ) || 0;
+
+
+
+
+
+            let remainingCompute =
+
+                computeSpend;
+
+
+
+
+
+            let remainingStorage =
+
+                storageSpend;
+
+
+
+
+
+            let remainingDatabase =
+
+                databaseSpend;
+
+
+
+
+
+            let remainingNetwork =
+
+                networkSpend;
+
+
+
+
+
+            const results = [];
+
+
+
+
+
+            /* Delete idle resources */
+
+
+
+            const idleSavings =
+
+                remainingCompute *
+
+                Math.max(
+
+                    0,
+
+                    (50 - cpu) / 100
+
+                ) *
+
+                0.25;
+
+
+
+
+
+            results.push({
+
+
+
+                name: "Delete idle resources",
+
+
+
+                description:
+
+                    "Remove unused and idle cloud resources.",
+
+
+
+                savings: idleSavings,
+
+
+
+                effort: "Low",
+
+
+
+                risk: "Low",
+
+
+
+                weeks: "1–2 weeks"
+
+
+
+            });
+
+
+
+
+
+            remainingCompute -= idleSavings;
+
+
+
+
+
+            /* Dev/Test shutdown */
+
+
+
+            const devSavings =
+
+                remainingCompute *
+
+                (devTest / 100) *
+
+                0.35;
+
+
+
+
+
+            results.push({
+
+
+
+                name:
+
+                    "Switch off dev and test at night",
+
+
+
+                description:
+
+                    "Schedule non-production workloads to stop outside working hours.",
+
+
+
+                savings: devSavings,
+
+
+
+                effort: "Low",
+
+
+
+                risk: "Low",
+
+
+
+                weeks: "1–2 weeks"
+
+
+
+            });
+
+
+
+
+
+            remainingCompute -= devSavings;
+
+
+
+
+
+            /* Rightsize */
+
+
+
+            const rightsizingSavings =
+
+                remainingCompute *
+
+                Math.max(
+
+                    0,
+
+                    (50 - cpu) / 100
+
+                ) *
+
+                0.30;
+
+
+
+
+
+            results.push({
+
+
+
+                name:
+
+                    "Rightsize oversized servers",
+
+
+
+                description:
+
+                    "Match compute capacity with actual workload demand.",
+
+
+
+                savings: rightsizingSavings,
+
+
+
+                effort: "Medium",
+
+
+
+                risk: "Low",
+
+
+
+                weeks: "2–4 weeks"
+
+
+
+            });
+
+
+
+
+
+            remainingCompute -= rightsizingSavings;
+
+
+
+
+
+            /* Savings plans */
+
+
+
+            const commitmentSavings =
+
+                remainingCompute *
+
+                (alwaysOn / 100) *
+
+                0.18;
+
+
+
+
+
+            results.push({
+
+
+
+                name:
+
+                    "Commit to savings plans",
+
+
+
+                description:
+
+                    "Use predictable workload commitments to reduce compute pricing.",
+
+
+
+                savings: commitmentSavings,
+
+
+
+                effort: "Low",
+
+
+
+                risk: "Medium",
+
+
+
+                weeks: "1–2 weeks"
+
+
+
+            });
+
+
+
+
+
+            remainingCompute -= commitmentSavings;
+
+
+
+
+
+            /* Spot */
+
+
+
+            const spotSavings =
+
+                remainingCompute *
+
+                (devTest / 100) *
+
+                0.20;
+
+
+
+
+
+            results.push({
+
+
+
+                name:
+
+                    "Run flexible jobs on spot capacity",
+
+
+
+                description:
+
+                    "Move interruptible workloads to lower-cost capacity.",
+
+
+
+                savings: spotSavings,
+
+
+
+                effort: "Medium",
+
+
+
+                risk: "Medium",
+
+
+
+                weeks: "2–4 weeks"
+
+
+
+            });
+
+
+
+
+
+            remainingCompute -= spotSavings;
+
+
+
+
+
+            /* Cold storage */
+
+
+
+            const coldStorageSavings =
+
+                remainingStorage *
+
+                (coldData / 100) *
+
+                0.45;
+
+
+
+
+
+            results.push({
+
+
+
+                name:
+
+                    "Move cold data to cheaper storage",
+
+
+
+                description:
+
+                    "Move infrequently accessed data to lower-cost storage tiers.",
+
+
+
+                savings: coldStorageSavings,
+
+
+
+                effort: "Medium",
+
+
+
+                risk: "Low",
+
+
+
+                weeks: "2–4 weeks"
+
+
+
+            });
+
+
+
+
+
+            remainingStorage -=
+
+                coldStorageSavings;
+
+
+
+
+
+            /* Database */
+
+
+
+            const databaseSavings =
+
+                remainingDatabase *
+
+                0.12;
+
+
+
+
+
+            results.push({
+
+
+
+                name:
+
+                    "Right-size and reserve databases",
+
+
+
+                description:
+
+                    "Optimize database capacity and use appropriate commitments.",
+
+
+
+                savings: databaseSavings,
+
+
+
+                effort: "Medium",
+
+
+
+                risk: "Medium",
+
+
+
+                weeks: "2–4 weeks"
+
+
+
+            });
+
+
+
+
+
+            remainingDatabase -=
+
+                databaseSavings;
+
+
+
+
+
+            /* Network */
+
+
+
+            const networkSavings =
+
+                remainingNetwork *
+
+                0.15;
+
+
+
+
+
+            results.push({
+
+
+
+                name:
+
+                    "Cut network transfer costs",
+
+
+
+                description:
+
+                    "Reduce unnecessary data movement and transfer charges.",
+
+
+
+                savings: networkSavings,
+
+
+
+                effort: "Medium",
+
+
+
+                risk: "Low",
+
+
+
+                weeks: "2–4 weeks"
+
+
+
+            });
+
+
+
+
+
+            remainingNetwork -=
+
+                networkSavings;
+
+
+
+
+
+            return {
+
+
+
+                results,
+
+
+
+                total:
+
+                    results.reduce(
+
+                        function (sum, item) {
+
+
+
+                            return sum + item.savings;
+
+
+
+                        },
+
+                        0
+
+                    )
+
+
+
+            };
+
+
+
+        }
+
+
+
+
+
+
+
+        /* ==========================================
+
+           RENDER OPPORTUNITIES
+        ========================================== */
+
+
+
+        function renderOpportunities(
+
+            results
+
+        ) {
+
+
+
+            opportunities.innerHTML = "";
+
+
+
+            results.forEach(
+
+                function (item) {
+
+
+
+                    const row =
+
+                        document.createElement("div");
+
+
+
+                    row.className =
+
+                        "opportunity-item";
+
+
+
+
+
+                    row.innerHTML = `
+
+
+
+                        <div class="opportunity-main">
+
+
+
+                            <div class="opportunity-icon">
+
+                                ✓
+
+                            </div>
+
+
+
+                            <div>
+
+
+
+                                <h3>
+
+                                    ${item.name}
+
+                                </h3>
+
+
+
+                                <p>
+
+                                    ${item.description}
+
+                                </p>
+
+
+
+                                <div class="opportunity-meta">
+
+
+
+                                    <span>
+
+                                        Effort:
+
+                                        <strong>
+
+                                            ${item.effort}
+
+                                        </strong>
+
+                                    </span>
+
+
+
+                                    <span>
+
+                                        Risk:
+
+                                        <strong>
+
+                                            ${item.risk}
+
+                                        </strong>
+
+                                    </span>
+
+
+
+                                    <span>
+
+                                        Timeline:
+
+                                        <strong>
+
+                                            ${item.weeks}
+
+                                        </strong>
+
+                                    </span>
+
+
+
+                                </div>
+
+
+
+                            </div>
+
+
+
+                        </div>
+
+
+
+
+
+                        <div class="opportunity-saving">
+
+
+
+                            <span>
+
+                                Potential savings
+
+                            </span>
+
+
+
+                            <strong>
+
+                                ${formatMoney(item.savings)}
+
+                            </strong>
+
+
+
+                            <small>
+
+                                / month
+
+                            </small>
+
+
+
+                        </div>
+
+
+
+                    `;
+
+
+
+
+
+                    opportunities.appendChild(row);
+
+
+
+                }
+
+            );
+
+
+
+        }
+
+
+
+
+
+
+
+        /* ==========================================
+
+           COMPARISON TABLE
+        ========================================== */
+
+
+
+        function renderComparison(
+
+            results
+
+        ) {
+
+
+
+            const savingsByService = {
+
+
+
+                compute:
+
+                    results
+
+                        .slice(0, 5)
+
+                        .reduce(
+
+                            function (sum, item) {
+
+
+
+                                return sum + item.savings;
+
+
+
+                            },
+
+                            0
+
+                        ),
+
+
+
+                storage:
+
+                    results[5]?.savings || 0,
+
+
+
+                database:
+
+                    results[6]?.savings || 0,
+
+
+
+                network:
+
+                    results[7]?.savings || 0,
+
+
+
+                other: 0
+
+
+
+            };
+
+
+
+
+
+            const serviceData = [
+
+
+
+                {
+
+                    name: "Compute",
+
+                    current:
+
+                        Number(
+
+                            document.getElementById("compute").value
+
+                        ) || 0,
+
+                    savings:
+
+                        savingsByService.compute
+
+                },
+
+
+
+                {
+
+                    name: "Storage",
+
+                    current:
+
+                        Number(
+
+                            document.getElementById("storage").value
+
+                        ) || 0,
+
+                    savings:
+
+                        savingsByService.storage
+
+                },
+
+
+
+                {
+
+                    name: "Database",
+
+                    current:
+
+                        Number(
+
+                            document.getElementById("database").value
+
+                        ) || 0,
+
+                    savings:
+
+                        savingsByService.database
+
+                },
+
+
+
+                {
+
+                    name: "Network",
+
+                    current:
+
+                        Number(
+
+                            document.getElementById("network").value
+
+                        ) || 0,
+
+                    savings:
+
+                        savingsByService.network
+
+                },
+
+
+
+                {
+
+                    name: "Other",
+
+                    current:
+
+                        Number(
+
+                            document.getElementById("other").value
+
+                        ) || 0,
+
+                    savings:
+
+                        savingsByService.other
+
+                }
+
+
+
+            ];
+
+
+
+
+
+            comparisonBody.innerHTML = "";
+
+
+
+
+
+            serviceData.forEach(
+
+                function (service) {
+
+
+
+                    const optimized =
+
+                        Math.max(
+
+                            0,
+
+                            service.current -
+
+                            service.savings
+
+                        );
+
+
+
+
+
+                    const row =
+
+                        document.createElement("tr");
+
+
+
+
+
+                    row.innerHTML = `
+
+
+
+                        <td>
+
+                            <strong>
+
+                                ${service.name}
+
+                            </strong>
+
+                        </td>
+
+
+
+                        <td>
+
+                            ${formatMoney(service.current)}
+
+                        </td>
+
+
+
+                        <td class="saving-cell">
+
+                            ${formatMoney(service.savings)}
+
+                        </td>
+
+
+
+                        <td>
+
+                            ${formatMoney(optimized)}
+
+                        </td>
+
+
+
+                    `;
+
+
+
+
+
+                    comparisonBody.appendChild(row);
+
+
+
+                }
+
+            );
+
+
+
+        }
+
+
+
+
+
+
+
+        /* ==========================================
+
+           CHART
+        ========================================== */
+
+
+
+        function drawChart(
+
+            monthlySaving
+
+        ) {
+
+
+
+            const canvas =
+
+                document.getElementById(
+
+                    "savingsChart"
+
+                );
+
+
+
+
+
+            const ctx =
+
+                canvas.getContext("2d");
+
+
+
+
+
+            const width =
+
+                canvas.width =
+
+                    canvas.clientWidth * 2;
+
+
+
+
+
+            const height =
+
+                canvas.height =
+
+                    canvas.clientHeight * 2;
+
+
+
+
+
+            ctx.scale(2, 2);
+
+
+
+
+
+            const chartWidth =
+
+                canvas.clientWidth;
+
+
+
+
+
+            const chartHeight =
+
+                canvas.clientHeight;
+
+
+
+
+
+            ctx.clearRect(
+
+                0,
+
+                0,
+
+                chartWidth,
+
+                chartHeight
+
+            );
+
+
+
+
+
+            const padding = 45;
+
+
+
+
+
+            const months =
+
+                Array.from(
+
+                    { length: 12 },
+
+                    (_, index) => index + 1
+
+                );
+
+
+
+
+
+            const values =
+
+                months.map(
+
+                    function (month) {
+
+
+
+                        return monthlySaving *
+
+                            month;
+
+
+
+                    }
+
+                );
+
+
+
+
+
+            const maxValue =
+
+                Math.max(
+
+                    ...values,
+
+                    1
+
+                );
+
+
+
+
+
+            /* Grid */
+
+
+
+            ctx.strokeStyle =
+
+                "rgba(255,255,255,0.08)";
+
+
+
+            ctx.lineWidth = 1;
+
+
+
+
+
+            for (
+
+                let i = 0;
+
+                i <= 4;
+
+                i++
+
+            ) {
+
+
+
+                const y =
+
+                    padding +
+
+                    (
+
+                        chartHeight -
+
+                        padding * 2
+
+                    ) *
+
+                    (
+
+                        i / 4
+
+                    );
+
+
+
+
+
+                ctx.beginPath();
+
+
+
+                ctx.moveTo(
+
+                    padding,
+
+                    y
+
+                );
+
+
+
+                ctx.lineTo(
+
+                    chartWidth -
+
+                    padding,
+
+                    y
+
+                );
+
+
+
+                ctx.stroke();
+
+
+
+            }
+
+
+
+
+
+            /* Line */
+
+
+
+            ctx.beginPath();
+
+
+
+
+
+            values.forEach(
+
+                function (
+
+                    value,
+
+                    index
+
+                ) {
+
+
+
+                    const x =
+
+                        padding +
+
+                        (
+
+                            index /
+
+                            11
+
+                        ) *
+
+                        (
+
+                            chartWidth -
+
+                            padding * 2
+
+                        );
+
+
+
+
+
+                    const y =
+
+                        chartHeight -
+
+                        padding -
+
+                        (
+
+                            value /
+
+                            maxValue
+
+                        ) *
+
+                        (
+
+                            chartHeight -
+
+                            padding * 2
+
+                        );
+
+
+
+
+
+                    if (index === 0) {
+
+
+
+                        ctx.moveTo(
+
+                            x,
+
+                            y
+
+                        );
+
+
+
+                    } else {
+
+
+
+                        ctx.lineTo(
+
+                            x,
+
+                            y
+
+                        );
+
+
+
+                    }
+
+
+
+                }
+
+            );
+
+
+
+
+
+            ctx.strokeStyle =
+
+                "#4da3ff";
+
+
+
+            ctx.lineWidth = 3;
+
+
+
+            ctx.stroke();
+
+
+
+
+
+            /* Points */
+
+
+
+            values.forEach(
+
+                function (
+
+                    value,
+
+                    index
+
+                ) {
+
+
+
+                    const x =
+
+                        padding +
+
+                        (
+
+                            index /
+
+                            11
+
+                        ) *
+
+                        (
+
+                            chartWidth -
+
+                            padding * 2
+
+                        );
+
+
+
+
+
+                    const y =
+
+                        chartHeight -
+
+                        padding -
+
+                        (
+
+                            value /
+
+                            maxValue
+
+                        ) *
+
+                        (
+
+                            chartHeight -
+
+                            padding * 2
+
+                        );
+
+
+
+
+
+                    ctx.beginPath();
+
+
+
+                    ctx.arc(
+
+                        x,
+
+                        y,
+
+                        4,
+
+                        0,
+
+                        Math.PI * 2
+
+                    );
+
+
+
+                    ctx.fillStyle =
+
+                        "#39d8ff";
+
+
+
+                    ctx.fill();
+
+
+
+                }
+
+            );
+
+
+
+
+
+            /* X axis labels */
+
+
+
+            ctx.fillStyle =
+
+                "#718198";
+
+
+
+            ctx.font =
+
+                "12px Inter";
+
+
+
+
+
+            months.forEach(
+
+                function (
+
+                    month,
+
+                    index
+
+                ) {
+
+
+
+                    const x =
+
+                        padding +
+
+                        (
+
+                            index /
+
+                            11
+
+                        ) *
+
+                        (
+
+                            chartWidth -
+
+                            padding * 2
+
+                        );
+
+
+
+
+
+                    ctx.fillText(
+
+                        "M" + month,
+
+                        x - 8,
+
+                        chartHeight - 12
+
+                    );
+
+
+
+                }
+
+            );
+
+
+
+        }
+
+
+
+        
+        // Persist results only after the user changes an input.
+        let hasUserEdited = false;
+        let saveCalculationTimer = null;
+
+        async function saveCostOptimizationResult() {
+            const token = localStorage.getItem("cloudwise_access_token");
+
+            if (!hasUserEdited) return;
+
+            if (!token) {
+                if (saveStatus) {
+                    saveStatus.textContent = "Not saved: please sign in first.";
+                }
+                return;
+            }
+
+            if (saveStatus) {
+                saveStatus.textContent = "Saving your calculation...";
+            }
+
+            const bill = Math.max(0, Number(monthlyBill.value) || 0);
+            const savings = Math.max(0, Math.min(
+                bill,
+                calculateSavings().total
+            ));
+            const percent = bill > 0 ? (savings / bill) * 100 : 0;
+
+            const payload = {
+                currency: currency.value,
+                monthly_bill: bill,
+                monthly_savings: savings,
+                annual_savings: savings * 12,
+                monthly_savings_percent: Number(percent.toFixed(2)),
+                optimization_percent: Number(percent.toFixed(2)),
+                inputs: {
+                    compute: Number(document.getElementById("compute").value) || 0,
+                    storage: Number(document.getElementById("storage").value) || 0,
+                    database: Number(document.getElementById("database").value) || 0,
+                    network: Number(document.getElementById("network").value) || 0,
+                    other: Number(document.getElementById("other").value) || 0,
+                    cpu: Number(document.getElementById("cpu").value) || 0,
+                    alwaysOn: Number(document.getElementById("alwaysOn").value) || 0,
+                    devTest: Number(document.getElementById("devTest").value) || 0,
+                    coldData: Number(document.getElementById("coldData").value) || 0
+                }
+            };
+
+            try {
+                const response = await fetch(
+                    "http://127.0.0.1:8000/api/dashboard/calculations/cost-optimization",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Authorization": "Bearer " + token,
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(payload)
+                    }
+                );
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error("Could not save calculation:", errorText);
+                    if (saveStatus) {
+                        saveStatus.textContent =
+                            "Not saved. Check the backend and sign-in token, then try again.";
+                    }
+                    return;
+                }
+
+                console.log("Cost optimization saved successfully.");
+                if (saveStatus) {
+                    saveStatus.textContent =
+                        "Saved successfully to your account.";
+                }
+            } catch (error) {
+                console.error("Saving calculation failed:", error);
+                if (saveStatus) {
+                    saveStatus.textContent =
+                        "Could not connect to the backend. Make sure the API is running.";
+                }
+            }
+        }
+
+        function scheduleCalculationSave() {
+            if (!hasUserEdited) return;
+            clearTimeout(saveCalculationTimer);
+            saveCalculationTimer = setTimeout(saveCostOptimizationResult, 1000);
+        }
+
+/* ==========================================
+
+           MAIN CALCULATION
+        ========================================== */
+
+
+
+        function calculate() {
+
+
+
+            const bill =
+
+                Number(monthlyBill.value) || 0;
+
+
+
+
+
+            const data =
+
+                calculateSavings();
+
+
+
+
+
+            const totalSavings =
+
+                Math.min(
+
+                    data.total,
+
+                    bill
+
+                );
+
+
+
+
+
+            const percentage =
+
+                bill > 0
+
+                    ? (
+
+                        totalSavings /
+
+                        bill
+
+                    ) * 100
+
+                    : 0;
+
+
+
+
+
+            monthlySavings.textContent =
+
+                formatMoney(
+
+                    totalSavings
+
+                );
+
+
+
+
+
+            annualSavings.textContent =
+
+                formatMoney(
+
+                    totalSavings * 12
+
+                );
+
+
+
+
+
+            monthlySavingsPercent.textContent =
+
+                percentage.toFixed(1) +
+
+                "% of monthly spend";
+
+
+
+
+
+            optimizationPercent.textContent =
+
+                percentage.toFixed(1) +
+
+                "%";
+
+
+
+
+
+            renderOpportunities(
+
+                data.results
+
+            );
+
+
+
+
+
+            renderComparison(
+
+                data.results
+
+            );
+
+
+
+
+
+            drawChart(
+
+                totalSavings
+
+            );
+
+
+
+        }
+
+
+
+
+
+
+
+        /* ==========================================
+
+           INPUT EVENTS
+        ========================================== */
+
+
+
+        document
+            .querySelectorAll("input[type='number']")
+            .forEach(function (input) {
+                input.addEventListener("input", function () {
+                    hasUserEdited = true;
+                    calculate();
+                    scheduleCalculationSave();
+                });
+            });
+
+        currency.addEventListener("change", function () {
+            hasUserEdited = true;
+            updateCurrency();
+            scheduleCalculationSave();
+        });
+
+
+        window.addEventListener(
+
+            "resize",
+
+            function () {
+
+
+
+                const data =
+
+                    calculateSavings();
+
+
+
+                drawChart(
+
+                    Math.min(
+
+                        data.total,
+
+                        Number(monthlyBill.value) || 0
+
+                    )
+
+                );
+
+
+
+            }
+
+        );
+
+
+
+
+
+
+
+        /* ==========================================
+
+           INITIALIZE
+        ========================================== */
+
+
+
+        updateCurrency();
+
+
+
+        calculate();
+
+
+
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,1876 @@
+/* =========================================================
+   CLOUDWISE AI
+   IMPACT CALCULATOR
+   ========================================================= */
+
+
+/* =========================================================
+   RESET / LAYOUT
+   ========================================================= */
+
+.impact-top-nav,
+.impact-top-nav *,
+.impact-page,
+.impact-page * {
+    box-sizing: border-box;
+}
+
+
+.main-content {
+
+    margin-left: 0 !important;
+
+    width: 100% !important;
+
+    min-height: 100vh;
+
+}
+
+
+/* =========================================================
+   TOP NAV
+   ========================================================= */
+
+.impact-top-nav {
+
+    height: 58px;
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 0 34px;
+
+    background: #050b14;
+
+    border-bottom: 1px solid var(--border);
+
+}
+
+
+.impact-back-button {
+
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 0 10px;
+
+    border: 1px solid transparent;
+
+    border-radius: 7px;
+
+    background: transparent;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    text-decoration: none;
+
+    transition: .2s ease;
+
+}
+
+
+.impact-back-button span {
+
+    font-size: 17px;
+
+}
+
+
+.impact-back-button:hover {
+
+    color: var(--text);
+
+    background: rgba(255,255,255,.04);
+
+    border-color: var(--border);
+
+}
+
+
+.impact-nav-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+}
+
+
+.impact-nav-icon {
+
+    width: 27px;
+
+    height: 27px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 7px;
+
+    background: rgba(77,163,255,.09);
+
+    border: 1px solid rgba(77,163,255,.16);
+
+    color: var(--blue);
+
+    font-size: 13px;
+
+}
+
+
+.impact-nav-title strong {
+
+    color: var(--text-secondary);
+
+    font-size: 11px;
+
+}
+
+
+/* =========================================================
+   BREADCRUMB
+   ========================================================= */
+
+.impact-breadcrumb {
+
+    height: 44px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 0 34px;
+
+    border-bottom: 1px solid rgba(255,255,255,.045);
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+}
+
+
+.impact-breadcrumb strong {
+
+    color: var(--text-secondary);
+
+}
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.impact-page {
+
+    max-width: 1500px;
+
+    margin: 0 auto;
+
+    padding: 32px 34px 45px;
+
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.impact-header {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    margin-bottom: 24px;
+
+}
+
+
+.impact-eyebrow {
+
+    margin-bottom: 8px;
+
+    color: var(--cyan);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.impact-header h1 {
+
+    margin: 0 0 7px;
+
+    color: var(--text);
+
+    font-size: 30px;
+
+    letter-spacing: -.8px;
+
+}
+
+
+.impact-header p {
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+}
+
+
+.impact-header-badge {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    height: 32px;
+
+    padding: 0 11px;
+
+    border-radius: 7px;
+
+    background: rgba(77,163,255,.06);
+
+    border: 1px solid rgba(77,163,255,.14);
+
+    color: var(--blue);
+
+    font-size: 8px;
+
+}
+
+
+.impact-header-badge span {
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+.impact-progress {
+
+    display: flex;
+
+    align-items: center;
+
+    width: 100%;
+
+    margin-bottom: 20px;
+
+    padding: 14px 18px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+}
+
+
+.progress-step {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    white-space: nowrap;
+
+}
+
+
+.progress-step > span {
+
+    width: 25px;
+
+    height: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.045);
+
+    color: var(--muted);
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+}
+
+
+.progress-step.active > span {
+
+    background: rgba(77,163,255,.12);
+
+    border: 1px solid rgba(77,163,255,.25);
+
+    color: var(--blue);
+
+}
+
+
+.progress-step strong {
+
+    display: block;
+
+    color: var(--text-secondary);
+
+    font-size: 8px;
+
+}
+
+
+.progress-step small {
+
+    display: block;
+
+    margin-top: 2px;
+
+    color: var(--muted);
+
+    font-size: 7px;
+
+}
+
+
+.progress-line {
+
+    flex: 1;
+
+    height: 1px;
+
+    margin: 0 13px;
+
+    background: rgba(255,255,255,.07);
+
+}
+
+
+/* =========================================================
+   MAIN LAYOUT
+   ========================================================= */
+
+.impact-layout {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        330px;
+
+    gap: 18px;
+
+    align-items: start;
+
+}
+
+
+/* =========================================================
+   FORM CARD
+   ========================================================= */
+
+.impact-form-card {
+
+    padding: 23px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(10,22,37,.98),
+            rgba(7,17,29,.98)
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+}
+
+
+.form-card-header {
+
+    margin-bottom: 22px;
+
+}
+
+
+.section-label {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--blue);
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+}
+
+
+.form-card-header h2 {
+
+    margin: 0 0 6px;
+
+    color: var(--text);
+
+    font-size: 16px;
+
+}
+
+
+.form-card-header p {
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+}
+
+
+/* =========================================================
+   FORM SECTION
+   ========================================================= */
+
+.form-section {
+
+    margin-bottom: 20px;
+
+}
+
+
+.field-label {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--text-secondary);
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================================
+   CLOUD OPTIONS
+   ========================================================= */
+
+.cloud-options {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 8px;
+
+}
+
+
+.cloud-option {
+
+    position: relative;
+
+    cursor: pointer;
+
+}
+
+
+.cloud-option input {
+
+    position: absolute;
+
+    opacity: 0;
+
+}
+
+
+.cloud-option-box {
+
+    min-height: 58px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 8px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    background: rgba(255,255,255,.018);
+
+    color: var(--muted);
+
+    text-align: center;
+
+    font-size: 7px;
+
+    transition: .2s ease;
+
+}
+
+
+.cloud-option input:checked + .cloud-option-box {
+
+    background: rgba(77,163,255,.07);
+
+    border-color: rgba(77,163,255,.35);
+
+    color: var(--text-secondary);
+
+}
+
+
+.cloud-option-box:hover {
+
+    border-color: rgba(255,255,255,.15);
+
+}
+
+
+.cloud-logo {
+
+    width: 30px;
+
+    height: 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 5px;
+
+    font-size: 7px;
+
+    font-weight: 800;
+
+}
+
+
+.cloud-logo.aws {
+
+    color: var(--orange);
+
+    background: rgba(255,173,92,.1);
+
+}
+
+
+.cloud-logo.azure {
+
+    color: var(--blue);
+
+    background: rgba(77,163,255,.1);
+
+}
+
+
+.cloud-logo.gcp {
+
+    color: var(--cyan);
+
+    background: rgba(57,216,255,.1);
+
+}
+
+
+.cloud-logo.multi {
+
+    color: var(--purple);
+
+    background: rgba(155,124,255,.1);
+
+}
+
+
+/* =========================================================
+   FORM GRID
+   ========================================================= */
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
+
+}
+
+
+/* =========================================================
+   FORM GROUP
+   ========================================================= */
+
+.form-group {
+
+    min-width: 0;
+
+    margin-bottom: 15px;
+
+}
+
+
+.form-group label {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--text-secondary);
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+}
+
+
+.form-group input,
+.form-group select {
+
+    width: 100%;
+
+    height: 38px;
+
+    padding: 0 10px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+
+    outline: none;
+
+    background: #081421;
+
+    color: var(--text);
+
+    font-family: inherit;
+
+    font-size: 9px;
+
+    transition: .2s ease;
+
+}
+
+
+.form-group input:focus,
+.form-group select:focus {
+
+    border-color: rgba(77,163,255,.35);
+
+    box-shadow:
+        0 0 0 3px rgba(77,163,255,.04);
+
+}
+
+
+.form-group input::placeholder {
+
+    color: #52647a;
+
+}
+
+
+.form-group small {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: #536277;
+
+    font-size: 7px;
+
+}
+
+
+/* =========================================================
+   INPUT PREFIX / SUFFIX
+   ========================================================= */
+
+.input-with-prefix,
+.input-with-suffix {
+
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+
+    background: #081421;
+
+    overflow: hidden;
+
+}
+
+
+.input-with-prefix:focus-within,
+.input-with-suffix:focus-within {
+
+    border-color: rgba(77,163,255,.35);
+
+}
+
+
+.input-with-prefix > span,
+.input-with-suffix > span {
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0 10px;
+
+    color: var(--muted);
+
+    background: rgba(255,255,255,.025);
+
+    font-size: 9px;
+
+}
+
+
+.input-with-prefix input,
+.input-with-suffix input {
+
+    height: 100%;
+
+    border: none;
+
+    box-shadow: none;
+
+    border-radius: 0;
+
+}
+
+
+.input-with-prefix input:focus,
+.input-with-suffix input:focus {
+
+    border: none;
+
+    box-shadow: none;
+
+}
+
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+.form-divider {
+
+    height: 1px;
+
+    margin: 7px 0 23px;
+
+    background: rgba(255,255,255,.06);
+
+}
+
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.form-section-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.section-number {
+
+    width: 28px;
+
+    height: 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex: 0 0 28px;
+
+    border-radius: 7px;
+
+    background: rgba(77,163,255,.08);
+
+    border: 1px solid rgba(77,163,255,.14);
+
+    color: var(--blue);
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+}
+
+
+.form-section-heading h3 {
+
+    margin: 0 0 3px;
+
+    color: var(--text);
+
+    font-size: 11px;
+
+}
+
+
+.form-section-heading p {
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 7px;
+
+}
+
+
+/* =========================================================
+   OBJECTIVES
+   ========================================================= */
+
+.objectives-section {
+
+    margin-top: 5px;
+
+}
+
+
+.objective-options {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, minmax(0, 1fr));
+
+    gap: 7px;
+
+}
+
+
+.objective-option {
+
+    position: relative;
+
+    cursor: pointer;
+
+}
+
+
+.objective-option input {
+
+    position: absolute;
+
+    opacity: 0;
+
+}
+
+
+.objective-option {
+
+    min-height: 48px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 4px;
+
+    padding: 6px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+
+    background: rgba(255,255,255,.018);
+
+    color: var(--muted);
+
+    transition: .2s ease;
+
+}
+
+
+.objective-option input:checked + span {
+
+    color: var(--blue);
+
+}
+
+
+.objective-option:has(input:checked) {
+
+    background: rgba(77,163,255,.07);
+
+    border-color: rgba(77,163,255,.3);
+
+}
+
+
+.objective-option span {
+
+    font-size: 12px;
+
+}
+
+
+.objective-option strong {
+
+    font-size: 7px;
+
+    font-weight: 500;
+
+}
+
+
+/* =========================================================
+   FORM ACTIONS
+   ========================================================= */
+
+.form-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 8px;
+
+    margin-top: 9px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid rgba(255,255,255,.06);
+
+}
+
+
+.clear-button {
+
+    height: 38px;
+
+    padding: 0 15px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+
+    background: transparent;
+
+    color: var(--muted);
+
+    font-family: inherit;
+
+    font-size: 8px;
+
+    cursor: pointer;
+
+}
+
+
+.calculate-button {
+
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 0 17px;
+
+    border: 1px solid var(--blue);
+
+    border-radius: 7px;
+
+    background: var(--blue);
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 8px;
+
+    cursor: pointer;
+
+}
+
+
+.calculate-button span {
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================================
+   RESULTS
+   ========================================================= */
+
+.impact-results {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 13px;
+
+}
+
+
+.results-card,
+.insights-card {
+
+    padding: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(10,22,37,.98),
+            rgba(7,17,29,.98)
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+}
+
+
+.results-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding-bottom: 14px;
+
+    border-bottom: 1px solid rgba(255,255,255,.055);
+
+}
+
+
+.results-icon {
+
+    width: 32px;
+
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: rgba(67,214,154,.08);
+
+    border: 1px solid rgba(67,214,154,.14);
+
+    color: var(--green);
+
+    font-size: 14px;
+
+}
+
+
+.results-header > div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+}
+
+
+.results-header span {
+
+    color: var(--muted);
+
+    font-size: 6px;
+
+    letter-spacing: 1px;
+
+    font-weight: 700;
+
+}
+
+
+.results-header h2 {
+
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================================
+   PLACEHOLDER
+   ========================================================= */
+
+.results-placeholder {
+
+    padding: 25px 8px 20px;
+
+    text-align: center;
+
+}
+
+
+.placeholder-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: 0 auto 11px;
+
+    border-radius: 10px;
+
+    background: rgba(77,163,255,.07);
+
+    color: var(--blue);
+
+    font-size: 18px;
+
+}
+
+
+.results-placeholder h3 {
+
+    margin: 0 0 6px;
+
+    color: var(--text-secondary);
+
+    font-size: 10px;
+
+}
+
+
+.results-placeholder p {
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 7px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================================
+   RESULT METRICS
+   ========================================================= */
+
+.result-metrics {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 7px;
+
+}
+
+
+.result-metric {
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    background: rgba(255,255,255,.025);
+
+    border: 1px solid rgba(255,255,255,.05);
+
+}
+
+
+.result-metric > span {
+
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 7px;
+
+    line-height: 1.4;
+
+}
+
+
+.result-metric strong {
+
+    display: block;
+
+    margin: 6px 0 3px;
+
+    color: var(--green);
+
+    font-size: 18px;
+
+}
+
+
+.result-metric small {
+
+    color: #536277;
+
+    font-size: 6px;
+
+}
+
+
+/* =========================================================
+   IMPACT SCORE
+   ========================================================= */
+
+.impact-score {
+
+    margin-top: 10px;
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    background: rgba(77,163,255,.035);
+
+    border: 1px solid rgba(77,163,255,.08);
+
+}
+
+
+.score-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 8px;
+
+}
+
+
+.score-header span {
+
+    color: var(--text-secondary);
+
+    font-size: 8px;
+
+}
+
+
+.score-header strong {
+
+    color: var(--blue);
+
+    font-size: 10px;
+
+}
+
+
+.score-bar {
+
+    height: 5px;
+
+    overflow: hidden;
+
+    border-radius: 5px;
+
+    background: rgba(255,255,255,.06);
+
+}
+
+
+.score-fill {
+
+    height: 100%;
+
+    border-radius: 5px;
+
+    background: linear-gradient(
+        90deg,
+        var(--blue),
+        var(--cyan)
+    );
+
+}
+
+
+.impact-score p {
+
+    margin: 8px 0 0;
+
+    color: var(--muted);
+
+    font-size: 7px;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   INSIGHTS
+   ========================================================= */
+
+.insights-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 13px;
+
+}
+
+
+.insights-header h3 {
+
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 10px;
+
+}
+
+
+.insights-header span {
+
+    padding: 3px 5px;
+
+    border-radius: 4px;
+
+    background: rgba(155,124,255,.1);
+
+    color: var(--purple);
+
+    font-size: 6px;
+
+    font-weight: 700;
+
+}
+
+
+.insight-item {
+
+    display: flex;
+
+    gap: 9px;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,.045);
+
+}
+
+
+.insight-item:last-child {
+
+    border-bottom: none;
+
+    padding-bottom: 0;
+
+}
+
+
+.insight-icon {
+
+    width: 28px;
+
+    height: 28px;
+
+    flex: 0 0 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 7px;
+
+    font-size: 11px;
+
+}
+
+
+.insight-icon.green {
+
+    color: var(--green);
+
+    background: rgba(67,214,154,.08);
+
+}
+
+
+.insight-icon.red {
+
+    color: var(--red);
+
+    background: rgba(255,107,122,.08);
+
+}
+
+
+.insight-icon.purple {
+
+    color: var(--purple);
+
+    background: rgba(155,124,255,.08);
+
+}
+
+
+.insight-item strong {
+
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: var(--text-secondary);
+
+    font-size: 8px;
+
+}
+
+
+.insight-item p {
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 7px;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.impact-footer {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 20px 2px 0;
+
+    color: #4d5d70;
+
+    font-size: 7px;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .impact-layout {
+
+        grid-template-columns:
+            minmax(0, 1fr)
+            290px;
+
+    }
+
+    .cloud-options {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+    .objective-options {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 850px) {
+
+    .impact-layout {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .impact-results {
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        align-items: start;
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .impact-top-nav {
+
+        padding: 0 18px;
+
+    }
+
+    .impact-breadcrumb {
+
+        padding: 0 18px;
+
+    }
+
+    .impact-page {
+
+        padding: 25px 18px 40px;
+
+    }
+
+    .impact-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+    }
+
+    .impact-progress {
+
+        overflow-x: auto;
+
+    }
+
+    .progress-line {
+
+        min-width: 20px;
+
+    }
+
+    .impact-results {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .impact-nav-title {
+
+        display: none;
+
+    }
+
+    .form-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .cloud-options {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+    .objective-options {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+    .form-actions {
+
+        flex-direction: column-reverse;
+
+    }
+
+    .clear-button,
+    .calculate-button {
+
+        width: 100%;
+
+    }
+
+    .impact-footer {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 6px;
+
+    }
+
+}
+/* =========================================================
+   CALCULATED RESULTS
+   ========================================================= */
+
+.calculated-results {
+    display: none;
+}
+
+
+.calculated-results.show {
+    display: block;
+}
+
+
+/* =========================================================
+   EXTRA RESULT METRICS
+   ========================================================= */
+
+.result-extra {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 7px;
+
+    margin-top: 10px;
+
+}
+
+
+.result-extra > div {
+
+    padding: 11px;
+
+    border-radius: 8px;
+
+    background: rgba(255,255,255,.025);
+
+    border: 1px solid rgba(255,255,255,.05);
+
+}
+
+
+.result-extra span {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--muted);
+
+    font-size: 7px;
+
+}
+
+
+.result-extra strong {
+
+    color: var(--text-secondary);
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================================
+   RESULT ANIMATION
+   ========================================================= */
+
+.calculated-results.show {
+
+    animation: resultAppear .3s ease;
+
+}
+
+
+@keyframes resultAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(5px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   ERROR STATE
+   ========================================================= */
+
+.field-error {
+
+    border-color: rgba(255,107,122,.5) !important;
+
+}
+
+
+.calculator-error {
+
+    margin-top: 10px;
+
+    padding: 9px 11px;
+
+    border-radius: 7px;
+
+    background: rgba(255,107,122,.06);
+
+    border: 1px solid rgba(255,107,122,.14);
+
+    color: var(--red);
+
+    font-size: 7px;
+
+}
+
+
+/* =========================================================
+   DYNAMIC INSIGHTS
+   ========================================================= */
+
+.insight-item {
+
+    animation: resultAppear .25s ease;
+
+}

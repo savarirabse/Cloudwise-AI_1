@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Impact Calculator | Cloudwise AI</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="impactcalculator.css">
+
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     TOP NAVIGATION
+     ===================================================== -->
+
+<div class="impact-top-nav">
+
+    <a href="index.html" class="impact-back-button">
+        <span>←</span>
+        Back
+    </a>
+
+    <div class="impact-nav-title">
+
+        <span class="impact-nav-icon">
+            ⌗
+        </span>
+
+        <strong>
+            Impact Calculator
+        </strong>
+
+    </div>
+
+</div>
+
+
+<main class="main-content">
+
+
+    <section class="impact-page">
+
+
+        <!-- =================================================
+             HEADER
+             ================================================= -->
+
+        <div class="impact-header">
+
+            <div>
+
+                <div class="impact-eyebrow">
+                    CLOUDWISE INTELLIGENCE
+                </div>
+
+                <h1>
+                    Impact Calculator
+                </h1>
+
+                <p>
+                    Estimate the financial and operational impact
+                    of optimizing your cloud environment.
+                </p>
+
+            </div>
+
+            <div class="impact-header-badge">
+
+                <span>✦</span>
+
+                Cloud Impact Analysis
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             PROGRESS
+             ================================================= -->
+
+        <div class="impact-progress">
+
+            <div class="progress-step active">
+
+                <span>1</span>
+
+                <div>
+                    <strong>Cloud Profile</strong>
+                    <small>Your environment</small>
+                </div>
+
+            </div>
+
+
+            <div class="progress-line"></div>
+
+
+            <div class="progress-step">
+
+                <span>2</span>
+
+                <div>
+                    <strong>Organization</strong>
+                    <small>Business information</small>
+                </div>
+
+            </div>
+
+
+            <div class="progress-line"></div>
+
+
+            <div class="progress-step">
+
+                <span>3</span>
+
+                <div>
+                    <strong>Current Situation</strong>
+                    <small>Cloud metrics</small>
+                </div>
+
+            </div>
+
+
+            <div class="progress-line"></div>
+
+
+            <div class="progress-step">
+
+                <span>4</span>
+
+                <div>
+                    <strong>Impact</strong>
+                    <small>Results</small>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             MAIN LAYOUT
+             ================================================= -->
+
+        <div class="impact-layout">
+
+
+            <!-- =================================================
+                 FORM
+                 ================================================= -->
+
+            <section class="impact-form-card">
+
+
+                <div class="form-card-header">
+
+                    <span class="section-label">
+                        STEP 1
+                    </span>
+
+                    <h2>
+                        Tell us about your cloud
+                    </h2>
+
+                    <p>
+                        Provide details about your current
+                        cloud environment.
+                    </p>
+
+                </div>
+
+
+                <!-- CLOUD -->
+
+                <div class="form-section">
+
+                    <label class="field-label">
+                        Which cloud platform do you use?
+                    </label>
+
+                    <div class="cloud-options">
+
+
+                        <label class="cloud-option">
+
+                            <input
+                                type="radio"
+                                name="cloud"
+                                value="aws"
+                                checked>
+
+                            <span class="cloud-option-box">
+
+                                <span class="cloud-logo aws">
+                                    AWS
+                                </span>
+
+                                <span>
+                                    Amazon Web Services
+                                </span>
+
+                            </span>
+
+                        </label>
+
+
+                        <label class="cloud-option">
+
+                            <input
+                                type="radio"
+                                name="cloud"
+                                value="azure">
+
+                            <span class="cloud-option-box">
+
+                                <span class="cloud-logo azure">
+                                    AZ
+                                </span>
+
+                                <span>
+                                    Microsoft Azure
+                                </span>
+
+                            </span>
+
+                        </label>
+
+
+                        <label class="cloud-option">
+
+                            <input
+                                type="radio"
+                                name="cloud"
+                                value="gcp">
+
+                            <span class="cloud-option-box">
+
+                                <span class="cloud-logo gcp">
+                                    GC
+                                </span>
+
+                                <span>
+                                    Google Cloud
+                                </span>
+
+                            </span>
+
+                        </label>
+
+
+                        <label class="cloud-option">
+
+                            <input
+                                type="radio"
+                                name="cloud"
+                                value="multi">
+
+                            <span class="cloud-option-box">
+
+                                <span class="cloud-logo multi">
+                                    MC
+                                </span>
+
+                                <span>
+                                    Multi-Cloud
+                                </span>
+
+                            </span>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CLOUD DETAILS -->
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label for="monthlySpend">
+                            Monthly cloud spend
+                        </label>
+
+                        <div class="input-with-prefix">
+
+                            <span>₹</span>
+
+                            <input
+                                type="number"
+                                id="monthlySpend"
+                                placeholder="500000"
+                                min="0">
+
+                        </div>
+
+                        <small>
+                            Average monthly cloud bill
+                        </small>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="resources">
+                            Number of cloud resources
+                        </label>
+
+                        <input
+                            type="number"
+                            id="resources"
+                            placeholder="250"
+                            min="0">
+
+                        <small>
+                            VMs, databases, storage, etc.
+                        </small>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="applications">
+                            Applications / workloads
+                        </label>
+
+                        <input
+                            type="number"
+                            id="applications"
+                            placeholder="40"
+                            min="0">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="environment">
+                            Primary environment
+                        </label>
+
+                        <select id="environment">
+
+                            <option value="">
+                                Select environment
+                            </option>
+
+                            <option value="production">
+                                Production
+                            </option>
+
+                            <option value="development">
+                                Development
+                            </option>
+
+                            <option value="both">
+                                Production + Development
+                            </option>
+
+                            <option value="mixed">
+                                Mixed / Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="region">
+                            Primary cloud region
+                        </label>
+
+                        <select id="region">
+
+                            <option value="">
+                                Select region
+                            </option>
+
+                            <option>India</option>
+                            <option>North America</option>
+                            <option>Europe</option>
+                            <option>Asia Pacific</option>
+                            <option>Middle East</option>
+                            <option>Global / Multiple Regions</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DIVIDER -->
+
+                <div class="form-divider"></div>
+
+
+                <!-- ORGANIZATION -->
+
+                <div class="form-section-heading">
+
+                    <span class="section-number">
+                        02
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Organization information
+                        </h3>
+
+                        <p>
+                            Help us understand your cloud operations.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label for="companySize">
+                            Organization size
+                        </label>
+
+                        <select id="companySize">
+
+                            <option value="">
+                                Select size
+                            </option>
+
+                            <option value="small">
+                                1 – 50 employees
+                            </option>
+
+                            <option value="medium">
+                                51 – 250 employees
+                            </option>
+
+                            <option value="large">
+                                251 – 1,000 employees
+                            </option>
+
+                            <option value="enterprise">
+                                1,001 – 5,000 employees
+                            </option>
+
+                            <option value="very-large">
+                                5,000+ employees
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="cloudTeam">
+                            Cloud / IT team size
+                        </label>
+
+                        <input
+                            type="number"
+                            id="cloudTeam"
+                            placeholder="15"
+                            min="0">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="criticalApps">
+                            Business-critical applications
+                        </label>
+
+                        <input
+                            type="number"
+                            id="criticalApps"
+                            placeholder="10"
+                            min="0">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="maturity">
+                            Cloud maturity
+                        </label>
+
+                        <select id="maturity">
+
+                            <option value="">
+                                Select maturity
+                            </option>
+
+                            <option value="starting">
+                                Starting
+                            </option>
+
+                            <option value="developing">
+                                Developing
+                            </option>
+
+                            <option value="established">
+                                Established
+                            </option>
+
+                            <option value="optimized">
+                                Optimized
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DIVIDER -->
+
+                <div class="form-divider"></div>
+
+
+                <!-- CURRENT SITUATION -->
+
+                <div class="form-section-heading">
+
+                    <span class="section-number">
+                        03
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Current cloud situation
+                        </h3>
+
+                        <p>
+                            Enter your current operational metrics.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label for="computeCost">
+                            Monthly compute cost
+                        </label>
+
+                        <div class="input-with-prefix">
+
+                            <span>₹</span>
+
+                            <input
+                                type="number"
+                                id="computeCost"
+                                placeholder="250000"
+                                min="0">
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="storageCost">
+                            Monthly storage cost
+                        </label>
+
+                        <div class="input-with-prefix">
+
+                            <span>₹</span>
+
+                            <input
+                                type="number"
+                                id="storageCost"
+                                placeholder="80000"
+                                min="0">
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="databaseCost">
+                            Monthly database cost
+                        </label>
+
+                        <div class="input-with-prefix">
+
+                            <span>₹</span>
+
+                            <input
+                                type="number"
+                                id="databaseCost"
+                                placeholder="90000"
+                                min="0">
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="networkCost">
+                            Monthly networking cost
+                        </label>
+
+                        <div class="input-with-prefix">
+
+                            <span>₹</span>
+
+                            <input
+                                type="number"
+                                id="networkCost"
+                                placeholder="50000"
+                                min="0">
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="utilization">
+                            Average resource utilization
+                        </label>
+
+                        <div class="input-with-suffix">
+
+                            <input
+                                type="number"
+                                id="utilization"
+                                placeholder="65"
+                                min="0"
+                                max="100">
+
+                            <span>%</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="downtime">
+                            Downtime per month
+                        </label>
+
+                        <div class="input-with-suffix">
+
+                            <input
+                                type="number"
+                                id="downtime"
+                                placeholder="2"
+                                min="0"
+                                step="0.1">
+
+                            <span>hrs</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="securityFindings">
+                            Open security findings
+                        </label>
+
+                        <input
+                            type="number"
+                            id="securityFindings"
+                            placeholder="25"
+                            min="0">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="unusedResources">
+                            Unused / idle resources
+                        </label>
+
+                        <input
+                            type="number"
+                            id="unusedResources"
+                            placeholder="30"
+                            min="0">
+
+                    </div>
+
+                </div>
+
+
+                <!-- OBJECTIVES -->
+
+                <div class="form-section objectives-section">
+
+                    <label class="field-label">
+                        What do you want to improve?
+                    </label>
+
+
+                    <div class="objective-options">
+
+
+                        <label class="objective-option">
+
+                            <input
+                                type="checkbox"
+                                value="cost"
+                                checked>
+
+                            <span>₹</span>
+
+                            <strong>Cost</strong>
+
+                        </label>
+
+
+                        <label class="objective-option">
+
+                            <input
+                                type="checkbox"
+                                value="security">
+
+                            <span>◈</span>
+
+                            <strong>Security</strong>
+
+                        </label>
+
+
+                        <label class="objective-option">
+
+                            <input
+                                type="checkbox"
+                                value="reliability">
+
+                            <span>♢</span>
+
+                            <strong>Reliability</strong>
+
+                        </label>
+
+
+                        <label class="objective-option">
+
+                            <input
+                                type="checkbox"
+                                value="performance">
+
+                            <span>◉</span>
+
+                            <strong>Performance</strong>
+
+                        </label>
+
+
+                        <label class="objective-option">
+
+                            <input
+                                type="checkbox"
+                                value="migration">
+
+                            <span>⇄</span>
+
+                            <strong>Migration</strong>
+
+                        </label>
+
+
+                        <label class="objective-option">
+
+                            <input
+                                type="checkbox"
+                                value="sustainability">
+
+                            <span>♻</span>
+
+                            <strong>Sustainability</strong>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FORM ACTIONS -->
+
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        class="clear-button"
+                        id="clearButton">
+
+                        Clear
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="calculate-button"
+                        id="calculateButton">
+
+                        Calculate Impact
+
+                        <span>→</span>
+
+                    </button>
+
+                </div>
+
+
+            </section>
+
+
+            <!-- =================================================
+                 RESULTS
+                 ================================================= -->
+
+            <aside class="impact-results">
+
+
+                <!-- RESULTS CARD -->
+
+                <div class="results-card">
+
+
+                    <div class="results-header">
+
+                        <span class="results-icon">
+                            ✦
+                        </span>
+
+                        <div>
+
+                            <span>
+                                CLOUDWISE ANALYSIS
+                            </span>
+
+                            <h2>
+                                Your potential impact
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- BEFORE CALCULATION -->
+
+                    <div
+                        class="results-placeholder"
+                        id="resultsPlaceholder">
+
+                        <div class="placeholder-icon">
+                            ⌁
+                        </div>
+
+                        <h3>
+                            Complete your profile
+                        </h3>
+
+                        <p>
+                            Enter your cloud information and
+                            calculate your estimated impact.
+                        </p>
+
+                    </div>
+
+
+                    <!-- AFTER CALCULATION -->
+
+                    <div
+                        class="calculated-results"
+                        id="calculatedResults">
+
+
+                        <div class="result-metrics">
+
+
+                            <div class="result-metric">
+
+                                <span>
+                                    Estimated monthly savings
+                                </span>
+
+                                <strong id="monthlySavings">
+                                    ₹0
+                                </strong>
+
+                                <small id="savingsPercent">
+                                    0% of monthly spend
+                                </small>
+
+                            </div>
+
+
+                            <div class="result-metric">
+
+                                <span>
+                                    Estimated annual savings
+                                </span>
+
+                                <strong id="annualSavings">
+                                    ₹0
+                                </strong>
+
+                                <small>
+                                    Based on current inputs
+                                </small>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="impact-score">
+
+                            <div class="score-header">
+
+                                <span>
+                                    Cloud Impact Score
+                                </span>
+
+                                <strong id="impactScore">
+                                    0 / 100
+                                </strong>
+
+                            </div>
+
+
+                            <div class="score-bar">
+
+                                <div
+                                    class="score-fill"
+                                    id="scoreFill">
+
+                                </div>
+
+                            </div>
+
+
+                            <p id="scoreDescription">
+                                Complete the calculator to see
+                                your impact score.
+                            </p>
+
+                        </div>
+
+
+                        <div class="result-extra">
+
+
+                            <div>
+
+                                <span>
+                                    Estimated ROI
+                                </span>
+
+                                <strong id="roiValue">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    Payback period
+                                </span>
+
+                                <strong id="paybackValue">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- INSIGHTS -->
+
+                <div class="insights-card">
+
+                    <div class="insights-header">
+
+                        <h3>
+                            Potential opportunities
+                        </h3>
+
+                        <span>
+                            AI
+                        </span>
+
+                    </div>
+
+
+                    <div id="insightsContainer">
+
+                        <div class="insight-item">
+
+                            <span class="insight-icon green">
+                                ₹
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Cost Optimization
+                                </strong>
+
+                                <p>
+                                    Enter your cloud metrics
+                                    to identify opportunities.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="insight-item">
+
+                            <span class="insight-icon red">
+                                ◈
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Security
+                                </strong>
+
+                                <p>
+                                    Your security findings will
+                                    be analyzed here.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="insight-item">
+
+                            <span class="insight-icon purple">
+                                ♢
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Reliability
+                                </strong>
+
+                                <p>
+                                    Downtime and reliability
+                                    metrics will be analyzed.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </aside>
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <footer class="impact-footer">
+
+            <span>
+                © 2026 Cloudwise AI
+            </span>
+
+            <span>
+                Estimates are based on the information provided.
+            </span>
+
+        </footer>
+
+
+    </section>
+
+</main>
+
+
+<script src="impactcalculator.js"></script>
+
+</body>
+
+</html>

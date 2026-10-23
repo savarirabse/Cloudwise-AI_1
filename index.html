@@ -1,0 +1,1720 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <title>Cloudwise AI — Cloud Intelligence</title>
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+
+    <link
+
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+
+        rel="stylesheet"
+
+    >
+
+
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Dashboard alignment overrides: kept in this document so no separate CSS edit is needed. -->
+    <style>
+        .dashboard {
+            width: 100%;
+            max-width: none;
+            margin: 0 auto;
+            padding: 28px 34px 40px;
+            box-sizing: border-box;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(280px, 0.9fr);
+            gap: 16px;
+            width: 100%;
+            align-items: stretch;
+            margin-bottom: 16px;
+        }
+
+        .two-column > .card,
+        .two-column > .health-card {
+            width: 100%;
+            min-width: 0;
+            box-sizing: border-box;
+        }
+
+        .health-card { min-width: 0; }
+
+        .health-content {
+            grid-template-columns: minmax(130px, 170px) minmax(0, 1fr);
+            gap: 22px;
+        }
+
+        .mini-chart,
+        .cost-breakdown {
+            width: 100%;
+            min-width: 0;
+            box-sizing: border-box;
+        }
+
+        .feature-overview {
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 16px;
+        }
+
+        @media (max-width: 1000px) {
+            .dashboard { padding: 24px 20px 32px; }
+            .two-column {
+                grid-template-columns: minmax(0, 1.6fr) minmax(250px, 1fr);
+            }
+        }
+
+        @media (max-width: 700px) {
+            .dashboard { padding: 20px 14px 28px; }
+            .two-column { grid-template-columns: minmax(0, 1fr); }
+            .two-column > .card,
+            .two-column > .health-card { height: auto; }
+            .health-content { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+        }
+    </style>
+
+    <script src="auth.js"></script>
+
+
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="app-shell">
+
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+
+
+    <aside class="sidebar">
+
+
+
+    <div class="brand">
+
+        <img
+
+           src="logo.png"
+
+            alt="CloudWise AI Cloud Advisory"
+
+            class="brand-logo"
+
+         >
+
+    </div>
+
+
+
+
+
+        <!-- WORKSPACE -->
+
+
+
+        <div class="workspace-selector">
+
+
+
+            <div class="workspace-icon">
+
+                ☁
+
+            </div>
+
+
+
+            <div class="workspace-info">
+
+                <span>Workspace</span>
+
+                <strong id="workspaceName">Cloud Workspace</strong>
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+        <!-- NAVIGATION -->
+
+
+
+        <nav class="navigation">
+
+
+
+            <div class="nav-section-title">
+
+                OVERVIEW
+
+            </div>
+
+
+
+            <a href="#" class="nav-item active">
+
+                <span class="nav-icon">⌂</span>
+
+                <span>Dashboard</span>
+
+            </a>
+
+
+
+            <a href="cloudcopilot.html" class="nav-item">
+
+                <span class="nav-icon">✦</span>
+
+                <span>AI Co-Pilot</span>
+
+                <span class="ai-badge">AI</span>
+
+            </a>
+
+
+
+
+
+            <div class="nav-section-title">
+
+                CLOUD INTELLIGENCE
+
+            </div>
+
+
+
+            <a href="readiness.html" class="nav-item">
+
+                <span class="nav-icon">◉</span>
+
+                <span>Readiness Engine</span>
+
+            </a>
+
+
+
+            <a href="costoptimization.html" class="nav-item">
+
+                <span class="nav-icon">₹</span>
+
+                <span>Cost Optimization</span>
+
+            </a>
+
+
+
+            <div class="nav-section-title">
+
+                RESOURCES
+
+            </div>
+
+
+
+            <a href="knowledgehub.html" class="nav-item">
+
+               <span class="nav-icon">▤</span>
+
+               <span>Knowledge Hub</span>
+
+            </a>
+
+
+
+            <a href="impactcalculator.html" class="nav-item">
+
+                <span class="nav-icon">⌗</span>
+
+                <span>Impact Calculator</span>
+
+            </a>
+
+
+
+        </nav>
+
+
+
+        <!-- USER -->
+
+
+
+        <div class="sidebar-user">
+
+
+
+            <div class="avatar" id="userAvatar">
+
+                U
+
+            </div>
+
+
+
+            <div class="user-details">
+
+                <strong id="sidebarUserName">User</strong>
+
+                <span>Cloud Administrator</span>
+
+            </div>
+
+
+
+<div class="user-menu-wrapper">
+
+    <button class="user-menu" id="userMenuButton" type="button" aria-label="User menu">
+
+        •••
+
+    </button>
+
+
+
+    <div class="user-dropdown" id="userDropdown">
+
+        <button id="logoutButton" type="button">
+
+            <span>↪</span>
+
+            Logout
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+        </div>
+
+
+
+    </aside>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+
+
+    <main class="main-content">
+
+
+
+
+
+        <!-- TOPBAR -->
+
+
+
+        <header class="topbar">
+
+
+
+            <div class="breadcrumb">
+
+
+
+                <span>Cloudwise AI</span>
+
+                <b>/</b>
+
+                <strong>Dashboard</strong>
+
+
+
+            </div>
+
+
+
+
+
+            <div class="topbar-actions">
+
+
+
+                <div class="search-box">
+
+
+
+                    <span>⌕</span>
+
+
+
+                    <input
+
+                        type="text"
+
+                        placeholder="Search Cloudwise..."
+
+                    >
+
+                </div>
+
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ================= DASHBOARD ================= -->
+
+        <div class="dashboard">
+
+            <!-- PAGE HEADER -->
+
+            <section class="page-header">
+
+                <div>
+
+                    <div class="eyebrow">
+
+                        CLOUD INTELLIGENCE PLATFORM
+
+                    </div>
+
+                    <h1>
+
+                        Hello, <span id="dashboardUserName">User</span>
+
+                    </h1>
+
+                    <p>
+
+                        Here's what's happening across your cloud environment.
+
+                    </p>
+
+
+
+                </div>
+
+
+
+            </section>
+
+
+
+            <!-- CONNECTION STATUS -->
+
+
+
+            <section class="connection-banner">
+
+                <div class="connection-left">
+
+                    <div class="connection-icon">
+
+                        ✓
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+
+                            Cloud environment connected
+
+                        </strong>
+
+
+
+                        <span id="cloudConnectionInfo">
+
+                            Cloud environment connected
+
+                        </span>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="synced-status">
+
+
+
+                    <span></span>
+
+
+
+                    Synced
+
+
+
+                </div>
+
+
+
+            </section>
+
+
+
+
+
+            <!-- ================= KPI CARDS ================= -->
+
+
+
+            <section class="kpi-grid">
+
+
+
+
+
+                <div class="kpi-card">
+
+
+
+                    <div class="kpi-top">
+
+
+
+                        <span>
+
+                            Cloud Health Score
+
+                        </span>
+
+
+
+                        <div class="kpi-icon blue">
+
+                            ◉
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                    <div class="kpi-value" id="cloudHealthKpiScore">—<span>/100</span></div>
+
+
+
+                    <div class="kpi-bottom" id="cloudHealthKpiTrend">No saved assessment yet</div>
+
+
+
+                </div>
+
+
+
+
+
+
+
+<div class="kpi-card">
+
+    <div class="kpi-top">
+
+        <span>Monthly Cloud Cost</span>
+
+        <div class="kpi-icon purple">₹</div>
+
+    </div>
+
+
+
+    <div class="kpi-value" id="monthlyCloudCost">—</div>
+
+
+
+    <div class="kpi-bottom" id="monthlyCloudCostTrend">
+
+        No calculation yet
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+            </section>
+
+
+
+
+
+            <!-- ================= CLOUD HEALTH + AI INSIGHTS ================= -->
+
+
+
+            <section class="two-column">
+                <!-- CLOUD HEALTH -->
+                <div class="card health-card">
+                    <div class="card-header">
+                        <div>
+                            <h2>
+                                Cloud Health
+                            </h2>
+                            <p>
+                                Overall environment intelligence
+                            </p>
+                        </div>
+                        <button class="more-button">
+                            •••
+                        </button>
+                    </div>
+
+
+
+
+
+                    <div class="health-content">
+
+
+
+                        <div class="health-score">
+
+
+
+                            <div class="score-circle">
+
+
+
+                                <div>
+
+
+
+                                    <strong id="cloudHealthOverallScore">—</strong>
+
+
+
+                                    <span>
+
+                                        /100
+
+                                    </span>
+
+
+
+                                </div>
+
+
+
+                            </div>
+
+
+
+                            <div class="health-label">
+
+
+
+                                <span class="health-good">
+
+                                    ●
+
+                                </span>
+
+
+
+                                <span id="cloudHealthVerdict">Complete readiness assessment</span>
+
+
+
+                            </div>
+
+
+
+                        </div>
+
+
+
+
+
+                        <div class="health-metrics" id="cloudHealthMetrics">
+                            <div class="metric">
+                                <div><span>Compute</span><strong id="cloudHealthComputeScore">—</strong></div>
+                                <div class="progress"><span id="cloudHealthComputeBar" style="width:0%"></span></div>
+                            </div>
+                            <div class="metric">
+                                <div><span>Data</span><strong id="cloudHealthDataScore">—</strong></div>
+                                <div class="progress"><span id="cloudHealthDataBar" style="width:0%"></span></div>
+                            </div>
+                            <div class="metric">
+                                <div><span>Network</span><strong id="cloudHealthNetworkScore">—</strong></div>
+                                <div class="progress"><span id="cloudHealthNetworkBar" style="width:0%"></span></div>
+                            </div>
+                            <div class="metric">
+                                <div><span>Security</span><strong id="cloudHealthSecurityScore">—</strong></div>
+                                <div class="progress"><span id="cloudHealthSecurityBar" style="width:0%"></span></div>
+                            </div>
+                            <div class="metric">
+                                <div><span>People</span><strong id="cloudHealthPeopleScore">—</strong></div>
+                                <div class="progress"><span id="cloudHealthPeopleBar" style="width:0%"></span></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+<div class="health-chart" id="cloudHealthChart" aria-label="Cloud readiness assessment history">
+                        <div class="chart-labels" id="cloudHealthChartLabels">
+                            <span>Assessment history appears here</span>
+                        </div>
+                        <svg viewBox="0 0 700 150" preserveAspectRatio="none" role="img" aria-label="Cloud readiness score history">
+                            <defs>
+                                <linearGradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+                                    <stop offset="0%" stop-color="#4da3ff" stop-opacity=".25"></stop>
+                                    <stop offset="100%" stop-color="#4da3ff" stop-opacity="0"></stop>
+                                </linearGradient>
+                            </defs>
+                            <path id="cloudHealthChartArea" d="M0 150 L700 150 Z" fill="url(#chartGradient)"></path>
+                            <path id="cloudHealthChartLine" d="M0 150 L700 150" fill="none" stroke="#4da3ff" stroke-width="3"></path>
+                        </svg>
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h2>
+                                Cost Optimization
+                            </h2>
+                            <p>
+                                AI-identified savings
+                            </p>
+                        </div>
+                        <span class="card-arrow">
+                            →
+                        </span>
+                    </div>
+                    <div class="big-saving" id="costCardMonthlySavings">—<span>/month</span></div>
+                    <div class="saving-caption" id="costCardCaption">Potential monthly savings</div>
+                    <div class="mini-chart" id="costCardMiniChart" aria-label="Savings opportunity breakdown">
+                        <div data-cost-bar="idle" style="height:0%"></div>
+                        <div data-cost-bar="rightsize" style="height:0%"></div>
+                        <div data-cost-bar="devtest" style="height:0%"></div>
+                        <div data-cost-bar="commitment" style="height:0%"></div>
+                        <div data-cost-bar="spot" style="height:0%"></div>
+                        <div data-cost-bar="storage" style="height:0%"></div>
+                        <div data-cost-bar="database" style="height:0%"></div>
+                        <div data-cost-bar="network" style="height:0%"></div>
+                    </div>
+                    <div class="cost-breakdown">
+                        <div>
+                            <span>
+                                <i class="dot purple-dot"></i>
+                                Idle Compute
+                            </span>
+                            <strong id="costCardIdle">—</strong>
+                        </div>
+                        <div>
+                            <span>
+                                <i class="dot blue-dot"></i>
+                                Right-sizing
+                            </span>
+                            <strong id="costCardRightsizing">—</strong>
+                        </div>
+                        <div>
+                            <span>
+                                <i class="dot green-dot"></i>
+                                Storage
+                            </span>
+                            <strong id="costCardStorage">—</strong>
+                        </div>
+                        <div>
+                            <span>
+                                <i class="dot orange-dot"></i>
+                                Network
+                            </span>
+                            <strong id="costCardNetwork">—</strong>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= FEATURE OVERVIEW ================= -->
+            <section class="card feature-overview">
+                <div class="card-header">
+                    <div>
+                        <div class="section-label">
+
+                            CLOUDWISE INTELLIGENCE
+
+                        </div>
+                        <h2>
+                            Your Cloud, Understood.
+                        </h2>
+                        <p>
+                            Explore every intelligence capability
+                            available in your workspace.
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-grid">
+
+
+
+                    <a href="cloudcopilot.html" class="feature-card">
+
+
+
+                        <div class="feature-icon copilot">
+
+                            ✦
+
+                        </div>
+
+
+
+                        <div>
+
+
+
+                            <h3>
+
+                                AI Co-Pilot
+
+                            </h3>
+
+
+
+                            <p>
+
+                                Ask questions about your cloud
+
+                                and receive AI-powered answers.
+
+                            </p>
+
+
+
+                            <span>
+
+                                Ask Cloudwise →
+
+                            </span>
+
+
+
+                        </div>
+
+
+
+                    </a>
+
+
+
+                    <a href="readiness.html" class="feature-card">
+
+
+
+                        <div class="feature-icon readiness">
+
+                            ◉
+
+                        </div>
+
+
+
+                        <div>
+
+
+
+                            <h3>
+
+                                Readiness Engine
+
+                            </h3>
+
+
+
+                            <p>
+
+                                Assess cloud readiness and
+
+                                generate a migration roadmap.
+
+                            </p>
+
+
+
+                            <span>
+
+                                View readiness →
+
+                            </span>
+
+
+
+                        </div>
+
+
+
+                    </a>
+
+
+
+                    <a href="knowledgehub.html" class="feature-card">
+
+
+
+                        <div class="feature-icon knowledge">
+
+                            ▤
+
+                        </div>
+
+
+
+                        <div>
+
+
+
+                            <h3>
+
+                                Knowledge Hub
+
+                            </h3>
+
+
+
+                            <p>
+
+                                Learn cloud concepts, best practices,
+
+                                patterns and recommendations.
+
+                            </p>
+
+
+
+                            <span>
+
+                                Explore knowledge →
+
+                            </span>
+
+
+
+                        </div>
+
+
+
+                    </a>
+
+
+
+                    <a href="impactcalculator.html" class="feature-card">
+
+
+
+                        <div class="feature-icon calculator">
+
+                            ⌗
+
+                        </div>
+
+
+
+                        <div>
+
+
+
+                            <h3>
+
+                                Impact Calculator
+
+                            </h3>
+
+
+
+                            <p>
+
+                                Calculate the financial and operational
+
+                                impact of cloud recommendations.
+
+                            </p>
+
+
+
+                            <span>
+
+                                Calculate impact →
+
+                            </span>
+
+
+
+                        </div>
+
+
+
+                    </a>
+
+
+
+                </div>
+
+
+
+            </section>
+
+
+
+
+
+            <!-- FOOTER -->
+
+
+
+            <footer class="dashboard-footer">
+
+
+
+                <span>
+
+                    © 2026 Cloudwise AI
+
+                </span>
+
+
+
+                <div>
+
+
+
+                    <span>
+
+                        Cloud Intelligence Platform
+
+                    </span>
+
+
+
+                    <span>•</span>
+
+
+
+                    <span>
+
+                        All systems operational
+
+                    </span>
+
+
+
+                </div>
+
+
+
+            </footer>
+
+
+
+        </div>
+
+
+
+    </main>
+
+
+
+</div>
+
+
+
+
+
+*<!-- =====================================================*
+
+*&#xA0;    FLOATING CLOUD CO-PILOT*
+
+*&#xA0;    ===================================================== -->*
+
+
+
+<a
+
+    href="cloudcopilot.html"
+
+    class="floating-copilot"
+
+    aria-label="Open Cloudwise AI Co-Pilot"
+
+    title="Open AI Co-Pilot"
+
+>
+
+
+
+    <span class="copilot-glow"></span>
+
+
+
+    <span class="copilot-icon">
+
+        ✦
+
+    </span>
+
+
+
+    <span class="copilot-pulse"></span>
+
+
+
+</a>
+
+
+
+
+
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", async function () {
+
+
+
+    // ==========================================
+
+    // ELEMENTS
+
+    // ==========================================
+
+    const userMenuButton = document.getElementById("userMenuButton");
+
+    const userDropdown = document.getElementById("userDropdown");
+
+    const logoutButton = document.getElementById("logoutButton");
+
+
+
+    const sidebarUserName = document.getElementById("sidebarUserName");
+
+    const dashboardUserName = document.getElementById("dashboardUserName");
+
+    const userAvatar = document.getElementById("userAvatar");
+
+
+
+    const workspaceName = document.getElementById("workspaceName");
+
+    const cloudConnectionInfo = document.getElementById("cloudConnectionInfo");
+
+
+
+    const costElement = document.getElementById("monthlyCloudCost");
+
+    const trendElement = document.getElementById("monthlyCloudCostTrend");
+
+    const costCardSavings = document.getElementById("costCardMonthlySavings");
+    const costCardCaption = document.getElementById("costCardCaption");
+    const costCardValues = {
+        idle: document.getElementById("costCardIdle"),
+        rightsize: document.getElementById("costCardRightsizing"),
+        storage: document.getElementById("costCardStorage"),
+        network: document.getElementById("costCardNetwork")
+    };
+
+    function formatCostCardMoney(value, currencyCode) {
+        return new Intl.NumberFormat("en-IN", {
+            style: "currency", currency: currencyCode || "INR",
+            notation: "compact", maximumFractionDigits: 1
+        }).format(Number(value) || 0);
+    }
+
+    function resetCostOptimizationCard(message) {
+        if (costCardSavings) costCardSavings.innerHTML = "—<span>/month</span>";
+        if (costCardCaption) costCardCaption.textContent = message || "No saved calculation yet";
+        Object.values(costCardValues).forEach(function (element) {
+            if (element) element.textContent = "—";
+        });
+        document.querySelectorAll("[data-cost-bar]").forEach(function (bar) {
+            bar.style.height = "0%";
+            bar.title = "No saved data";
+        });
+    }
+
+    function renderCostOptimizationCard(result) {
+        const currencyCode = result.currency || "INR";
+        const inputs = result.inputs || {};
+        const compute = Math.max(0, Number(inputs.compute) || 0);
+        const storage = Math.max(0, Number(inputs.storage) || 0);
+        const database = Math.max(0, Number(inputs.database) || 0);
+        const network = Math.max(0, Number(inputs.network) || 0);
+        const cpu = Number(inputs.cpu ?? 25);
+        const alwaysOn = Number(inputs.alwaysOn ?? 60);
+        const devTest = Number(inputs.devTest ?? 30);
+        const coldData = Number(inputs.coldData ?? 40);
+
+        let remainingCompute = compute;
+        const idle = remainingCompute * Math.max(0, (50 - cpu) / 100) * 0.25;
+        remainingCompute = Math.max(0, remainingCompute - idle);
+        const dev = remainingCompute * (devTest / 100) * 0.35;
+        remainingCompute = Math.max(0, remainingCompute - dev);
+        const rightsize = remainingCompute * Math.max(0, (50 - cpu) / 100) * 0.30;
+        remainingCompute = Math.max(0, remainingCompute - rightsize);
+        const commitment = remainingCompute * (alwaysOn / 100) * 0.18;
+        remainingCompute = Math.max(0, remainingCompute - commitment);
+        const spot = remainingCompute * (devTest / 100) * 0.20;
+        const coldStorage = storage * (coldData / 100) * 0.45;
+        const databaseSavings = database * 0.12;
+        const networkSavings = network * 0.15;
+        const total = Math.max(0, Number(result.monthly_savings) || 0);
+
+        if (costCardSavings) {
+            costCardSavings.replaceChildren(document.createTextNode(formatCostCardMoney(total, currencyCode)));
+            const suffix = document.createElement("span");
+            suffix.textContent = "/month";
+            costCardSavings.appendChild(suffix);
+        }
+        if (costCardCaption) costCardCaption.textContent = "Potential monthly savings • Latest saved calculation";
+        if (costCardValues.idle) costCardValues.idle.textContent = formatCostCardMoney(idle, currencyCode);
+        if (costCardValues.rightsize) costCardValues.rightsize.textContent = formatCostCardMoney(rightsize + dev + commitment + spot, currencyCode);
+        if (costCardValues.storage) costCardValues.storage.textContent = formatCostCardMoney(coldStorage, currencyCode);
+        if (costCardValues.network) costCardValues.network.textContent = formatCostCardMoney(networkSavings, currencyCode);
+
+        const bars = [
+            ["idle", idle], ["rightsize", rightsize], ["devtest", dev],
+            ["commitment", commitment], ["spot", spot], ["storage", coldStorage],
+            ["database", databaseSavings], ["network", networkSavings]
+        ];
+        const maxValue = Math.max(1, ...bars.map(function (entry) { return entry[1]; }));
+        bars.forEach(function (entry) {
+            const bar = document.querySelector('[data-cost-bar="' + entry[0] + '"]');
+            if (!bar) return;
+            bar.style.height = (entry[1] > 0 ? Math.max(8, entry[1] / maxValue * 100) : 0) + "%";
+            bar.title = entry[0] + ": " + formatCostCardMoney(entry[1], currencyCode);
+        });
+    }
+
+    resetCostOptimizationCard("No saved calculation yet");
+
+
+
+    // ==========================================
+    // DYNAMIC CLOUD HEALTH FROM SKYREADY
+    // ==========================================
+
+    function readinessVerdict(score) {
+        if (score >= 75) return "Ready to plan your move";
+        if (score >= 50) return "Ready after fixes";
+        return "Not ready yet";
+    }
+
+    function resetCloudHealth(message) {
+        const overall = document.getElementById("cloudHealthOverallScore");
+        const verdict = document.getElementById("cloudHealthVerdict");
+        if (overall) overall.textContent = "—";
+        const kpiScore = document.getElementById("cloudHealthKpiScore");
+        const kpiTrend = document.getElementById("cloudHealthKpiTrend");
+        if (kpiScore) kpiScore.innerHTML = "—<span>/100</span>";
+        if (kpiTrend) kpiTrend.textContent = message || "No saved assessment yet";
+        if (verdict) verdict.textContent = message || "Complete readiness assessment";
+        ["Compute", "Data", "Network", "Security", "People"].forEach(function (name) {
+            const key = name.toLowerCase();
+            const score = document.getElementById("cloudHealth" + name + "Score");
+            const bar = document.getElementById("cloudHealth" + name + "Bar");
+            if (score) score.textContent = "—";
+            if (bar) bar.style.width = "0%";
+        });
+        const line = document.getElementById("cloudHealthChartLine");
+        const area = document.getElementById("cloudHealthChartArea");
+        const labels = document.getElementById("cloudHealthChartLabels");
+        if (line) line.setAttribute("d", "M0 150 L700 150");
+        if (area) area.setAttribute("d", "M0 150 L700 150 Z");
+        if (labels) labels.innerHTML = "<span>No saved assessments yet</span>";
+    }
+
+    function renderCloudReadiness(data) {
+        const latest = data && data.latest;
+        if (!latest) {
+            resetCloudHealth("Complete readiness assessment");
+            return;
+        }
+
+        const overall = Math.max(0, Math.min(100, Number(latest.overall_score) || 0));
+        const overallElement = document.getElementById("cloudHealthOverallScore");
+        const verdict = document.getElementById("cloudHealthVerdict");
+        if (overallElement) overallElement.textContent = String(overall);
+        const kpiScore = document.getElementById("cloudHealthKpiScore");
+        const kpiTrend = document.getElementById("cloudHealthKpiTrend");
+        if (kpiScore) kpiScore.innerHTML = String(overall) + "<span>/100</span>";
+        if (kpiTrend) kpiTrend.textContent = "Latest readiness assessment";
+        if (verdict) verdict.textContent = readinessVerdict(overall);
+
+        const categories = latest.categories || {};
+        ["Compute", "Data", "Network", "Security", "People"].forEach(function (name) {
+            const value = Math.max(0, Math.min(100, Number(categories[name]) || 0));
+            const score = document.getElementById("cloudHealth" + name + "Score");
+            const bar = document.getElementById("cloudHealth" + name + "Bar");
+            if (score) score.textContent = String(value);
+            if (bar) bar.style.width = value + "%";
+        });
+
+        const history = Array.isArray(data.history) ? data.history : [];
+        const line = document.getElementById("cloudHealthChartLine");
+        const area = document.getElementById("cloudHealthChartArea");
+        const labels = document.getElementById("cloudHealthChartLabels");
+
+        if (!history.length) {
+            if (labels) labels.innerHTML = "<span>No saved assessments yet</span>";
+            return;
+        }
+
+        const values = history.slice(-8).map(function (item) {
+            return Math.max(0, Math.min(100, Number(item.overall_score) || 0));
+        });
+        const dates = history.slice(-8).map(function (item) {
+            const date = new Date(item.created_at);
+            return Number.isNaN(date.getTime()) ? "Assessment" :
+                date.toLocaleDateString("en-IN", { day: "numeric", month: "short" });
+        });
+
+        const points = values.map(function (value, i) {
+            const x = values.length === 1 ? 350 : i * (700 / (values.length - 1));
+            const y = 135 - (value / 100) * 110;
+            return [x, y];
+        });
+        const linePath = points.map(function (point, i) {
+            return (i === 0 ? "M" : "L") + point[0].toFixed(1) + " " + point[1].toFixed(1);
+        }).join(" ");
+        if (line) line.setAttribute("d", linePath || "M0 150 L700 150");
+        if (area) {
+            const areaPath = points.length ?
+                linePath + " L" + points[points.length - 1][0].toFixed(1) + " 150 L" +
+                points[0][0].toFixed(1) + " 150 Z" : "M0 150 L700 150 Z";
+            area.setAttribute("d", areaPath);
+        }
+        if (labels) labels.innerHTML = dates.map(function (date) {
+            const span = document.createElement("span");
+            span.textContent = date;
+            return span.outerHTML;
+        }).join("");
+    }
+
+    async function loadCloudReadiness(token) {
+        resetCloudHealth("Loading readiness...");
+        try {
+            const response = await fetch("http://127.0.0.1:8000/api/dashboard/readiness/latest", {
+                method: "GET",
+                headers: { "Authorization": "Bearer " + token, "Accept": "application/json" }
+            });
+            if (!response.ok) throw new Error("Readiness request failed: " + response.status);
+            renderCloudReadiness(await response.json());
+        } catch (error) {
+            console.error("Cloud readiness request failed:", error);
+            resetCloudHealth("Unable to load readiness");
+        }
+    }
+
+
+    // ==========================================
+
+    // USER DROPDOWN
+
+    // ==========================================
+
+    if (userMenuButton && userDropdown) {
+
+        userMenuButton.addEventListener("click", function (event) {
+
+            event.stopPropagation();
+
+            userDropdown.classList.toggle("show");
+
+        });
+
+
+
+        document.addEventListener("click", function (event) {
+
+            if (!event.target.closest(".user-menu-wrapper")) {
+
+                userDropdown.classList.remove("show");
+
+            }
+
+        });
+
+    }
+
+
+
+    // ==========================================
+
+    // LOGOUT
+
+    // Saved PostgreSQL calculations are NOT deleted.
+
+    // ==========================================
+
+    if (logoutButton) {
+
+        logoutButton.addEventListener("click", function () {
+
+            localStorage.removeItem("cloudwise_access_token");
+
+            localStorage.removeItem("cloudwise_user");
+
+            sessionStorage.clear();
+
+
+
+            window.location.href = "landing.html";
+
+        });
+
+    }
+
+
+
+    // ==========================================
+
+    // LOAD LOGGED-IN USER
+
+    // ==========================================
+
+    const storedUser = localStorage.getItem("cloudwise_user");
+
+
+
+    if (storedUser) {
+
+        try {
+
+            const user = JSON.parse(storedUser);
+
+            const firstName = user.first_name || "User";
+
+
+
+            if (sidebarUserName) {
+
+                sidebarUserName.textContent = firstName;
+
+            }
+
+
+
+            if (dashboardUserName) {
+
+                dashboardUserName.textContent = firstName;
+
+            }
+
+
+
+            if (userAvatar) {
+
+                userAvatar.textContent = firstName.charAt(0).toUpperCase();
+
+            }
+
+        } catch (error) {
+
+            console.error("Unable to read logged-in user:", error);
+
+        }
+
+    }
+
+
+
+    // ==========================================
+
+    // CLEAR KPI BEFORE LOADING SAVED DATA
+
+    // ==========================================
+
+    if (costElement) {
+
+        costElement.textContent = "—";
+
+    }
+
+
+
+    if (trendElement) {
+
+        trendElement.textContent = "No calculation yet";
+
+    }
+
+
+
+    const token = localStorage.getItem("cloudwise_access_token");
+
+
+
+    if (!token) {
+
+        console.warn("No Cloudwise token found.");
+
+        return;
+
+    }
+
+
+
+    await loadCloudReadiness(token);
+
+    // ==========================================
+
+    // LOAD DASHBOARD PROFILE
+
+    // ==========================================
+
+    try {
+
+        const response = await fetch(
+
+            "http://127.0.0.1:8000/api/dashboard/profile",
+
+            {
+
+                method: "GET",
+
+                headers: {
+
+                    "Authorization": "Bearer " + token,
+
+                    "Accept": "application/json"
+
+                }
+
+            }
+
+        );
+
+
+
+        if (!response.ok) {
+
+            throw new Error("Profile request failed: " + response.status);
+
+        }
+
+
+
+        const data = await response.json();
+
+
+
+        const organizationName =
+
+            data.organization?.name || "Cloud Workspace";
+
+
+
+        if (workspaceName) {
+
+            workspaceName.textContent = organizationName + "'s Cloud";
+
+        }
+
+
+
+        const platforms = data.cloud?.platforms;
+
+        let platformText = "Cloud platform not configured";
+
+
+
+        if (Array.isArray(platforms) && platforms.length > 0) {
+
+            platformText = platforms.join(" • ");
+
+        } else if (platforms) {
+
+            platformText = platforms;
+
+        }
+
+
+
+        if (cloudConnectionInfo) {
+
+            cloudConnectionInfo.textContent =
+
+                platformText + " • Cloud profile connected";
+
+        }
+
+
+
+        console.log("Dashboard profile loaded:", data);
+
+
+
+    } catch (error) {
+
+        console.error("Dashboard profile request failed:", error);
+
+    }
+
+
+
+    // ==========================================
+
+    // LOAD LATEST SAVED CALCULATIONS
+
+    // ==========================================
+
+    try {
+
+        const response = await fetch(
+
+            "http://127.0.0.1:8000/api/dashboard/calculations/latest",
+
+            {
+
+                method: "GET",
+
+                headers: {
+
+                    "Authorization": "Bearer " + token,
+
+                    "Accept": "application/json"
+
+                }
+
+            }
+
+        );
+
+
+
+        if (!response.ok) {
+
+            throw new Error("Calculations request failed: " + response.status);
+
+        }
+
+
+
+        const data = await response.json();
+
+
+
+        const operation = (data.results || []).find(function (item) {
+
+            return item.operation_type === "cost_optimization";
+
+        });
+
+
+
+        if (!operation || !operation.result) {
+            console.log("No saved Cost Optimization calculation yet.");
+            resetCostOptimizationCard("No saved calculation yet");
+            return;
+        }
+
+        const result = operation.result;
+        renderCostOptimizationCard(result);
+        const currency = result.currency || "INR";
+
+
+
+        if (costElement) {
+
+            costElement.textContent = new Intl.NumberFormat("en-IN", {
+
+                style: "currency",
+
+                currency: currency,
+
+                maximumFractionDigits: 2
+
+            }).format(Number(result.monthly_bill) || 0);
+
+        }
+
+
+
+        if (trendElement) {
+
+            trendElement.textContent = "Latest saved calculation";
+
+        }
+
+
+
+        console.log("Dashboard calculation loaded:", result);
+
+
+
+    } catch (error) {
+
+        console.error("Dashboard calculation request failed:", error);
+
+
+
+        if (trendElement) {
+
+            trendElement.textContent = "Unable to load data";
+
+        }
+
+    }
+
+
+
+});
+
+</script>
+
+</body>
+
+</html>

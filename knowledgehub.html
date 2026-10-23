@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Knowledge Hub | Cloudwise AI</title>
+
+    <!-- SHARED CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- KNOWLEDGE HUB CSS -->
+    <link rel="stylesheet" href="knowledgehub.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         KNOWLEDGE HUB NAVIGATION
+         ===================================================== -->
+
+    <div class="knowledge-top-nav">
+
+    <a href="index.html" class="back-button">
+        <span>←</span>
+        Back
+    </a>
+
+
+
+        <div class="knowledge-nav-title">
+
+            <span class="knowledge-nav-icon">
+                ▤
+            </span>
+
+            <strong>
+                Knowledge Hub
+            </strong>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-content">
+
+        <!-- =================================================
+             KNOWLEDGE HUB
+             ================================================= -->
+
+        <section class="knowledge-hub">
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="knowledge-header">
+
+
+                <div class="knowledge-header-content">
+
+                    <div class="knowledge-eyebrow">
+                        CLOUDWISE COMMUNITY
+                    </div>
+
+
+                    <h1>
+                        Knowledge Hub
+                    </h1>
+
+
+                    <p>
+                        Learn, share and solve cloud challenges
+                        with your cloud community.
+                    </p>
+
+                </div>
+
+
+
+                <div class="knowledge-header-actions">
+
+
+                    <button
+                        class="knowledge-btn knowledge-btn-secondary"
+                        id="askQuestionBtn"
+                        type="button">
+
+                        <span>+</span>
+
+                        Ask a Question
+
+                    </button>
+
+
+                    <button
+                        class="knowledge-btn knowledge-btn-primary"
+                        id="createArticleBtn"
+                        type="button">
+
+                        <span>+</span>
+
+                        Create Article
+
+                    </button>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SEARCH
+                 ================================================= -->
+
+            <div class="knowledge-search-section">
+
+                <div class="knowledge-search">
+
+
+                    <span class="knowledge-search-icon">
+                        ⌕
+                    </span>
+
+
+                    <input
+                        type="text"
+                        id="knowledgeSearch"
+                        placeholder="Search articles, questions, solutions..."
+                        autocomplete="off"
+                    >
+
+
+                    <button
+                        id="searchBtn"
+                        type="button">
+
+                        Search
+
+                    </button>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 TOOLBAR
+                 ================================================= -->
+
+            <div class="knowledge-toolbar">
+
+
+                <!-- TABS -->
+
+                <div class="knowledge-tabs">
+
+                    <button
+                        class="knowledge-tab active"
+                        data-filter="all"
+                        type="button">
+
+                        All
+
+                    </button>
+
+
+                    <button
+                        class="knowledge-tab"
+                        data-filter="article"
+                        type="button">
+
+                        Articles
+
+                    </button>
+
+
+                    <button
+                        class="knowledge-tab"
+                        data-filter="question"
+                        type="button">
+
+                        Questions
+
+                    </button>
+
+
+                    <button
+                        class="knowledge-tab"
+                        data-filter="solution"
+                        type="button">
+
+                        Solutions
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- SORT -->
+
+                <div class="knowledge-sort">
+
+                    <label for="sortSelect">
+                        Sort by
+                    </label>
+
+
+                    <select id="sortSelect">
+
+                        <option value="newest">
+                            Newest
+                        </option>
+
+                        <option value="oldest">
+                            Oldest
+                        </option>
+
+                        <option value="az">
+                            A → Z
+                        </option>
+
+                        <option value="za">
+                            Z → A
+                        </option>
+
+                        <option value="best-rated">
+                            Best Rated
+                        </option>
+
+                        <option value="most-rated">
+                            Most Rated
+                        </option>
+
+                        <option value="most-discussed">
+                            Most Discussed
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 CONTENT + RIGHT SIDEBAR
+                 ================================================= -->
+
+            <div class="knowledge-layout">
+
+
+                <!-- =================================================
+                     KNOWLEDGE CONTENT
+                     ================================================= -->
+
+<div class="knowledge-content">
+
+    <div class="results-header">
+        <span id="resultsCount">
+            0 knowledge resources
+        </span>
+    </div>
+
+    <div id="knowledgeCards"></div>
+
+</div>
+
+
+
+                <!-- =================================================
+                     RIGHT SIDEBAR
+                     ================================================= -->
+
+                <aside class="knowledge-sidebar">            
+
+                    <!-- COMMUNITY -->
+
+                    <div class="hub-community-card">
+
+
+                        <div class="community-icon">
+                            ✦
+                        </div>
+
+
+                        <h3>
+                            Have a cloud question?
+                        </h3>
+
+
+                        <p>
+                            Ask the community and get help from
+                            other cloud professionals.
+                        </p>
+
+
+                        <button
+                            id="communityAskBtn"
+                            type="button">
+
+                            Ask a Question
+
+                            <span>
+                                →
+                            </span>
+
+                        </button>
+
+
+                    </div>
+
+
+                </aside>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 FOOTER
+                 ================================================= -->
+
+            <footer class="knowledge-footer">
+
+                <span>
+                    © 2026 Cloudwise AI
+                </span>
+
+
+                <div class="knowledge-footer-links">
+
+                    <a href="#">
+                        Documentation
+                    </a>
+
+                    <a href="#">
+                        Community Guidelines
+                    </a>
+
+                    <a href="#">
+                        Privacy
+                    </a>
+
+                    <a href="#">
+                        Terms
+                    </a>
+
+                </div>
+
+            </footer>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+  <script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const API_BASE = "http://127.0.0.1:8000";
+
+    const searchInput =
+        document.getElementById("knowledgeSearch");
+
+    const searchButton =
+        document.getElementById("searchBtn");
+
+    const tabs =
+        document.querySelectorAll(".knowledge-tab");
+
+    const sortSelect =
+        document.getElementById("sortSelect");
+
+    const resultsCount =
+        document.getElementById("resultsCount");
+
+    const knowledgeCards =
+        document.getElementById("knowledgeCards");
+    
+    knowledgeCards.addEventListener(
+    "click",
+    function (event) {
+
+        const card =
+            event.target.closest(".knowledge-card");
+
+        if (!card) {
+            return;
+        }
+
+        const postId =
+            card.dataset.postId;
+
+        if (!postId) {
+            return;
+        }
+
+        window.location.href =
+            "knowledge-post.html?id=" + postId;
+
+    }
+);
+
+
+    let currentFilter = "all";
+
+
+    /* =========================================================
+       AUTH TOKEN
+       ========================================================= */
+
+    function getAuthToken() {
+
+        return localStorage.getItem(
+            "cloudwise_access_token"
+        );
+
+    }
+
+
+    /* =========================================================
+       ESCAPE HTML
+       ========================================================= */
+
+    function escapeHTML(value) {
+
+        if (value === null || value === undefined) {
+            return "";
+        }
+
+        return String(value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+
+    }
+
+
+    /* =========================================================
+       TIME AGO
+       ========================================================= */
+
+    function timeAgo(dateString) {
+
+        if (!dateString) {
+            return "";
+        }
+
+        const date = new Date(dateString);
+
+        if (isNaN(date.getTime())) {
+            return "";
+        }
+
+        const now = new Date();
+
+        const seconds =
+            Math.floor((now - date) / 1000);
+
+        if (seconds < 60) {
+            return "Just now";
+        }
+
+        const minutes =
+            Math.floor(seconds / 60);
+
+        if (minutes < 60) {
+            return minutes + (
+                minutes === 1 ? " minute ago" : " minutes ago"
+            );
+
+        }
+
+        const hours =
+            Math.floor(minutes / 60);
+
+        if (hours < 24) {
+            return hours + (
+                hours === 1 ? " hour ago" : " hours ago"
+            );
+
+        }
+
+        const days =
+            Math.floor(hours / 24);
+
+        if (days < 7) {
+            return days + (
+                days === 1 ? " day ago" : " days ago"
+            );
+
+        }
+
+        const weeks =
+            Math.floor(days / 7);
+
+        if (weeks < 4) {
+            return weeks + (
+                weeks === 1 ? " week ago" : " weeks ago"
+            );
+
+        }
+
+        const months =
+            Math.floor(days / 30);
+
+        if (months < 12) {
+            return months + (
+                months === 1 ? " month ago" : " months ago"
+            );
+
+        }
+
+        const years =
+            Math.floor(days / 365);
+
+        return years + (
+            years === 1 ? " year ago" : " years ago"
+        );
+
+    }
+
+
+    /* =========================================================
+       CONTENT TYPE
+       ========================================================= */
+
+    function getContentBadge(type) {
+
+        if (type === "article") {
+
+            return `
+                <span class="content-badge article">
+                    ARTICLE
+                </span>
+            `;
+
+        }
+
+        if (type === "question") {
+
+            return `
+                <span class="content-badge question">
+                    QUESTION
+                </span>
+            `;
+
+        }
+
+        if (type === "solution") {
+
+            return `
+                <span class="content-badge solution">
+                    SOLUTION
+                </span>
+            `;
+
+        }
+
+        return `
+            <span class="content-badge article">
+                ARTICLE
+            </span>
+        `;
+
+    }
+
+
+    /* =========================================================
+       RENDER ONE CARD
+       ========================================================= */
+
+    function renderCard(post) {
+
+        const authorName =
+            post.author?.name || "Cloudwise User";
+
+        const firstLetter =
+            authorName.charAt(0).toUpperCase();
+
+        const rating =
+            Number(post.rating || 0).toFixed(1);
+
+        const ratingCount =
+            Number(post.rating_count || 0);
+
+        const commentCount =
+            Number(post.comment_count || 0);
+
+        const tags =
+            Array.isArray(post.tags)
+                ? post.tags
+                : [];
+
+
+        const tagsHTML =
+            tags.map(function (tag) {
+
+                return `
+                    <span>
+                        ${escapeHTML(tag)}
+                    </span>
+                `;
+
+            }).join("");
+
+
+        return `
+
+<article
+    class="knowledge-card"
+    data-type="${escapeHTML(post.content_type)}"
+    data-title="${escapeHTML(post.title)}"
+    data-post-id="${post.id}"
+    style="cursor: pointer;"
+>
+
+                <div class="knowledge-card-top">
+
+                    ${getContentBadge(post.content_type)}
+
+                    <span class="content-time">
+                        ${escapeHTML(timeAgo(post.created_at))}
+                    </span>
+
+                </div>
+
+
+                <h2>
+                    ${escapeHTML(post.title)}
+                </h2>
+
+
+                <p>
+                    ${escapeHTML(post.content)}
+                </p>
+
+
+                <div class="knowledge-tags">
+
+                    ${tagsHTML}
+
+                </div>
+
+
+                <div class="knowledge-card-footer">
+
+
+                    <div class="content-author">
+
+                        <div class="author-avatar">
+                            ${escapeHTML(firstLetter)}
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                ${escapeHTML(authorName)}
+                            </strong>
+
+                            <span>
+                                Community Member
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="knowledge-stats">
+
+                        <span>
+                            ★ ${rating}
+                        </span>
+
+                        <span>
+                            ◉ ${ratingCount}
+                        </span>
+
+                        <span>
+                            ● ${commentCount}
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </article>
+
+        `;
+
+    }
+
+
+    /* =========================================================
+       LOAD POSTS FROM BACKEND
+       ========================================================= */
+
+    async function loadKnowledgePosts() {
+
+        try {
+
+            knowledgeCards.innerHTML = `
+                <div style="
+                    padding: 30px;
+                    text-align: center;
+                    color: #a2b1c3;
+                ">
+                    Loading knowledge resources...
+                </div>
+            `;
+
+
+            const params =
+                new URLSearchParams();
+
+
+            /* CONTENT TYPE */
+
+            if (currentFilter !== "all") {
+
+                params.set(
+                    "content_type",
+                    currentFilter
+                );
+
+            }
+
+
+            /* SEARCH */
+
+            const searchTerm =
+                searchInput.value.trim();
+
+            if (searchTerm) {
+
+                params.set(
+                    "search",
+                    searchTerm
+                );
+
+            }
+
+
+            /* SORT */
+
+            params.set(
+                "sort",
+                sortSelect.value
+            );
+
+
+            const token =
+                getAuthToken();
+
+
+            const headers = {
+                "Accept": "application/json"
+            };
+
+
+            if (token) {
+
+                headers["Authorization"] =
+                    "Bearer " + token;
+
+            }
+
+
+            const response =
+                await fetch(
+                    API_BASE +
+                    "/api/knowledge/posts?" +
+                    params.toString(),
+                    {
+                        method: "GET",
+                        headers: headers
+                    }
+                );
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Knowledge Hub API returned " +
+                    response.status
+                );
+
+            }
+
+
+            const data =
+                await response.json();
+
+
+            /* CLEAR */
+
+            knowledgeCards.innerHTML = "";
+
+
+            /* NO RESULTS */
+
+            if (
+                !data.posts ||
+                data.posts.length === 0
+            ) {
+
+                knowledgeCards.innerHTML = `
+
+                    <div style="
+                        padding: 40px;
+                        text-align: center;
+                        color: #a2b1c3;
+                    ">
+
+                        <h3 style="
+                            margin-bottom: 8px;
+                            color: #edf5ff;
+                        ">
+                            No knowledge resources found
+                        </h3>
+
+                        <p>
+                            Try a different search or create
+                            a new article or question.
+                        </p>
+
+                    </div>
+
+                `;
+
+
+                resultsCount.textContent =
+                    "0 knowledge resources";
+
+                return;
+
+            }
+
+
+            /* RENDER */
+
+            data.posts.forEach(function (post) {
+
+                knowledgeCards.insertAdjacentHTML(
+                    "beforeend",
+                    renderCard(post)
+                );
+
+            });
+
+
+            /* COUNT */
+
+            const count =
+                data.count || data.posts.length;
+
+
+            resultsCount.textContent =
+                count +
+                (
+                    count === 1
+                        ? " knowledge resource"
+                        : " knowledge resources"
+                );
+
+
+        } catch (error) {
+
+            console.error(
+                "Knowledge Hub loading error:",
+                error
+            );
+
+
+            knowledgeCards.innerHTML = `
+
+                <div style="
+                    padding: 40px;
+                    text-align: center;
+                    color: #ff6b7a;
+                ">
+
+                    Unable to load Knowledge Hub.
+
+                    <br>
+
+                    <small style="
+                        color: #a2b1c3;
+                    ">
+                        Please make sure the Cloudwise
+                        backend is running.
+                    </small>
+
+                </div>
+
+            `;
+
+
+            resultsCount.textContent =
+                "0 knowledge resources";
+
+        }
+
+    }
+    /* =========================================================
+   OPEN KNOWLEDGE POST
+   ========================================================= */
+
+
+
+    /* =========================================================
+       TABS
+       ========================================================= */
+
+    tabs.forEach(function (tab) {
+
+        tab.addEventListener(
+            "click",
+            function () {
+
+                tabs.forEach(function (item) {
+
+                    item.classList.remove("active");
+
+                });
+
+
+                this.classList.add("active");
+                currentFilter =
+                     this.dataset.filter;
+
+                loadKnowledgePosts();
+            }
+        );
+
+    });
+
+
+    /* =========================================================
+       SEARCH
+       ========================================================= */
+
+    searchInput.addEventListener(
+        "input",
+        function () {
+
+            loadKnowledgePosts();
+
+        }
+    );
+
+
+    searchButton.addEventListener(
+        "click",
+        function () {
+
+            loadKnowledgePosts();
+
+        }
+    );
+
+
+    /* =========================================================
+       SORT
+       ========================================================= */
+
+    sortSelect.addEventListener(
+        "change",
+        function () {
+
+            loadKnowledgePosts();
+
+        }
+    );
+
+
+    /* =========================================================
+       BUTTONS
+       ========================================================= */
+
+    document
+        .getElementById("askQuestionBtn")
+        .addEventListener(
+            "click",
+            function () {
+
+                window.location.href =
+                    "ask-question.html";
+
+            }
+        );
+
+
+    document
+        .getElementById("communityAskBtn")
+        .addEventListener(
+            "click",
+            function () {
+
+                window.location.href =
+                    "ask-question.html";
+
+            }
+        );
+
+
+    document
+        .getElementById("createArticleBtn")
+        .addEventListener(
+            "click",
+            function () {
+
+                window.location.href =
+                    "create-article.html";
+
+            }
+        );
+
+
+    /* =========================================================
+       INITIAL LOAD
+       ========================================================= */
+
+    loadKnowledgePosts();
+
+});
+
+</script>
+
+
+</body>
+
+</html>

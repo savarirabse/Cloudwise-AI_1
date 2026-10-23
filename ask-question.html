@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Ask a Question | Cloudwise AI</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="knowledgeform.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVIGATION
+         ===================================================== -->
+
+    <div class="knowledge-top-nav">
+
+        <a href="knowledgehub.html"
+           class="back-button">
+
+            <span>←</span>
+
+            Back to Knowledge Hub
+
+        </a>
+
+
+        <div class="knowledge-nav-title">
+
+            <span class="knowledge-nav-icon">
+                ▤
+            </span>
+
+            <strong>
+                Knowledge Hub
+            </strong>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         PAGE
+         ===================================================== -->
+
+    <main class="knowledge-form-page">
+
+
+        <div class="form-page-header">
+
+            <div class="form-eyebrow">
+                CLOUDWISE COMMUNITY
+            </div>
+
+            <h1>
+                Ask the Community
+            </h1>
+
+            <p>
+                Ask a cloud-related question and get answers
+                from other Cloudwise community members.
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             FORM
+             ================================================= -->
+
+        <div class="knowledge-form-card">
+
+
+            <div class="form-info-box">
+
+                <div class="form-info-icon">
+                    ?
+                </div>
+
+                <p>
+                    Describe your problem clearly. Include
+                    relevant cloud platforms, services,
+                    errors or requirements to get useful answers.
+                </p>
+
+            </div>
+
+
+
+            <!-- QUESTION -->
+
+            <div class="form-group">
+
+                <label class="form-label"
+                       for="questionTitle">
+
+                    Question
+                    <span class="form-required">*</span>
+
+                </label>
+
+                <input
+                    type="text"
+                    id="questionTitle"
+                    class="form-input"
+                    placeholder="What would you like to know?"
+                >
+
+            </div>
+
+
+
+            <!-- CATEGORY -->
+
+            <div class="form-group">
+
+                <label class="form-label"
+                       for="questionCategory">
+
+                    Category
+                    <span class="form-required">*</span>
+
+                </label>
+
+                <select
+                    id="questionCategory"
+                    class="form-select"
+                >
+
+                    <option value="">
+                        Select a category
+                    </option>
+
+                    <option>
+                        AWS
+                    </option>
+
+                    <option>
+                        Azure
+                    </option>
+
+                    <option>
+                        Google Cloud
+                    </option>
+
+                    <option>
+                        Security
+                    </option>
+
+                    <option>
+                        Cost Optimization
+                    </option>
+
+                    <option>
+                        Reliability
+                    </option>
+
+                    <option>
+                        Cloud Migration
+                    </option>
+
+                    <option>
+                        AI & Automation
+                    </option>
+
+                    <option>
+                        Architecture
+                    </option>
+
+                    <option>
+                        DevOps
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- TAGS -->
+
+            <div class="form-group">
+
+                <label class="form-label">
+
+                    Tags
+                    <span class="form-required">*</span>
+
+                </label>
+
+
+                <div class="tags-input-wrapper"
+                     id="questionTagsWrapper">
+
+                    <input
+                        type="text"
+                        id="questionTagInput"
+                        class="tag-text-input"
+                        placeholder="Type a tag and press Enter"
+                    >
+
+                </div>
+
+
+                <div class="form-help">
+                    Example: AWS, EC2, Kubernetes,
+                    networking, IAM
+                </div>
+
+            </div>
+
+
+
+            <!-- DESCRIPTION -->
+
+            <div class="form-group">
+
+                <label class="form-label"
+                       for="questionContent">
+
+                    Describe your question
+                    <span class="form-required">*</span>
+
+                </label>
+
+
+                <textarea
+                    id="questionContent"
+                    class="form-textarea"
+                    placeholder="Explain your problem or question in detail..."
+                ></textarea>
+
+
+                <div class="form-help">
+                    Include error messages, configurations,
+                    architecture details or anything else
+                    that could help the community understand
+                    your question.
+                </div>
+
+            </div>
+
+
+
+            <!-- ACTIONS -->
+
+            <div class="form-actions">
+
+                <button
+                    type="button"
+                    class="form-btn form-btn-secondary"
+                    onclick="window.location.href='knowledgehub.html'"
+                >
+                    Cancel
+                </button>
+
+
+                <button
+                    type="button"
+                    class="form-btn form-btn-primary"
+                    id="postQuestionBtn"
+                >
+                    Post Question
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FRONTEND ONLY
+         ===================================================== -->
+
+<script>
+
+const API_BASE = "http://127.0.0.1:8000";
+
+const tagInput =
+    document.getElementById("questionTagInput");
+
+const tagsWrapper =
+    document.getElementById("questionTagsWrapper");
+
+const postQuestionBtn =
+    document.getElementById("postQuestionBtn");
+
+
+/* =========================================================
+   TAG INPUT
+   ========================================================= */
+
+tagInput.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (event.key !== "Enter") {
+            return;
+        }
+
+        event.preventDefault();
+
+        const value =
+            tagInput.value.trim();
+
+        if (!value) {
+            return;
+        }
+
+        /* Prevent duplicate tags */
+
+        const existingTags =
+            Array.from(
+                tagsWrapper.querySelectorAll(".tag")
+            ).map(function (tag) {
+                return tag.dataset.tag.toLowerCase();
+            });
+
+        if (
+            existingTags.includes(
+                value.toLowerCase()
+            )
+        ) {
+            tagInput.value = "";
+            return;
+        }
+
+
+        const tag =
+            document.createElement("span");
+
+        tag.className = "tag";
+
+        tag.dataset.tag = value;
+
+        tag.innerHTML = `
+            ${escapeHTML(value)}
+
+            <button
+                type="button"
+                class="tag-remove"
+            >
+                ×
+            </button>
+        `;
+
+
+        tag.querySelector(
+            ".tag-remove"
+        ).addEventListener(
+            "click",
+            function () {
+
+                tag.remove();
+
+            }
+        );
+
+
+        tagsWrapper.insertBefore(
+            tag,
+            tagInput
+        );
+
+
+        tagInput.value = "";
+
+    }
+);
+
+
+/* =========================================================
+   ESCAPE HTML
+   ========================================================= */
+
+function escapeHTML(value) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent = value;
+
+    return div.innerHTML;
+
+}
+
+
+/* =========================================================
+   GET TAGS
+   ========================================================= */
+
+function getTags() {
+
+    return Array.from(
+        tagsWrapper.querySelectorAll(".tag")
+    ).map(function (tag) {
+
+        return tag.dataset.tag;
+
+    });
+
+}
+
+
+/* =========================================================
+   POST QUESTION
+   ========================================================= */
+
+postQuestionBtn.addEventListener(
+    "click",
+    async function () {
+
+        const title =
+            document
+                .getElementById("questionTitle")
+                .value
+                .trim();
+
+
+        const category =
+            document
+                .getElementById("questionCategory")
+                .value
+                .trim();
+
+
+        const content =
+            document
+                .getElementById("questionContent")
+                .value
+                .trim();
+
+
+        const tags =
+            getTags();
+
+
+        /* =================================================
+           VALIDATION
+           ================================================= */
+
+        if (!title) {
+
+            alert(
+                "Please enter your question."
+            );
+
+            document
+                .getElementById("questionTitle")
+                .focus();
+
+            return;
+
+        }
+
+
+        if (!category) {
+
+            alert(
+                "Please select a category."
+            );
+
+            document
+                .getElementById("questionCategory")
+                .focus();
+
+            return;
+
+        }
+
+
+        if (tags.length === 0) {
+
+            alert(
+                "Please add at least one tag."
+            );
+
+            tagInput.focus();
+
+            return;
+
+        }
+
+
+        if (!content) {
+
+            alert(
+                "Please describe your question."
+            );
+
+            document
+                .getElementById("questionContent")
+                .focus();
+
+            return;
+
+        }
+
+
+        /* =================================================
+           AUTHENTICATION
+           ================================================= */
+
+        const token =
+            localStorage.getItem(
+                "cloudwise_access_token"
+            );
+
+
+        if (!token) {
+
+            alert(
+                "Your session has expired. Please log in again."
+            );
+
+            window.location.href =
+                "login.html";
+
+            return;
+
+        }
+
+
+        /* =================================================
+           DISABLE BUTTON
+           ================================================= */
+
+        postQuestionBtn.disabled = true;
+
+        postQuestionBtn.textContent =
+            "Posting...";
+
+
+        try {
+
+            /*
+
+              Current backend endpoint accepts
+              these values as query parameters.
+
+            */
+
+            const params =
+                new URLSearchParams();
+
+
+            params.append(
+                "content_type",
+                "question"
+            );
+
+
+            params.append(
+                "title",
+                title
+            );
+
+
+            params.append(
+                "content",
+                content
+            );
+
+
+            params.append(
+                "category",
+                category
+            );
+
+
+            params.append(
+                "tags",
+                JSON.stringify(tags)
+            );
+
+
+            const response =
+                await fetch(
+                    API_BASE +
+                    "/api/knowledge/posts?" +
+                    params.toString(),
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Authorization":
+                                "Bearer " + token,
+
+                            "Accept":
+                                "application/json"
+                        }
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            /* =================================================
+               API ERROR
+               ================================================= */
+
+            if (!response.ok) {
+
+                console.error(
+                    "Create question error:",
+                    data
+                );
+
+
+                throw new Error(
+                    data.detail ||
+                    "Unable to post question."
+                );
+
+            }
+
+
+            /* =================================================
+               SUCCESS
+               ================================================= */
+
+            alert(
+                "Your question has been posted successfully!"
+            );
+
+
+            window.location.href =
+                "knowledgehub.html";
+
+
+        } catch (error) {
+
+            console.error(
+                "Question posting failed:",
+                error
+            );
+
+
+            alert(
+                error.message ||
+                "Unable to post your question. Please try again."
+            );
+
+
+            postQuestionBtn.disabled = false;
+
+            postQuestionBtn.textContent =
+                "Post Question";
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

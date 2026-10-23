@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Cloud Co-Pilot | Cloudwise AI</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="cloudcopilot.css">
+
+<style>
+
+.conversation-empty {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 14px 4px;
+
+    color: #718198;
+
+    font-size: 13px;
+
+}
+
+.conversation-empty span {
+
+    opacity: 0.7;
+
+}
+
+.conversation-empty p {
+
+    margin: 0;
+
+}
+
+.conversation-item strong {
+
+    display: block;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+}
+
+.conversation-item small {
+
+    display: block;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+    <!--*
+
+*=====================================================*
+
+*&#xA0;        TOP NAVIGATION*
+
+*&#xA0;        =====================================================*
+
+*-->
+
+    <div class="copilot-top-nav">
+
+        <a href="index.html" class="copilot-back-button">
+
+            <span>←</span>
+
+            Back
+
+        </a>
+
+        <div class="copilot-nav-title">
+
+            <span class="copilot-nav-icon">
+
+                ✦
+
+            </span>
+
+            <strong>
+
+                Cloud Co-Pilot AI
+
+            </strong>
+
+        </div>
+
+    </div>
+
+    <!--*
+
+*=====================================================*
+
+*&#xA0;        MAIN CONTENT*
+
+*&#xA0;        =====================================================*
+
+*-->
+
+    <main class="main-content">
+
+        <!--*
+
+*=================================================*
+
+*&#xA0;            COPILOT PAGE*
+
+*&#xA0;            =================================================*
+
+*-->
+
+        <section class="copilot-page">
+
+            <!--*
+
+*=================================================*
+
+*&#xA0;                HEADER*
+
+*&#xA0;                =================================================*
+
+*-->
+
+            <div class="copilot-header">
+
+                <div>
+
+                    <div class="copilot-eyebrow">
+
+                        CLOUD INTELLIGENCE
+
+                    </div>
+
+                    <h1>
+
+                        Cloud Co-Pilot
+
+                    </h1>
+
+                    <p>
+
+                        Your AI-powered cloud advisor for
+
+                        understanding, optimizing and securing
+
+                        your cloud environment.
+
+                    </p>
+
+                </div>
+
+                <div class="copilot-status">
+
+                    <span class="status-dot"></span>
+
+                    AI Online
+
+                </div>
+
+            </div>
+
+            <!--*
+
+*=================================================*
+
+*&#xA0;                MAIN COPILOT LAYOUT*
+
+*&#xA0;                =================================================*
+
+*-->
+
+            <div class="copilot-layout">
+
+                <!--*
+
+*=================================================*
+
+*&#xA0;                    CHAT SECTION*
+
+*&#xA0;                    =================================================*
+
+*-->
+
+                <section class="copilot-chat">
+
+                    <!--*
+
+*CHAT HEADER*
+
+*-->
+
+                    <div class="chat-header">
+
+                        <div class="chat-agent">
+
+                            <div class="agent-avatar">
+
+                                ✦
+
+                            </div>
+
+                            <div>
+
+                                <strong>
+
+                                    Cloudwise AI
+
+                                </strong>
+
+                                <span>
+
+                                    Cloud Advisory Assistant
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <button
+
+                            class="new-chat-button"
+
+                            id="newChatButton"
+
+                            type="button">
+
+                            + New Chat
+
+                        </button>
+
+                    </div>
+
+                    <!--*
+
+*CHAT BODY*
+
+*-->
+
+                    <div
+
+                        class="chat-body"
+
+                        id="chatBody">
+
+                        <!--*
+
+*WELCOME MESSAGE*
+
+*-->
+
+                        <div class="message ai-message">
+
+                            <div class="message-avatar">
+
+                                ✦
+
+                            </div>
+
+                            <div class="message-content">
+
+                                <div class="message-author">
+
+                                    Cloudwise AI
+
+                                </div>
+
+                                <div class="message-bubble">
+
+                                    <p>
+
+                                        Hello <span id="welcomeUserName">there</span> 👋
+
+                                    </p>
+
+                                    <p>
+
+                                        I'm your Cloud Co-Pilot.
+
+                                        I can help you understand
+
+                                        your cloud environment,
+
+                                        identify risks, optimize
+
+                                        costs and plan cloud changes.
+
+                                    </p>
+
+                                    <p>
+
+                                        What would you like to
+
+                                        work on today?
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!--*
+
+*SUGGESTED PROMPTS*
+
+*-->
+
+                        <div class="suggested-prompts">
+
+                            <div class="suggested-title">
+
+                                Try asking
+
+                            </div>
+
+                            <div class="prompt-grid">
+
+                                <button
+
+                                    class="prompt-card"
+
+                                    data-prompt="Analyze my current cloud environment">
+
+                                    <span class="prompt-icon">
+
+                                        ◉
+
+                                    </span>
+
+                                    <span>
+
+                                        <strong>
+
+                                            Analyze my cloud
+
+                                        </strong>
+
+                                        <small>
+
+                                            Get an overview of your environment
+
+                                        </small>
+
+                                    </span>
+
+                                </button>
+
+                                <button
+
+                                    class="prompt-card"
+
+                                    data-prompt="How can I reduce my cloud costs?">
+
+                                    <span class="prompt-icon green">
+
+                                        ₹
+
+                                    </span>
+
+                                    <span>
+
+                                        <strong>
+
+                                            Reduce cloud costs
+
+                                        </strong>
+
+                                        <small>
+
+                                            Find potential cost savings
+
+                                        </small>
+
+                                    </span>
+
+                                </button>
+
+                                <button
+
+                                    class="prompt-card"
+
+                                    data-prompt="Check my cloud security posture">
+
+                                    <span class="prompt-icon red">
+
+                                        ◈
+
+                                    </span>
+
+                                    <span>
+
+                                        <strong>
+
+                                            Check security
+
+                                        </strong>
+
+                                        <small>
+
+                                            Review security risks
+
+                                        </small>
+
+                                    </span>
+
+                                </button>
+
+                                <button
+
+                                    class="prompt-card"
+
+                                    data-prompt="Is my environment ready for migration?">
+
+                                    <span class="prompt-icon purple">
+
+                                        ⇄
+
+                                    </span>
+
+                                    <span>
+
+                                        <strong>
+
+                                            Migration readiness
+
+                                        </strong>
+
+                                        <small>
+
+                                            Assess migration readiness
+
+                                        </small>
+
+                                    </span>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!--*
+
+*=================================================*
+
+*&#xA0;                        CHAT INPUT*
+
+*&#xA0;                        =================================================*
+
+*-->
+
+                    <div class="chat-input-area">
+
+                        <div class="chat-input-wrapper">
+
+                            <textarea
+
+                                id="chatInput"
+
+                                placeholder="Ask Cloud Co-Pilot anything about your cloud..."
+
+                                rows="1"></textarea>
+
+                            <div class="input-actions">
+
+                                <button
+
+                                    class="input-icon-button"
+
+                                    type="button"
+
+                                    title="Attach">
+
+                                    +
+
+                                </button>
+
+                                <button
+
+                                    class="send-button"
+
+                                    id="sendButton"
+
+                                    type="button"
+
+                                    title="Send">
+
+                                    ↑
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        <div class="input-disclaimer">
+
+                            Cloudwise AI can make mistakes.
+
+                            Verify important recommendations before taking action.
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!--*
+
+*=================================================*
+
+*&#xA0;                    RIGHT PANEL*
+
+*&#xA0;                    =================================================*
+
+*-->
+
+                <aside class="copilot-sidebar">
+
+                    <!--*
+
+*=================================================*
+
+*&#xA0;                        CLOUD CONTEXT*
+
+*&#xA0;                        =================================================*
+
+*-->
+
+                    <div class="copilot-side-card">
+
+                        <div class="side-card-header">
+
+                            <div>
+
+                                <span class="side-eyebrow">
+
+                                    CURRENT CONTEXT
+
+                                </span>
+
+                                <h3>
+
+                                    Cloud Environment
+
+                                </h3>
+
+                            </div>
+
+                            <span class="context-status">
+
+                                Connected
+
+                            </span>
+
+                        </div>
+
+                        <div class="cloud-context">
+
+<!-- AWS -->
+
+<div class="context-row">
+
+    <div class="context-icon aws">☁</div>
+
+    <div>
+
+        <strong>AWS</strong>
+
+        <span id="awsStatus">Not connected</span>
+
+    </div>
+
+    <span id="awsCheck" class="context-disabled">—</span>
+
+</div>
+
+<!-- Azure -->
+
+<div class="context-row">
+
+    <div class="context-icon azure">☁</div>
+
+    <div>
+
+        <strong>Azure</strong>
+
+        <span id="azureStatus">Not connected</span>
+
+    </div>
+
+    <span id="azureCheck" class="context-disabled">—</span>
+
+</div>
+
+<!-- Google Cloud -->
+
+<div class="context-row">
+
+    <div class="context-icon gcp">☁</div>
+
+    <div>
+
+        <strong>Google Cloud</strong>
+
+        <span id="gcpStatus">Not connected</span>
+
+    </div>
+
+    <span id="gcpCheck" class="context-disabled">—</span>
+
+</div>
+
+                    <!--*
+
+*=================================================*
+
+*&#xA0;                        RECENT CONVERSATIONS*
+
+*&#xA0;                        =================================================*
+
+*-->
+
+                    <div class="copilot-side-card">
+
+                        <div class="side-card-header">
+
+                            <div>
+
+                                <span class="side-eyebrow">
+
+                                    HISTORY
+
+                                </span>
+
+                                <h3>
+
+                                    Recent conversations
+
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+<div class="conversation-list" id="conversationList">
+
+                            <div class="conversation-empty" id="conversationEmpty">
+
+                                <span>◉</span>
+
+                                <p>No conversations yet</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    </div>
+
+                </aside>
+
+            </div>
+
+            <!--*
+
+*=================================================*
+
+*&#xA0;                FOOTER*
+
+*&#xA0;                =================================================*
+
+*-->
+
+            <footer class="copilot-footer">
+
+                <span>
+
+                    Cloudwise AI • Cloud Co-Pilot
+
+                </span>
+
+                <span>
+
+                    AI-powered cloud intelligence
+
+                </span>
+
+            </footer>
+
+        </section>
+
+    </main>
+
+    <!--*
+
+*=====================================================*
+
+*&#xA0;        JAVASCRIPT*
+
+*&#xA0;        =====================================================*
+
+*-->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const chatBody = document.getElementById("chatBody");
+
+    const chatInput = document.getElementById("chatInput");
+
+    const sendButton = document.getElementById("sendButton");
+
+    const newChatButton = document.getElementById("newChatButton");
+
+    const promptCards = document.querySelectorAll(".prompt-card");
+
+    const conversationList = document.getElementById("conversationList");
+
+    let conversationHistory = [];
+
+    let isGenerating = false;
+
+    let savedConversations = [];
+
+    let currentConversation = {
+
+        id: null,
+
+        title: null,
+
+        createdAt: null,
+
+        updatedAt: null,
+
+        messages: []
+
+    };
+    // Identify the logged-in account using the JWT.
+    function getCurrentSessionOwner() {
+
+        const token = localStorage.getItem("cloudwise_access_token");
+
+        if (!token) return null;
+
+        try {
+
+            const part = token.split(".")[1];
+
+            if (!part) return null;
+
+            const base64 = part.replace(/-/g, "+").replace(/\_/g, "/");
+
+            const payload = JSON.parse(
+
+                atob(base64.padEnd(Math.ceil(base64.length / 4) * 4, "="))
+
+            );
+
+            const owner = payload.sub ?? payload.user_id ?? payload.id;
+
+            return owner == null ? null : String(owner);
+
+        } catch (error) {
+
+            console.warn("Could not identify the chat session owner.");
+
+            return null;
+
+        }
+
+    }
+
+    const currentSessionOwner = getCurrentSessionOwner();
+
+    const previousSessionOwner = sessionStorage.getItem(
+
+        "cloudwise_chat_session_owner"
+
+    );
+    // Clear history if logged out or if a different account signs in.
+    if (
+
+        !currentSessionOwner ||
+
+        previousSessionOwner !== currentSessionOwner
+
+    ) {
+
+        sessionStorage.removeItem("cloudwise_conversations");
+
+        if (currentSessionOwner) {
+
+            sessionStorage.setItem(
+
+                "cloudwise_chat_session_owner",
+
+                currentSessionOwner
+
+            );
+
+        } else {
+
+            sessionStorage.removeItem("cloudwise_chat_session_owner");
+
+        }
+
+    }
+
+function updateCloudEnvironment() {
+    let user = {};
+    let platforms = [];
+
+    try {
+        user = JSON.parse(localStorage.getItem("cloudwise_user") || "{}");
+    } catch (error) {
+        console.error("Unable to read cloudwise_user:", error);
+    }
+
+    try {
+        const dedicatedPlatforms = JSON.parse(
+            localStorage.getItem("cloudwise_cloud_platforms") || "null"
+        );
+        if (Array.isArray(dedicatedPlatforms)) {
+            platforms = dedicatedPlatforms;
+        } else if (Array.isArray(user.cloud_platforms)) {
+            platforms = user.cloud_platforms;
+        }
+    } catch (error) {
+        console.error("Unable to read saved cloud platforms:", error);
+        platforms = Array.isArray(user.cloud_platforms) ? user.cloud_platforms : [];
+    }
+
+    platforms = platforms.map(function (platform) {
+        return String(platform).trim().toLowerCase();
+    });
+
+    const providers = [
+        { names: ["aws", "amazon web services"], status: "awsStatus", check: "awsCheck" },
+        { names: ["azure", "microsoft azure"], status: "azureStatus", check: "azureCheck" },
+        { names: ["gcp", "google cloud", "google cloud platform"], status: "gcpStatus", check: "gcpCheck" }
+    ];
+
+    let selectedCount = 0;
+
+    providers.forEach(function (provider) {
+        const selected = provider.names.some(function (name) {
+            return platforms.includes(name);
+        });
+
+        const statusElement = document.getElementById(provider.status);
+        const checkElement = document.getElementById(provider.check);
+
+        if (statusElement) {
+            statusElement.textContent = selected
+                ? "Selected during onboarding"
+                : "Not selected";
+        }
+
+        if (checkElement) {
+            checkElement.textContent = selected ? "✓" : "—";
+            checkElement.className = selected ? "context-check" : "context-disabled";
+        }
+
+        if (selected) selectedCount++;
+    });
+
+    const overallStatus = document.querySelector(".context-status");
+    if (overallStatus) {
+        overallStatus.textContent = selectedCount
+            ? selectedCount + (selectedCount === 1 ? " platform selected" : " platforms selected")
+            : "No platforms selected";
+    }
+
+    console.log("Cloud Co-Pilot platform context:", platforms);
+}
+
+    updateCloudEnvironment();
+    // Conversation storage.
+    function loadSavedConversations() {
+
+        try {
+
+            const saved = sessionStorage.getItem("cloudwise_conversations");
+
+            const parsed = saved ? JSON.parse(saved) : [];
+
+            savedConversations = Array.isArray(parsed) ? parsed : [];
+
+        } catch (error) {
+
+            console.error("Unable to load chat history:", error);
+
+            savedConversations = [];
+
+        }
+
+        renderRecentConversations();
+
+    }
+
+    function saveConversations() {
+
+        try {
+
+            sessionStorage.setItem(
+
+                "cloudwise_conversations",
+
+                JSON.stringify(savedConversations)
+
+            );
+
+        } catch (error) {
+
+            console.error("Unable to save chat history:", error);
+
+        }
+
+    }
+
+    function generateConversationTitle(message) {
+
+        let title = message.trim().replace(/\s+/g, " ");
+
+        if (title.length > 45) {
+
+            title = title.substring(0, 45).trim() + "...";
+
+        }
+
+        return title;
+
+    }
+
+    function createConversation(firstMessage) {
+
+        const now = new Date().toISOString();
+
+        currentConversation = {
+
+            id: Date.now().toString(),
+
+            title: generateConversationTitle(firstMessage),
+
+            createdAt: now,
+
+            updatedAt: now,
+
+            messages: []
+
+        };
+
+        savedConversations.unshift(currentConversation);
+
+        savedConversations = savedConversations.slice(0, 5);
+
+        saveConversations();
+
+        renderRecentConversations();
+
+    }
+
+    function saveMessageToConversation(role, content) {
+
+        if (!currentConversation.id) return;
+
+        currentConversation.messages.push({
+
+            role: role,
+
+            content: content,
+
+            timestamp: new Date().toISOString()
+
+        });
+
+        currentConversation.updatedAt = new Date().toISOString();
+
+        const index = savedConversations.findIndex(
+
+            conversation => conversation.id === currentConversation.id
+
+        );
+
+        if (index !== -1) {
+
+            savedConversations[index] = currentConversation;
+
+        }
+
+        saveConversations();
+
+        renderRecentConversations();
+
+    }
+
+    function formatConversationTime(dateString) {
+
+        const date = new Date(dateString);
+
+        if (Number.isNaN(date.getTime())) return "";
+
+        const difference = Math.max(
+
+            0,
+
+            Math.floor((Date.now() - date.getTime()) / 1000)
+
+        );
+
+        if (difference < 60) return "Just now";
+
+        if (difference < 3600) {
+
+            const minutes = Math.floor(difference / 60);
+
+            return minutes + (minutes === 1 ? " min ago" : " mins ago");
+
+        }
+
+        if (difference < 86400) {
+
+            const hours = Math.floor(difference / 3600);
+
+            return hours + (hours === 1 ? " hour ago" : " hours ago");
+
+        }
+
+        if (difference < 604800) {
+
+            const days = Math.floor(difference / 86400);
+
+            return days + (days === 1 ? " day ago" : " days ago");
+
+        }
+
+        return date.toLocaleDateString("en-IN", {
+
+            day: "numeric",
+
+            month: "short"
+
+        });
+
+    }
+
+    function getConversationIcon(title) {
+
+        const text = title.toLowerCase();
+
+        if (
+
+            text.includes("security") ||
+
+            text.includes("secure") ||
+
+            text.includes("compliance")
+
+        ) return "◈";
+
+        if (text.includes("migration") || text.includes("migrate")) {
+
+            return "⇄";
+
+        }
+
+        if (
+
+            text.includes("cost") ||
+
+            text.includes("pricing") ||
+
+            text.includes("budget")
+
+        ) return "₹";
+
+        if (
+
+            text.includes("reliability") ||
+
+            text.includes("availability") ||
+
+            text.includes("backup") ||
+
+            text.includes("disaster")
+
+        ) return "♢";
+
+        return "◉";
+
+    }
+
+    function renderRecentConversations() {
+
+        if (!conversationList) return;
+
+        conversationList.innerHTML = "";
+
+        if (savedConversations.length === 0) {
+
+            conversationList.innerHTML = `
+
+                <div class="conversation-empty">
+
+                    <span>◉</span>
+
+                    <p>No conversations yet</p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+        savedConversations.forEach(function (conversation) {
+
+            const button = document.createElement("button");
+
+            button.className = "conversation-item";
+
+            button.type = "button";
+
+            button.dataset.id = conversation.id;
+
+            const icon = getConversationIcon(
+
+                conversation.title || "Conversation"
+
+            );
+
+            const title = escapeHtml(
+
+                conversation.title || "Untitled conversation"
+
+            );
+
+            const time = formatConversationTime(
+
+                conversation.updatedAt || conversation.createdAt
+
+            );
+
+            button.innerHTML = `
+
+                <span class="conversation-icon">${icon}</span>
+
+                <span>
+
+                    <strong>${title}</strong>
+
+                    <small>${escapeHtml(time)}</small>
+
+                </span>
+
+            `;
+
+            button.addEventListener("click", function () {
+
+                openConversation(conversation.id);
+
+            });
+
+            conversationList.appendChild(button);
+
+        });
+
+    }
+
+    function openConversation(conversationId) {
+
+        if (isGenerating) return;
+
+        const conversation = savedConversations.find(
+
+            item => item.id === conversationId
+
+        );
+
+        if (!conversation) return;
+
+        currentConversation = conversation;
+
+        conversationHistory = (conversation.messages || []).map(message => ({
+
+            role: message.role,
+
+            content: message.content
+
+        }));
+
+        chatBody.innerHTML = "";
+
+        if (!conversation.messages || conversation.messages.length === 0) {
+
+            addAIMessage("This conversation is empty.");
+
+        } else {
+
+            conversation.messages.forEach(function (message) {
+
+                if (message.role === "user") {
+
+                    addUserMessage(message.content);
+
+                } else if (message.role === "assistant") {
+
+                    addAIMessage(message.content);
+
+                }
+
+            });
+
+        }
+
+        chatInput.value = "";
+
+        chatInput.focus();
+
+    }
+
+    async function sendMessage(message) {
+
+        message = message.trim();
+
+        if (!message || isGenerating) return;
+
+        const token = localStorage.getItem("cloudwise_access_token");
+
+        if (!token) {
+
+            addAIMessage("Your session has expired. Please log in again.");
+
+            return;
+
+        }
+
+        if (!currentConversation.id) {
+
+            createConversation(message);
+
+        }
+
+        const historyForRequest = conversationHistory.map(item => ({
+
+            role: item.role,
+
+            content: item.content
+
+        }));
+
+        addUserMessage(message);
+
+        chatInput.value = "";
+
+        const aiMessage = createStreamingAIMessage();
+
+        isGenerating = true;
+
+        sendButton.disabled = true;
+
+        chatInput.disabled = true;
+
+        try {
+
+            const response = await fetch(
+
+                "http\://127.0.0.1:8000/api/copilot/chat",
+
+                {
+
+                    method: "POST",
+
+                    headers: {
+
+                        "Content-Type": "application/json",
+
+                        "Authorization": "Bearer " + token,
+
+                        "Accept": "text/plain"
+
+                    },
+
+                    body: JSON.stringify({
+
+                        message: message,
+
+                        history: historyForRequest
+
+                    })
+
+                }
+
+            );
+
+            if (response.status === 401) {
+
+                clearCloudwiseChatSession();
+
+                localStorage.removeItem("cloudwise_access_token");
+
+                localStorage.removeItem("cloudwise_user");
+
+                aiMessage.remove();
+
+                addAIMessage("Your session has expired. Please log in again.");
+
+                return;
+
+            }
+
+            if (!response.ok) {
+
+                let errorMessage =
+
+                    "Cloudwise AI could not process your request.";
+
+                try {
+
+                    const errorData = await response.json();
+
+                    if (errorData.detail) {
+
+                        errorMessage = errorData.detail;
+
+                    }
+
+                } catch (error) {
+
+                    console.error("Error reading error response:", error);
+
+                }
+
+                aiMessage.remove();
+
+                addAIMessage(String(errorMessage));
+
+                return;
+
+            }
+
+            if (!response.body) {
+
+                aiMessage.remove();
+
+                addAIMessage("The AI response stream is unavailable.");
+
+                return;
+
+            }
+
+            const reader = response.body.getReader();
+
+            const decoder = new TextDecoder("utf-8");
+
+            let fullResponse = "";
+
+            while (true) {
+
+                const { value, done } = await reader.read();
+
+                if (done) break;
+
+                fullResponse += decoder.decode(value, { stream: true });
+
+                updateStreamingAIMessage(aiMessage, fullResponse);
+
+            }
+
+            fullResponse += decoder.decode();
+
+            if (fullResponse.trim()) {
+
+                conversationHistory.push(
+
+                    { role: "user", content: message },
+
+                    { role: "assistant", content: fullResponse.trim() }
+
+                );
+
+                saveMessageToConversation("user", message);
+
+                saveMessageToConversation("assistant", fullResponse.trim());
+
+            } else {
+
+                aiMessage.remove();
+
+                addAIMessage("Cloudwise AI returned an empty response.");
+
+            }
+
+        } catch (error) {
+
+            console.error("Cloud Co-Pilot error:", error);
+
+            aiMessage.remove();
+
+            addAIMessage(
+
+                "Unable to connect to Cloudwise AI. Please make sure " +
+
+                "the backend and Ollama are running."
+
+            );
+
+        } finally {
+
+            isGenerating = false;
+
+            sendButton.disabled = false;
+
+            chatInput.disabled = false;
+
+            chatInput.focus();
+
+        }
+
+    }
+
+    function createStreamingAIMessage() {
+
+        const aiMessage = document.createElement("div");
+
+        aiMessage.className = "message ai-message";
+
+        aiMessage.innerHTML = `
+
+            <div class="message-avatar">✦</div>
+
+            <div class="message-content">
+
+                <div class="message-author">Cloudwise AI</div>
+
+                <div class="message-bubble">
+
+                    <p class="ai-stream-text">
+
+                        <span class="stream-cursor">▌</span>
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        `;
+
+        chatBody.appendChild(aiMessage);
+
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+        return aiMessage;
+
+    }
+
+    function updateStreamingAIMessage(aiMessage, text) {
+
+        const textElement = aiMessage.querySelector(".ai-stream-text");
+
+        if (!textElement) return;
+
+        textElement.innerHTML =
+
+            formatAIResponse(text) +
+
+            '<span class="stream-cursor">▌</span>';
+
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+    }
+
+    function addUserMessage(message) {
+
+        const userMessage = document.createElement("div");
+
+        userMessage.className = "message user-message";
+
+        userMessage.innerHTML = `
+
+            <div class="message-content">
+
+                <div class="message-author">You</div>
+
+                <div class="message-bubble">
+
+                    <p>${escapeHtml(message)}</p>
+
+                </div>
+
+            </div>
+
+            <div class="message-avatar user">S</div>
+
+        `;
+
+        chatBody.appendChild(userMessage);
+
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+    }
+    // Display the name of the currently logged-in user.
+function setWelcomeUserName() {
+
+    const nameElement = document.getElementById("welcomeUserName");
+
+    if (!nameElement) return;
+
+    try {
+
+        const savedUser = localStorage.getItem("cloudwise_user");
+
+        if (savedUser) {
+
+            const user = JSON.parse(savedUser);
+
+            const name =
+
+                user.name ||
+
+                user.full_name ||
+
+                user.username ||
+
+                user.first_name;
+
+            if (name) {
+
+                nameElement.textContent = name;
+
+                return;
+
+            }
+
+        }
+
+    } catch (error) {
+
+        console.warn("Could not read the logged-in user's name.", error);
+
+    }
+
+    nameElement.textContent = "there";
+
+}
+
+setWelcomeUserName();
+
+    function addAIMessage(message) {
+
+        const aiMessage = document.createElement("div");
+
+        aiMessage.className = "message ai-message";
+
+        aiMessage.innerHTML = `
+
+            <div class="message-avatar">✦</div>
+
+            <div class="message-content">
+
+                <div class="message-author">Cloudwise AI</div>
+
+                <div class="message-bubble">
+
+                    ${formatAIResponse(message)}
+
+                </div>
+
+            </div>
+
+        `;
+
+        chatBody.appendChild(aiMessage);
+
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+    }
+
+    function formatAIResponse(text) {
+
+        let escaped = escapeHtml(String(text));
+
+        escaped = escaped.replace(
+
+            /\*\*(.*?)\*\*/g,
+
+            "<strong>$1</strong>"
+
+        );
+
+        escaped = escaped.replace(
+
+            /^###\s+(.+)$/gm,
+
+            "<h4>$1</h4>"
+
+        );
+
+        escaped = escaped.replace(
+
+            /^##\s+(.+)$/gm,
+
+            "<h3>$1</h3>"
+
+        );
+
+        escaped = escaped.replace(
+
+            /^#\s+(.+)$/gm,
+
+            "<h3>$1</h3>"
+
+        );
+
+        escaped = escaped.replace(
+
+            /^\s*[-*]\s+(.+)$/gm,
+
+            "<li>$1</li>"
+
+        );
+
+        escaped = escaped.replace(
+
+            /(<li>.*?<\/li>(?:<br>)?)+/gs,
+
+            function (match) {
+
+                return "<ul>" + match.replace(/<br>/g, "") + "</ul>";
+
+            }
+
+        );
+
+        escaped = escaped.replace(/\n\n/g, "</p><p>");
+
+        escaped = escaped.replace(/\n/g, "<br>");
+
+        return escaped;
+
+    }
+
+    function escapeHtml(value) {
+
+        const div = document.createElement("div");
+
+        div.textContent = String(value ?? "");
+
+        return div.innerHTML;
+
+    }
+    // Suggested prompts.
+    promptCards.forEach(function (card) {
+
+        card.addEventListener("click", function () {
+
+            chatInput.value = this.dataset.prompt || "";
+
+            chatInput.focus();
+
+        });
+
+    });
+    // Send button.
+    sendButton.addEventListener("click", function () {
+
+        sendMessage(chatInput.value);
+
+    });
+    // Enter sends; Shift + Enter creates a new line.
+    chatInput.addEventListener("keydown", function (event) {
+
+        if (event.key === "Enter" && !event.shiftKey) {
+
+            event.preventDefault();
+
+            sendMessage(chatInput.value);
+
+        }
+
+    });
+    // New chat: keep older conversations in the history panel.
+    newChatButton.addEventListener("click", function () {
+
+        if (isGenerating) return;
+
+        conversationHistory = [];
+
+        currentConversation = {
+
+            id: null,
+
+            title: null,
+
+            createdAt: null,
+
+            updatedAt: null,
+
+            messages: []
+
+        };
+
+        chatBody.innerHTML = `
+
+            <div class="message ai-message">
+
+                <div class="message-avatar">✦</div>
+
+                <div class="message-content">
+
+                    <div class="message-author">Cloudwise AI</div>
+
+                    <div class="message-bubble">
+
+                        <p>New conversation started.</p>
+
+                        <p>How can I help with your cloud environment?</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+
+        chatInput.value = "";
+
+        chatInput.focus();
+
+    });
+
+    loadSavedConversations();
+
+});
+    // Call this function from your logout handler in auth.js.
+window.clearCloudwiseChatSession = function () {
+
+    sessionStorage.removeItem("cloudwise_conversations");
+
+    sessionStorage.removeItem("cloudwise_chat_session_owner");
+
+};
+
+</script>
+
+</body>
+
+</html>

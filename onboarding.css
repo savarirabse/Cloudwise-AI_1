@@ -1,0 +1,740 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: #050b14;
+    color: #edf5ff;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+}
+
+
+/* ================= PAGE ================= */
+
+.onboarding-page {
+    min-height: 100vh;
+    display: flex;
+}
+
+
+/* ================= LEFT ================= */
+
+.onboarding-side {
+    width: 38%;
+    min-height: 100vh;
+
+    padding: 50px 65px;
+
+    background: rgba(255,255,255,.04);
+
+    border-right: 1px solid rgba(255,255,255,.08);
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+.onboarding-logo img {
+    width: 300px;
+    height: auto;
+    display: block;
+}
+
+
+.side-content {
+    margin-top: 30px;
+    max-width: 450px;
+}
+
+
+.side-label {
+    color: #39d8ff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+
+.side-content h1 {
+    font-size: 46px;
+    line-height: 1.1;
+    margin: 14px 0 22px;
+}
+
+
+.side-content h1 span {
+    color: #4da3ff;
+}
+
+
+.side-content p {
+    color: #a2b1c3;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+.side-footer {
+    margin-top: auto;
+    color: #526176;
+    font-size: 11px;
+}
+
+
+/* ================= MAIN ================= */
+
+.onboarding-main {
+    width: 62%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+}
+
+
+.wizard {
+    width: 100%;
+    max-width: 650px;
+}
+
+
+/* ================= PROGRESS ================= */
+
+.progress-area {
+    margin-bottom: 35px;
+}
+
+
+.progress-top {
+    display: flex;
+    justify-content: space-between;
+
+    color: #718198;
+    font-size: 11px;
+
+    margin-bottom: 9px;
+}
+
+
+.progress-top span:last-child {
+    color: #4da3ff;
+}
+
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+
+    background: #162538;
+
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+
+.progress-bar span {
+    display: block;
+
+    width: 25%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #1976d2,
+        #39d8ff
+    );
+
+    transition: .3s ease;
+}
+
+
+/* ================= STEPS ================= */
+
+.wizard-step {
+    display: none;
+}
+
+.wizard-step.active {
+    display: block;
+}
+
+
+/* ================= HEADER ================= */
+
+.step-header {
+    margin-bottom: 30px;
+}
+
+
+.step-icon {
+    width: 44px;
+    height: 44px;
+
+    border-radius: 11px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #4da3ff;
+    background: rgba(77,163,255,.1);
+
+    margin-bottom: 18px;
+}
+
+
+.step-header h2 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+
+.step-header p {
+    color: #718198;
+    font-size: 13px;
+}
+
+
+/* ================= FORM ================= */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+.form-group label {
+    display: block;
+
+    color: #a2b1c3;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    margin-bottom: 8px;
+}
+
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    height: 48px;
+
+    padding: 0 14px;
+
+    color: #edf5ff;
+
+    background: rgba(255,255,255,.04);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 9px;
+
+    outline: none;
+}
+
+
+.form-group input::placeholder {
+    color: #526176;
+}
+
+
+.form-group select option {
+    background: #0a1625;
+    color: #edf5ff;
+}
+
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: rgba(77,163,255,.5);
+
+    box-shadow:
+        0 0 0 3px rgba(77,163,255,.08);
+}
+
+
+/* ================= CLOUD CARDS ================= */
+
+.cloud-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 13px;
+
+    margin-bottom: 30px;
+}
+
+
+.cloud-option input {
+    display: none;
+}
+
+
+.cloud-card {
+    padding: 20px;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    background: rgba(255,255,255,.04);
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+
+.cloud-card:hover {
+    border-color: rgba(77,163,255,.3);
+    transform: translateY(-2px);
+}
+
+
+.cloud-option input:checked + .cloud-card {
+    border-color: #4da3ff;
+
+    background: rgba(77,163,255,.09);
+
+    box-shadow:
+        0 0 0 1px rgba(77,163,255,.15);
+}
+
+
+.cloud-icon {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    margin-bottom: 14px;
+
+    font-size: 17px;
+}
+
+
+.cloud-icon.aws {
+    color: #ffad5c;
+    background: rgba(255,173,92,.1);
+}
+
+.cloud-icon.azure {
+    color: #4da3ff;
+    background: rgba(77,163,255,.1);
+}
+
+.cloud-icon.gcp {
+    color: #39d8ff;
+    background: rgba(57,216,255,.1);
+}
+
+.cloud-icon.onprem {
+    color: #9b7cff;
+    background: rgba(155,124,255,.1);
+}
+
+
+.cloud-card strong {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+
+.cloud-card span {
+    color: #718198;
+    font-size: 10px;
+}
+
+
+/* ================= GOALS ================= */
+
+.goal-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+    margin-bottom: 30px;
+}
+
+
+.goal-option input {
+    display: none;
+}
+
+
+.goal-option span {
+    min-height: 52px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 0 14px;
+
+    border-radius: 9px;
+
+    background: rgba(255,255,255,.04);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    color: #a2b1c3;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+
+.goal-option span i {
+    color: #4da3ff;
+}
+
+
+.goal-option:hover span {
+    border-color: rgba(77,163,255,.3);
+}
+
+
+.goal-option input:checked + span {
+    color: #edf5ff;
+
+    background: rgba(77,163,255,.09);
+
+    border-color: #4da3ff;
+}
+
+
+/* ================= BUTTONS ================= */
+
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+
+.continue-btn,
+.back-btn {
+    height: 48px;
+
+    border-radius: 9px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+}
+
+
+.continue-btn {
+    flex: 1;
+
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        #1264c4,
+        #1984e8
+    );
+}
+
+
+.continue-btn:hover {
+    box-shadow:
+        0 8px 20px rgba(25,118,210,.25);
+
+    transform: translateY(-1px);
+}
+
+
+.back-btn {
+    width: 120px;
+
+    color: #a2b1c3;
+
+    background: rgba(255,255,255,.04);
+
+    border: 1px solid rgba(255,255,255,.08);
+}
+
+
+.back-btn:hover {
+    color: white;
+    background: rgba(255,255,255,.07);
+}
+
+
+/* ================= FINAL ================= */
+
+.final-step {
+    text-align: center;
+    padding: 20px 30px;
+}
+
+
+.success-icon {
+    width: 70px;
+    height: 70px;
+
+    margin: 0 auto 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: #43d69a;
+
+    background: rgba(67,214,154,.1);
+
+    font-size: 25px;
+}
+
+
+.final-step h2 {
+    font-size: 32px;
+    margin: 14px 0 10px;
+}
+
+
+.final-step > p {
+    color: #718198;
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    max-width: 450px;
+
+    margin: 0 auto 25px;
+}
+
+
+.setup-summary {
+    max-width: 400px;
+
+    margin: 0 auto 28px;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    background: rgba(255,255,255,.04);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    text-align: left;
+}
+
+
+.setup-summary div {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 7px 0;
+
+    color: #a2b1c3;
+
+    font-size: 11px;
+}
+
+
+.setup-summary i {
+    color: #43d69a;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .onboarding-side {
+        width: 35%;
+        padding: 40px;
+    }
+
+    .onboarding-main {
+        width: 65%;
+    }
+
+    .onboarding-logo img {
+        width: 230px;
+    }
+
+    .side-content {
+        margin-top: 80px;
+    }
+
+    .side-content h1 {
+        font-size: 36px;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .onboarding-page {
+        display: block;
+    }
+
+    .onboarding-side {
+        width: 100%;
+        min-height: auto;
+
+        padding: 30px;
+    }
+
+    .onboarding-logo img {
+        width: 250px;
+    }
+
+    .side-content {
+        margin-top: 45px;
+        margin-bottom: 20px;
+    }
+
+    .side-content h1 {
+        font-size: 34px;
+    }
+
+    .side-footer {
+        display: none;
+    }
+
+    .onboarding-main {
+        width: 100%;
+        min-height: auto;
+
+        padding: 35px 20px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .cloud-grid,
+    .goal-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .step-header h2 {
+        font-size: 24px;
+    }
+
+    .onboarding-main {
+        padding: 30px 16px;
+    }
+}
+/* ================= CLOUD USAGE ================= */
+
+.section-title {
+    display: block;
+
+    color: #a2b1c3;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    margin-bottom: 10px;
+}
+
+
+.usage-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+    margin-bottom: 28px;
+}
+
+
+.usage-option input {
+    display: none;
+}
+
+
+.usage-option span {
+    min-height: 48px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 0 14px;
+
+    border-radius: 9px;
+
+    background: rgba(255,255,255,.04);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    color: #a2b1c3;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+
+.usage-option span i {
+    color: #4da3ff;
+
+    width: 18px;
+
+    text-align: center;
+}
+
+
+.usage-option:hover span {
+    border-color: rgba(77,163,255,.3);
+}
+
+
+.usage-option input:checked + span {
+    color: #edf5ff;
+
+    background: rgba(77,163,255,.09);
+
+    border-color: #4da3ff;
+
+    box-shadow:
+        0 0 0 1px rgba(77,163,255,.15);
+}

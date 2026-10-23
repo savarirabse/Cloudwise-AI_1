@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Create Article | Cloudwise AI</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="knowledgeform.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVIGATION
+         ===================================================== -->
+
+    <div class="knowledge-top-nav">
+
+        <a href="knowledgehub.html"
+           class="back-button">
+
+            <span>←</span>
+
+            Back to Knowledge Hub
+
+        </a>
+
+
+        <div class="knowledge-nav-title">
+
+            <span class="knowledge-nav-icon">
+                ▤
+            </span>
+
+            <strong>
+                Knowledge Hub
+            </strong>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         PAGE
+         ===================================================== -->
+
+    <main class="knowledge-form-page">
+
+
+        <div class="form-page-header">
+
+            <div class="form-eyebrow">
+                CLOUDWISE COMMUNITY
+            </div>
+
+            <h1>
+                Create an Article
+            </h1>
+
+            <p>
+                Share your cloud knowledge, experiences and
+                practical solutions with the Cloudwise community.
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             FORM
+             ================================================= -->
+
+        <div class="knowledge-form-card">
+
+
+            <div class="form-info-box">
+
+                <div class="form-info-icon">
+                    ✦
+                </div>
+
+                <p>
+                    Write clear, useful content that can help
+                    other cloud professionals solve real-world
+                    cloud challenges.
+                </p>
+
+            </div>
+
+
+
+            <!-- TITLE -->
+
+            <div class="form-group">
+
+                <label class="form-label"
+                       for="articleTitle">
+
+                    Article Title
+                    <span class="form-required">*</span>
+
+                </label>
+
+                <input
+                    type="text"
+                    id="articleTitle"
+                    class="form-input"
+                    placeholder="Enter a clear and descriptive title"
+                >
+
+            </div>
+
+
+
+            <!-- CATEGORY + TYPE -->
+
+            <div class="form-row">
+
+
+                <div class="form-group">
+
+                    <label class="form-label"
+                           for="articleCategory">
+
+                        Category
+                        <span class="form-required">*</span>
+
+                    </label>
+
+                    <select
+                        id="articleCategory"
+                        class="form-select"
+                    >
+
+                        <option value="">
+                            Select a category
+                        </option>
+
+                        <option>
+                            AWS
+                        </option>
+
+                        <option>
+                            Azure
+                        </option>
+
+                        <option>
+                            Google Cloud
+                        </option>
+
+                        <option>
+                            Security
+                        </option>
+
+                        <option>
+                            Cost Optimization
+                        </option>
+
+                        <option>
+                            Reliability
+                        </option>
+
+                        <option>
+                            Cloud Migration
+                        </option>
+
+                        <option>
+                            AI & Automation
+                        </option>
+
+                        <option>
+                            Architecture
+                        </option>
+
+                        <option>
+                            DevOps
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label class="form-label"
+                           for="articleVisibility">
+
+                        Visibility
+
+                    </label>
+
+                    <select
+                        id="articleVisibility"
+                        class="form-select"
+                    >
+
+                        <option value="public">
+                            Community
+                        </option>
+
+                    </select>
+
+                    <div class="form-help">
+                        Community articles are visible to
+                        other Cloudwise users.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TAGS -->
+
+            <div class="form-group">
+
+                <label class="form-label">
+
+                    Tags
+                    <span class="form-required">*</span>
+
+                </label>
+
+
+                <div class="tags-input-wrapper"
+                     id="tagsWrapper">
+
+
+                    <input
+                        type="text"
+                        id="tagInput"
+                        class="tag-text-input"
+                        placeholder="Type a tag and press Enter"
+                    >
+
+                </div>
+
+
+                <div class="form-help">
+                    Add relevant tags such as AWS, EC2,
+                    FinOps or Security.
+                </div>
+
+            </div>
+
+
+
+            <!-- CONTENT -->
+
+            <div class="form-group">
+
+                <label class="form-label"
+                       for="articleContent">
+
+                    Article Content
+                    <span class="form-required">*</span>
+
+                </label>
+
+
+                <div class="editor-toolbar">
+
+                    <button
+                        type="button"
+                        class="editor-button"
+                        title="Bold"
+                    >
+                        B
+                    </button>
+
+                    <button
+                        type="button"
+                        class="editor-button"
+                        title="Italic"
+                    >
+                        I
+                    </button>
+
+                    <button
+                        type="button"
+                        class="editor-button"
+                        title="Heading"
+                    >
+                        H
+                    </button>
+
+                    <button
+                        type="button"
+                        class="editor-button"
+                        title="Bullet List"
+                    >
+                        •
+                    </button>
+
+                    <button
+                        type="button"
+                        class="editor-button"
+                        title="Numbered List"
+                    >
+                        1.
+                    </button>
+
+                </div>
+
+
+                <textarea
+                    id="articleContent"
+                    class="form-textarea"
+                    placeholder="Write your article here..."
+                ></textarea>
+
+
+                <div class="form-help">
+                    Explain the problem, approach, implementation
+                    and useful recommendations where appropriate.
+                </div>
+
+            </div>
+
+
+
+            <!-- ACTIONS -->
+
+            <div class="form-actions">
+
+                <button
+                    type="button"
+                    class="form-btn form-btn-secondary"
+                    onclick="window.location.href='knowledgehub.html'"
+                >
+                    Cancel
+                </button>
+
+
+                <button
+                    type="button"
+                    class="form-btn form-btn-primary"
+                    id="publishArticleBtn"
+                >
+                    Publish Article
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         FRONTEND ONLY
+         ===================================================== -->
+<script>
+
+const API_BASE = "http://127.0.0.1:8000";
+
+const tagInput =
+    document.getElementById("tagInput");
+
+const tagsWrapper =
+    document.getElementById("tagsWrapper");
+
+const publishArticleBtn =
+    document.getElementById("publishArticleBtn");
+
+
+/* =========================================================
+   TAG INPUT
+   ========================================================= */
+
+tagInput.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (event.key !== "Enter") {
+            return;
+        }
+
+        event.preventDefault();
+
+        const value =
+            tagInput.value.trim();
+
+        if (!value) {
+            return;
+        }
+
+
+        const existingTags =
+            Array.from(
+                tagsWrapper.querySelectorAll(".tag")
+            ).map(function (tag) {
+
+                return tag.dataset.tag.toLowerCase();
+
+            });
+
+
+        if (
+            existingTags.includes(
+                value.toLowerCase()
+            )
+        ) {
+
+            tagInput.value = "";
+
+            return;
+
+        }
+
+
+        const tag =
+            document.createElement("span");
+
+        tag.className = "tag";
+
+        tag.dataset.tag = value;
+
+
+        tag.innerHTML = `
+            ${escapeHTML(value)}
+
+            <button
+                type="button"
+                class="tag-remove"
+            >
+                ×
+            </button>
+        `;
+
+
+        tag.querySelector(
+            ".tag-remove"
+        ).addEventListener(
+            "click",
+            function () {
+
+                tag.remove();
+
+            }
+        );
+
+
+        tagsWrapper.insertBefore(
+            tag,
+            tagInput
+        );
+
+
+        tagInput.value = "";
+
+    }
+);
+
+
+/* =========================================================
+   ESCAPE HTML
+   ========================================================= */
+
+function escapeHTML(value) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent = value;
+
+    return div.innerHTML;
+
+}
+
+
+/* =========================================================
+   GET TAGS
+   ========================================================= */
+
+function getTags() {
+
+    return Array.from(
+        tagsWrapper.querySelectorAll(".tag")
+    ).map(function (tag) {
+
+        return tag.dataset.tag;
+
+    });
+
+}
+
+
+/* =========================================================
+   PUBLISH ARTICLE
+   ========================================================= */
+
+publishArticleBtn.addEventListener(
+    "click",
+    async function () {
+
+        const title =
+            document
+                .getElementById("articleTitle")
+                .value
+                .trim();
+
+
+        const category =
+            document
+                .getElementById("articleCategory")
+                .value
+                .trim();
+
+
+        const content =
+            document
+                .getElementById("articleContent")
+                .value
+                .trim();
+
+
+        const tags =
+            getTags();
+
+
+        /* =================================================
+           VALIDATION
+           ================================================= */
+
+        if (!title) {
+
+            alert(
+                "Please enter an article title."
+            );
+
+            document
+                .getElementById("articleTitle")
+                .focus();
+
+            return;
+
+        }
+
+
+        if (!category) {
+
+            alert(
+                "Please select a category."
+            );
+
+            document
+                .getElementById("articleCategory")
+                .focus();
+
+            return;
+
+        }
+
+
+        if (tags.length === 0) {
+
+            alert(
+                "Please add at least one tag."
+            );
+
+            tagInput.focus();
+
+            return;
+
+        }
+
+
+        if (!content) {
+
+            alert(
+                "Please write your article content."
+            );
+
+            document
+                .getElementById("articleContent")
+                .focus();
+
+            return;
+
+        }
+
+
+        /* =================================================
+           AUTHENTICATION
+           ================================================= */
+
+        const token =
+            localStorage.getItem(
+                "cloudwise_access_token"
+            );
+
+
+        if (!token) {
+
+            alert(
+                "Your session has expired. Please log in again."
+            );
+
+            window.location.href =
+                "login.html";
+
+            return;
+
+        }
+
+
+        /* =================================================
+           DISABLE BUTTON
+           ================================================= */
+
+        publishArticleBtn.disabled = true;
+
+        publishArticleBtn.textContent =
+            "Publishing...";
+
+
+        try {
+
+            /* =============================================
+               CURRENT BACKEND FORMAT
+               ============================================= */
+
+            const params =
+                new URLSearchParams();
+
+
+            params.append(
+                "content_type",
+                "article"
+            );
+
+
+            params.append(
+                "title",
+                title
+            );
+
+
+            params.append(
+                "content",
+                content
+            );
+
+
+            params.append(
+                "category",
+                category
+            );
+
+
+            params.append(
+                "tags",
+                JSON.stringify(tags)
+            );
+
+
+            /* =============================================
+               SEND TO BACKEND
+               ============================================= */
+
+            const response =
+                await fetch(
+                    API_BASE +
+                    "/api/knowledge/posts?" +
+                    params.toString(),
+                    {
+                        method: "POST",
+
+                        headers: {
+
+                            "Authorization":
+                                "Bearer " + token,
+
+                            "Accept":
+                                "application/json"
+
+                        }
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            /* =============================================
+               API ERROR
+               ============================================= */
+
+            if (!response.ok) {
+
+                console.error(
+                    "Create article error:",
+                    data
+                );
+
+
+                throw new Error(
+                    data.detail ||
+                    "Unable to publish article."
+                );
+
+            }
+
+
+            /* =============================================
+               SUCCESS
+               ============================================= */
+
+            alert(
+                "Your article has been published successfully!"
+            );
+
+
+            window.location.href =
+                "knowledgehub.html";
+
+
+        } catch (error) {
+
+            console.error(
+                "Article publishing failed:",
+                error
+            );
+
+
+            alert(
+                error.message ||
+                "Unable to publish your article. Please try again."
+            );
+
+
+            publishArticleBtn.disabled =
+                false;
+
+            publishArticleBtn.textContent =
+                "Publish Article";
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

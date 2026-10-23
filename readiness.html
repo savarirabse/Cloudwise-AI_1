@@ -1,0 +1,1873 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SkyReady | CloudWise AI</title>
+
+    <link rel="stylesheet" href="readiness.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         TOP NAVIGATION
+         ===================================================== -->
+
+    <div class="readiness-top-nav">
+
+        <a href="index.html" class="back-button">
+
+            <span>←</span>
+
+            Back
+
+        </a>
+
+
+        <div class="readiness-nav-title">
+
+            <span class="readiness-nav-icon">
+                ◈
+            </span>
+
+            <strong>
+                SkyReady
+            </strong>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="wrap">
+
+
+        <!-- PAGE HEADER -->
+
+        <header class="page-header">
+
+            <div>
+
+                <div class="eyebrow">
+                    CLOUD READINESS ASSESSMENT
+                </div>
+
+
+                <h1>
+                    SkyReady
+                </h1>
+
+
+                <p>
+
+                    Check how ready your infrastructure is for the cloud.
+                    Answer a few questions and get a readiness score,
+                    a fix list, and a migration roadmap.
+
+                </p>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             QUESTIONS + SCORE
+             ================================================= -->
+
+        <div class="grid">
+
+
+            <!-- QUESTIONS -->
+
+            <section class="card questions-card"
+                     aria-labelledby="ft">
+
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <h2 id="ft">
+                            Your current setup
+                        </h2>
+
+
+                        <p class="sub">
+                            Results update as you change answers.
+                        </p>
+
+                    </div>
+
+
+                    <div class="live-indicator">
+
+                        <span></span>
+
+                        LIVE
+
+                    </div>
+
+                </div>
+
+
+                <form id="form"
+                      onsubmit="return false">
+
+                </form>
+
+
+            </section>
+
+
+
+            <!-- SCORE -->
+
+            <section class="score-column">
+
+
+                <div class="card gauge-card"
+                     aria-live="polite">
+
+
+                    <div class="score-header">
+
+                        <div>
+
+                            <span class="card-label">
+                                OVERALL READINESS
+                            </span>
+
+
+                            <h2>
+                                Cloud Readiness
+                            </h2>
+
+                        </div>
+
+
+                        <span class="score-icon">
+                            ✦
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- GAUGE -->
+
+                    <div class="gauge">
+
+                        <svg viewBox="0 0 300 175"
+                             role="img"
+                             aria-label="Readiness score">
+
+
+                            <!-- Background -->
+
+                            <path
+                                class="arc arc-background"
+                                d="M30 150 A120 120 0 0 1 270 150"
+                            />
+
+
+                            <!-- Progress -->
+
+                            <path
+                                id="arc"
+                                class="arc"
+                                d="M30 150 A120 120 0 0 1 270 150"
+                                pathLength="100"
+                                stroke-dasharray="0 100"
+                            />
+
+
+                            <!-- Number -->
+
+                            <text
+                                id="num"
+                                class="num"
+                                x="150"
+                                y="140"
+                                text-anchor="middle">
+
+                                0
+
+                            </text>
+
+                        </svg>
+
+                    </div>
+
+
+
+                    <div id="verdict"
+                         class="verdict">
+
+                        Answer questions to calculate readiness.
+
+                    </div>
+
+
+                    <p id="blurb"
+                       class="score-description">
+
+                        Your score will update as you answer the questions.
+
+                    </p>
+
+
+
+                    <div class="score-divider"></div>
+
+
+                    <div class="category-title">
+                        CATEGORY BREAKDOWN
+                    </div>
+
+
+                    <div id="bars"
+                         class="bars">
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             RECOMMENDATIONS
+             ================================================= -->
+
+        <section class="card full recommendations-card"
+                 aria-labelledby="rt">
+
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="card-label">
+                        ACTION PLAN
+                    </span>
+
+
+                    <h2 id="rt">
+                        What to fix, when, and how
+                    </h2>
+
+
+                    <p class="sub">
+
+                        Ordered from biggest gap to smallest.
+                        Weeks are counted from project start.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div id="recs">
+
+                <p class="empty">
+                    Answer questions to see recommended actions.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             ROADMAP
+             ================================================= -->
+
+        <section class="card full roadmap-card"
+                 aria-labelledby="mt">
+
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="card-label">
+                        MIGRATION PLAN
+                    </span>
+
+
+                    <h2 id="mt">
+                        Migration roadmap
+                    </h2>
+
+
+                    <p id="mtsub"
+                       class="sub">
+
+                        Answer questions to generate your roadmap.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="roadmap-wrapper">
+
+                <div class="roadmap-line"></div>
+
+
+                <div id="tl"
+                     class="tl">
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         SKYREADY ENGINE
+         ===================================================== -->
+
+    <script>
+
+
+        /* =====================================================
+           CATEGORIES
+           ===================================================== */
+
+        var CATS = [
+
+            "Compute",
+
+            "Data",
+
+            "Network",
+
+            "Security",
+
+            "People"
+
+        ];
+
+
+
+        /* =====================================================
+           QUESTIONS
+           ===================================================== */
+
+        var F = [
+
+
+            /* COMPUTE */
+
+            {
+                id: "arch",
+
+                c: 0,
+
+                l: "How are your apps built?",
+
+                o: [
+
+                    ["Large single applications", 35],
+
+                    ["A mix of old and new", 60],
+
+                    ["Small services or containers", 88]
+
+                ],
+
+                r: [
+
+                    "Break up or containerize the largest apps",
+
+                    "Pick the 2-3 biggest apps, split out their heaviest parts, and package them in containers.",
+
+                    4
+
+                ]
+
+            },
+
+
+            {
+                id: "age",
+
+                c: 0,
+
+                l: "How old are most of your servers?",
+
+                o: [
+
+                    ["Over 7 years", 30],
+
+                    ["3 to 7 years", 60],
+
+                    ["Under 3 years", 85]
+
+                ],
+
+                r: [
+
+                    "Upgrade unsupported operating systems",
+
+                    "List every server on an unsupported OS, then upgrade or replace it before moving.",
+
+                    3
+
+                ]
+
+            },
+
+
+            /* DATA */
+
+            {
+                id: "db",
+
+                c: 1,
+
+                l: "What do your databases look like?",
+
+                o: [
+
+                    ["Large and custom-built", 35],
+
+                    ["Standard SQL", 65],
+
+                    ["Already managed or portable", 88]
+
+                ],
+
+                r: [
+
+                    "Plan the database move",
+
+                    "Choose a target engine, test a copy of the largest database, and time the cutover.",
+
+                    5
+
+                ]
+
+            },
+
+
+            {
+                id: "bk",
+
+                c: 1,
+
+                t: "chk",
+
+                l: "Backups are tested and restorable",
+
+                r: [
+
+                    "Test your backup and restore",
+
+                    "Restore last night's backup to a spare server and record how long it takes.",
+
+                    2
+
+                ]
+
+            },
+
+
+            /* NETWORK */
+
+            {
+                id: "bw",
+
+                c: 2,
+
+                l: "How fast is your link to the cloud?",
+
+                o: [
+
+                    ["Under 100 Mbps", 30],
+
+                    ["100 Mbps to 1 Gbps", 65],
+
+                    ["Over 1 Gbps or a dedicated link", 90]
+
+                ],
+
+                r: [
+
+                    "Upgrade the network link",
+
+                    "Estimate total data size, then order a faster or dedicated connection to match.",
+
+                    4
+
+                ]
+
+            },
+
+
+            {
+                id: "dep",
+
+                c: 2,
+
+                l: "Are app dependencies documented?",
+
+                o: [
+
+                    ["Not at all", 30],
+
+                    ["Partly", 60],
+
+                    ["Fully mapped", 90]
+
+                ],
+
+                r: [
+
+                    "Map dependencies between systems",
+
+                    "Run a discovery scan and draw which apps talk to which, so nothing breaks mid-move.",
+
+                    3
+
+                ]
+
+            },
+
+
+            /* SECURITY */
+
+            {
+                id: "comp",
+
+                c: 3,
+
+                l: "Compliance rules that apply to you",
+
+                o: [
+
+                    ["Strict rules, no plan yet", 30],
+
+                    ["Strict rules, plan in place", 68],
+
+                    ["None, or controls already mapped", 88]
+
+                ],
+
+                r: [
+
+                    "Map compliance rules to cloud controls",
+
+                    "List each rule, match it to a cloud control, and get sign-off from your compliance lead.",
+
+                    3
+
+                ]
+
+            },
+
+
+            {
+                id: "sso",
+
+                c: 3,
+
+                t: "chk",
+
+                l: "Single sign-on and MFA are in place",
+
+                r: [
+
+                    "Turn on SSO and MFA",
+
+                    "Connect your identity provider and require MFA for all admin accounts.",
+
+                    2
+
+                ]
+
+            },
+
+
+            /* PEOPLE */
+
+            {
+                id: "skill",
+
+                c: 4,
+
+                t: "rng",
+
+                l: "Team cloud experience (1 = new, 5 = expert)",
+
+                r: [
+
+                    "Train the team",
+
+                    "Book certification-level training for 2-3 engineers and pair them with a cloud partner.",
+
+                    6
+
+                ]
+
+            },
+
+
+            {
+                id: "bud",
+
+                c: 4,
+
+                t: "chk",
+
+                l: "Budget and an executive sponsor are approved",
+
+                r: [
+
+                    "Secure budget and a sponsor",
+
+                    "Present a cost estimate and get one named executive to own the project.",
+
+                    2
+
+                ]
+
+            }
+
+        ];
+
+
+
+        /* =====================================================
+           ANSWER STATE
+           
+           NULL = NOT ANSWERED
+           ===================================================== */
+
+        var S = {
+
+            arch: null,
+
+            age: null,
+
+            db: null,
+
+            bk: null,
+
+            bw: null,
+
+            dep: null,
+
+            comp: null,
+
+            sso: null,
+
+            skill: null,
+
+            bud: null
+
+        };
+
+
+
+        /* =====================================================
+           GROUP QUESTIONS BY CATEGORY
+           ===================================================== */
+
+        var g = {};
+
+
+        F.forEach(function (f) {
+
+            (g[f.c] = g[f.c] || []).push(f);
+
+        });
+
+
+
+        var form =
+            document.getElementById("form");
+
+
+
+        /* =====================================================
+           BUILD QUESTIONS
+           ===================================================== */
+
+        CATS.forEach(function (name, ci) {
+
+
+            var d =
+                document.createElement("div");
+
+
+            d.className = "grp";
+
+
+            var h =
+                "<h3>" +
+                name +
+                "</h3>";
+
+
+
+            g[ci].forEach(function (f) {
+
+
+                /* CHECKBOX */
+
+                if (f.t === "chk") {
+
+
+                    h +=
+
+                        '<label class="chk">' +
+
+                        '<input type="checkbox" ' +
+                        'data-id="' +
+                        f.id +
+                        '">' +
+
+                        '<span class="check-box"></span>' +
+
+                        '<span>' +
+                        f.l +
+                        '</span>' +
+
+                        '</label>';
+
+
+                }
+
+
+                /* RANGE */
+
+                else if (f.t === "rng") {
+
+
+                    h +=
+
+                        '<div class="range-question">' +
+
+
+                        '<div class="range-label-row">' +
+
+
+                        '<label for="' +
+                        f.id +
+                        '">' +
+                        f.l +
+                        '</label>' +
+
+
+                        '<span id="' +
+                        f.id +
+                        '-value" ' +
+                        'class="range-value">' +
+
+                        'Not answered' +
+
+                        '</span>' +
+
+
+                        '</div>' +
+
+
+                        '<input id="' +
+                        f.id +
+                        '" ' +
+
+                        'data-id="' +
+                        f.id +
+                        '" ' +
+
+                        'type="range" ' +
+
+                        'min="1" ' +
+
+                        'max="5" ' +
+
+                        'step="1" ' +
+
+                        'value="3">' +
+
+
+                        '</div>';
+
+
+                }
+
+
+                /* SELECT */
+
+                else {
+
+
+                    h +=
+
+                        '<label for="' +
+                        f.id +
+                        '">' +
+
+                        f.l +
+
+                        '</label>' +
+
+
+                        '<select id="' +
+                        f.id +
+                        '" ' +
+
+                        'data-id="' +
+                        f.id +
+                        '">' +
+
+
+                        '<option value="" selected disabled>' +
+
+                        'Select an option' +
+
+                        '</option>';
+
+
+
+                    f.o.forEach(function (o, i) {
+
+
+                        h +=
+
+                            '<option value="' +
+                            i +
+                            '">' +
+
+                            o[0] +
+
+                            '</option>';
+
+
+                    });
+
+
+                    h +=
+
+                        '</select>';
+
+                }
+
+            });
+
+
+            d.innerHTML = h;
+
+
+            form.appendChild(d);
+
+        });
+
+
+
+        /* =====================================================
+           RANGE QUESTIONS START AS "NOT TOUCHED"
+           ===================================================== */
+
+        document
+            .querySelectorAll('input[type="range"]')
+            .forEach(function (range) {
+
+                range.dataset.touched = "false";
+
+            });
+
+
+
+        /* =====================================================
+           INPUT HANDLER
+           ===================================================== */
+
+        form.addEventListener(
+            "input",
+            function (e) {
+
+
+                var id =
+                    e.target.dataset.id;
+
+
+                if (!id) return;
+
+
+
+                /* CHECKBOX */
+
+                if (
+                    e.target.type ===
+                    "checkbox"
+                ) {
+
+
+                    S[id] =
+                        e.target.checked
+                            ? 1
+                            : 0;
+
+                }
+
+
+
+                /* RANGE */
+
+                else if (
+                    e.target.type ===
+                    "range"
+                ) {
+
+
+                    /*
+                     * The user has actually
+                     * interacted with slider.
+                     */
+
+                    e.target.dataset.touched =
+                        "true";
+
+
+                    S[id] =
+                        +e.target.value;
+
+
+
+                    var valueElement =
+                        document.getElementById(
+                            id + "-value"
+                        );
+
+
+                    if (valueElement) {
+
+
+                        valueElement.textContent =
+                            S[id] + "/5";
+
+                    }
+
+                }
+
+
+
+                /* SELECT */
+
+                else if (
+                    e.target.tagName ===
+                    "SELECT"
+                ) {
+
+
+                    if (
+                        e.target.value ===
+                        ""
+                    ) {
+
+
+                        S[id] =
+                            null;
+
+
+                    } else {
+
+
+                        S[id] =
+                            +e.target.value;
+
+                    }
+
+                }
+
+
+
+                render();
+
+            }
+        );
+
+
+
+        /* =====================================================
+           GET QUESTION SCORE
+           
+           NULL = QUESTION NOT ANSWERED
+           ===================================================== */
+
+        function val(f) {
+
+
+            /* RANGE */
+
+            if (f.t === "rng") {
+
+
+                var range =
+                    document.getElementById(
+                        f.id
+                    );
+
+
+                /*
+                 * User has not moved
+                 * the slider yet.
+                 */
+
+                if (
+                    !range ||
+                    range.dataset.touched !==
+                    "true"
+                ) {
+
+
+                    return null;
+
+                }
+
+
+                return S[f.id] * 20;
+
+            }
+
+
+
+            /* OTHER QUESTIONS */
+
+            if (S[f.id] === null) {
+
+                return null;
+
+            }
+
+
+
+            /* CHECKBOX */
+
+            if (f.t === "chk") {
+
+
+                return S[f.id]
+                    ? 90
+                    : 30;
+
+            }
+
+
+
+            /* SELECT */
+
+            return f.o[
+                S[f.id]
+            ][1];
+
+        }
+
+
+
+        /* =====================================================
+           SCORE COLOR
+           ===================================================== */
+
+        function col(v) {
+
+
+            if (v >= 75) {
+
+                return "var(--green)";
+
+            }
+
+
+            if (v >= 50) {
+
+                return "var(--orange)";
+
+            }
+
+
+            return "var(--red)";
+
+        }
+
+
+
+        /* =====================================================
+           SAVE ASSESSMENT TO THE BACKEND
+           Saves only after at least one question is answered.
+           A short debounce prevents a request for every slider movement.
+           ===================================================== */
+
+        var readinessSaveTimer = null;
+        var lastReadinessPayload = "";
+
+        function scheduleReadinessSave(overallScore, categoryScores, answeredCount) {
+            if (answeredCount === 0) return;
+
+            var token = localStorage.getItem("cloudwise_access_token");
+            if (!token) {
+                console.warn("Sign in to save your Cloud Readiness assessment.");
+                return;
+            }
+
+            var payload = {
+                overall_score: overallScore,
+                categories: {
+                    Compute: categoryScores[0],
+                    Data: categoryScores[1],
+                    Network: categoryScores[2],
+                    Security: categoryScores[3],
+                    People: categoryScores[4]
+                },
+                answers: S
+            };
+
+            var serialized = JSON.stringify(payload);
+            if (serialized === lastReadinessPayload) return;
+
+            window.clearTimeout(readinessSaveTimer);
+            readinessSaveTimer = window.setTimeout(async function () {
+                try {
+                    var response = await fetch(
+                        "http://127.0.0.1:8000/api/dashboard/readiness",
+                        {
+                            method: "POST",
+                            headers: {
+                                "Authorization": "Bearer " + token,
+                                "Content-Type": "application/json",
+                                "Accept": "application/json"
+                            },
+                            body: serialized
+                        }
+                    );
+
+                    if (!response.ok) {
+                        var message = await response.text();
+                        throw new Error("Readiness save failed (" + response.status + "): " + message);
+                    }
+
+                    lastReadinessPayload = serialized;
+                    console.log("Cloud Readiness assessment saved.");
+                } catch (error) {
+                    console.error("Unable to save Cloud Readiness assessment:", error);
+                }
+            }, 700);
+        }
+
+
+        /* =====================================================
+           RENDER ENGINE
+           ===================================================== */
+
+        function render() {
+
+
+            /* ================================================
+               CATEGORY SCORES
+               ================================================ */
+
+            var cs =
+                CATS.map(function (name, ci) {
+
+
+                    /*
+                     * Get only answered
+                     * questions.
+                     */
+
+                    var answered =
+                        g[ci]
+                            .map(val)
+                            .filter(function (v) {
+
+                                return v !== null;
+
+                            });
+
+
+
+                    /*
+                     * Nothing answered
+                     * in this category.
+                     */
+
+                    if (
+                        answered.length ===
+                        0
+                    ) {
+
+
+                        return 0;
+
+                    }
+
+
+
+                    /*
+                     * Average only
+                     * answered questions.
+                     */
+
+                    return Math.round(
+
+                        answered.reduce(
+                            function (x, y) {
+
+                                return x + y;
+
+                            },
+                            0
+                        )
+                        /
+                        answered.length
+
+                    );
+
+                });
+
+
+
+            /* ================================================
+               OVERALL SCORE
+               ================================================ */
+
+            var answeredScores =
+                F
+                    .map(function (f) {
+
+                        return val(f);
+
+                    })
+                    .filter(function (v) {
+
+                        return v !== null;
+
+                    });
+
+
+
+            /*
+             * Nothing answered.
+             */
+
+            var total = 0;
+
+
+
+            /*
+             * At least one question
+             * answered.
+             */
+
+            if (
+                answeredScores.length >
+                0
+            ) {
+
+
+                total =
+                    Math.round(
+
+                        answeredScores.reduce(
+                            function (x, y) {
+
+                                return x + y;
+
+                            },
+                            0
+                        )
+                        /
+                        answeredScores.length
+
+                    );
+
+            }
+
+
+
+            scheduleReadinessSave(total, cs, answeredScores.length);
+
+            /* ================================================
+               GAUGE
+               ================================================ */
+
+            var arc =
+                document.getElementById(
+                    "arc"
+                );
+
+
+            arc.setAttribute(
+                "stroke-dasharray",
+                total + " 100"
+            );
+
+
+
+            /*
+             * When score is 0,
+             * hide progress completely.
+             */
+
+            if (total === 0) {
+
+
+                arc.style.stroke =
+                    "transparent";
+
+
+            } else {
+
+
+                arc.style.stroke =
+                    col(total);
+
+            }
+
+
+
+            /* SCORE NUMBER */
+
+            document.getElementById(
+                "num"
+            ).textContent =
+                total;
+
+
+
+            /* ================================================
+               VERDICT
+               ================================================ */
+
+            var verdictElement =
+                document.getElementById(
+                    "verdict"
+                );
+
+
+            var blurbElement =
+                document.getElementById(
+                    "blurb"
+                );
+
+
+
+            if (
+                answeredScores.length ===
+                0
+            ) {
+
+
+                verdictElement.textContent =
+                    "Answer questions to calculate readiness.";
+
+
+                blurbElement.textContent =
+                    "Your score will update as you answer the questions.";
+
+            }
+
+
+            else if (
+                total >= 75
+            ) {
+
+
+                verdictElement.textContent =
+                    "Ready to plan your move";
+
+
+                blurbElement.textContent =
+                    "Gaps are small. You can start the pilot phase now.";
+
+            }
+
+
+            else if (
+                total >= 50
+            ) {
+
+
+                verdictElement.textContent =
+                    "Ready after fixes";
+
+
+                blurbElement.textContent =
+                    "Close the gaps below first, then start the pilot.";
+
+            }
+
+
+            else {
+
+
+                verdictElement.textContent =
+                    "Not ready yet";
+
+
+                blurbElement.textContent =
+                    "Fix the basics below before you commit to a migration date.";
+
+            }
+
+
+
+            /* ================================================
+               CATEGORY BARS
+               ================================================ */
+
+            document.getElementById(
+                "bars"
+            ).innerHTML =
+
+                CATS.map(
+                    function (n, i) {
+
+
+                        /*
+                         * No answer =
+                         * empty bar.
+                         */
+
+                        var width =
+                            cs[i];
+
+
+                        var color =
+                            cs[i] === 0
+                                ? "transparent"
+                                : col(cs[i]);
+
+
+                        return
+
+
+                            '<div class="bar">' +
+
+
+                                '<div class="bar-label">' +
+
+                                    '<span>' +
+                                    n +
+                                    '</span>' +
+
+                                    '<b>' +
+                                    cs[i] +
+                                    '</b>' +
+
+                                '</div>' +
+
+
+                                '<div class="tr">' +
+
+                                    '<i style="' +
+
+                                        'width:' +
+                                        width +
+                                        '%;' +
+
+                                        'background:' +
+                                        color +
+
+                                    '">' +
+
+                                    '</i>' +
+
+                                '</div>' +
+
+
+                            '</div>';
+
+                    }
+                ).join("");
+
+
+
+            /* ================================================
+               RECOMMENDATIONS
+               ================================================ */
+
+            var gaps =
+
+                F
+                    .map(function (f) {
+
+                        return {
+
+                            f: f,
+
+                            v: val(f)
+
+                        };
+
+                    })
+
+
+                    /*
+                     * IMPORTANT:
+                     * unanswered questions
+                     * are excluded.
+                     */
+
+                    .filter(function (x) {
+
+                        return (
+                            x.v !== null &&
+                            x.v < 60
+                        );
+
+                    })
+
+
+                    .sort(function (a, b) {
+
+                        return a.v - b.v;
+
+                    });
+
+
+
+            var wk = 1;
+
+            var fixWeeks = 0;
+
+            var html = "";
+
+
+
+            gaps
+                .slice(0, 6)
+                .forEach(function (x) {
+
+
+                    var d =
+                        x.f.r[2];
+
+
+                    var end =
+                        wk +
+                        d -
+                        1;
+
+
+
+                    html +=
+
+                        '<div class="rec">' +
+
+
+                            '<div class="when">' +
+
+                                '<span class="week-label">' +
+                                'WEEKS' +
+                                '</span>' +
+
+                                wk +
+
+                                (
+                                    end > wk
+                                        ? "-" + end
+                                        : ""
+                                ) +
+
+                                '<span class="category">' +
+                                CATS[x.f.c] +
+                                '</span>' +
+
+                            '</div>' +
+
+
+
+                            '<div>' +
+
+                                '<span class="rec-label">' +
+                                'WHAT' +
+                                '</span>' +
+
+                                '<span class="t">' +
+                                x.f.r[0] +
+                                '</span>' +
+
+                            '</div>' +
+
+
+
+                            '<div>' +
+
+                                '<span class="rec-label">' +
+                                'HOW' +
+                                '</span>' +
+
+                                '<p>' +
+                                x.f.r[1] +
+                                '</p>' +
+
+                            '</div>' +
+
+
+                        '</div>';
+
+
+
+                    wk =
+                        end + 1;
+
+                });
+
+
+
+            fixWeeks =
+                wk - 1;
+
+
+
+            /*
+             * If there are no answered
+             * questions, show nothing
+             * useful yet.
+             */
+
+            if (
+                answeredScores.length ===
+                0
+            ) {
+
+
+                document.getElementById(
+                    "recs"
+                ).innerHTML =
+
+                    '<p class="empty">' +
+                    'Answer questions to see recommended actions.' +
+                    '</p>';
+
+
+            }
+
+            else {
+
+
+                document.getElementById(
+                    "recs"
+                ).innerHTML =
+
+                    html ||
+
+                    '<p class="empty">' +
+                    'No major gaps found. Move on to the pilot phase.' +
+                    '</p>';
+
+            }
+
+
+
+            /* ================================================
+               MIGRATION ROADMAP
+               ================================================ */
+
+            /*
+             * Don't generate the
+             * migration roadmap before
+             * the user answers anything.
+             */
+
+            if (
+                answeredScores.length ===
+                0
+            ) {
+
+
+                document.getElementById(
+                    "mtsub"
+                ).textContent =
+
+                    "Answer questions to generate your roadmap.";
+
+
+                document.getElementById(
+                    "tl"
+                ).innerHTML = "";
+
+
+                return;
+
+            }
+
+
+
+            var mig =
+
+                total >= 75
+                    ? 8
+                    : total >= 50
+                        ? 12
+                        : 16;
+
+
+
+            var ph = [];
+
+
+
+            if (fixWeeks) {
+
+
+                ph.push([
+                    "Fix gaps",
+                    fixWeeks
+                ]);
+
+            }
+
+
+
+            ph.push(
+
+                ["Pilot", 4],
+
+                ["Migrate", mig],
+
+                ["Optimize", 4]
+
+            );
+
+
+
+            var sum =
+
+                ph.reduce(
+                    function (a, p) {
+
+                        return a + p[1];
+
+                    },
+                    0
+                );
+
+
+
+            var s = 1;
+
+
+
+            document.getElementById(
+                "mtsub"
+            ).textContent =
+
+                "About " +
+                sum +
+                " weeks from start to a tuned cloud setup.";
+
+
+
+            document.getElementById(
+                "tl"
+            ).innerHTML =
+
+
+                ph.map(
+                    function (p, index) {
+
+
+                        var e =
+                            s +
+                            p[1] -
+                            1;
+
+
+
+                        var h =
+
+                            '<div class="ph" ' +
+
+                                'style="flex:' +
+                                p[1] +
+                                ' 1 0">' +
+
+
+                                '<span class="phase-number">' +
+                                (index + 1) +
+                                '</span>' +
+
+
+                                '<b>' +
+                                p[0] +
+                                '</b>' +
+
+
+                                '<span>' +
+                                'Weeks ' +
+                                s +
+                                "-" +
+                                e +
+                                '</span>' +
+
+
+                            '</div>';
+
+
+
+                        s =
+                            e + 1;
+
+
+
+                        return h;
+
+                    }
+                )
+                .join("");
+
+        }
+
+
+
+        /* =====================================================
+           INITIAL STATE
+           ===================================================== */
+
+        render();
+
+
+    </script>
+
+
+</body>
+
+</html>

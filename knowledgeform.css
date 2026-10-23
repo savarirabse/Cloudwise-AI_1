@@ -1,0 +1,760 @@
+/* =========================================================
+   CLOUDWISE AI - KNOWLEDGE HUB FORMS
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, Arial, sans-serif;
+    background: #050b14;
+    color: #edf5ff;
+}
+
+
+/* =========================================================
+   TOP NAVIGATION
+   ========================================================= */
+
+.knowledge-top-nav {
+     width: 100%;
+
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 0 34px;
+
+    background: #050b14;
+
+    border-bottom: 1px solid var(--border);
+
+}
+
+.back-button {
+      height: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 0 10px;
+
+    border: 1px solid transparent;
+
+    border-radius: 7px;
+
+    background: transparent;
+
+    color: var(--muted);
+
+    font-family: inherit;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+.back-button:hover {
+    color: #edf5ff;
+}
+
+.back-button span {
+       font-size: 17px;
+
+    line-height: 1;
+}
+
+.knowledge-nav-title {
+   display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.knowledge-nav-title strong {
+    font-size: 16px;
+}
+
+.knowledge-nav-icon {
+      width: 27px;
+
+    height: 27px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 7px;
+
+    background: rgba(77,163,255,.09);
+
+    border: 1px solid rgba(77,163,255,.16);
+
+    color: var(--blue);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.knowledge-form-page {
+     max-width: 1450px;
+
+    margin: 0 auto;
+
+    padding: 42px 34px 50px;
+}
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+.form-page-header {
+    margin-bottom: 32px;
+}
+
+.form-eyebrow {
+    margin-bottom: 10px;
+
+    color: #39d8ff;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.form-page-header h1 {
+    margin: 0 0 10px;
+
+    font-size: 36px;
+    line-height: 1.2;
+}
+
+.form-page-header p {
+    margin: 0;
+
+    max-width: 700px;
+
+    color: #a2b1c3;
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   FORM CARD
+   ========================================================= */
+
+.knowledge-form-card {
+    background: #0a1625;
+
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+
+    padding: 32px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.22);
+}
+
+
+/* =========================================================
+   FORM GROUP
+   ========================================================= */
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-label {
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: #edf5ff;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.form-required {
+    color: #ff6b7a;
+}
+
+.form-help {
+    margin-top: 7px;
+
+    color: #718198;
+
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    background: #07111d;
+
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 10px;
+
+    color: #edf5ff;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: #718198;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    border-color: #4da3ff;
+
+    box-shadow:
+        0 0 0 3px rgba(77,163,255,0.10);
+
+    background: #081522;
+}
+
+.form-textarea {
+    min-height: 280px;
+
+    resize: vertical;
+
+    line-height: 1.7;
+}
+
+.form-select {
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   TWO COLUMN FORM
+   ========================================================= */
+
+.form-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   TAG INPUT
+   ========================================================= */
+
+.tags-input-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    min-height: 48px;
+
+    padding: 8px 10px;
+
+    background: #07111d;
+
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 10px;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 6px 10px;
+
+    background: rgba(77,163,255,0.12);
+
+    border: 1px solid rgba(77,163,255,0.20);
+    border-radius: 7px;
+
+    color: #b9dcff;
+
+    font-size: 12px;
+}
+
+.tag-remove {
+    border: 0;
+    background: transparent;
+
+    color: #718198;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    padding: 0;
+}
+
+.tag-remove:hover {
+    color: #ff6b7a;
+}
+
+.tag-text-input {
+    flex: 1;
+    min-width: 150px;
+
+    border: 0;
+    outline: 0;
+
+    background: transparent;
+
+    color: #edf5ff;
+
+    font-family: inherit;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   EDITOR TOOLBAR
+   ========================================================= */
+
+.editor-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    padding: 8px;
+
+    background: #07111d;
+
+    border: 1px solid rgba(255,255,255,0.10);
+    border-bottom: 0;
+
+    border-radius: 10px 10px 0 0;
+}
+
+.editor-button {
+    min-width: 34px;
+    height: 32px;
+
+    border: 0;
+    border-radius: 6px;
+
+    background: transparent;
+
+    color: #a2b1c3;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.editor-button:hover {
+    background: rgba(255,255,255,0.06);
+    color: #edf5ff;
+}
+
+.editor-content {
+    width: 100%;
+    min-height: 280px;
+
+    padding: 16px;
+
+    background: #07111d;
+
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 0 0 10px 10px;
+
+    color: #edf5ff;
+
+    outline: none;
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   INFO BOX
+   ========================================================= */
+
+.form-info-box {
+    display: flex;
+    gap: 12px;
+
+    padding: 15px 16px;
+
+    margin-bottom: 25px;
+
+    background: rgba(77,163,255,0.06);
+
+    border: 1px solid rgba(77,163,255,0.14);
+    border-radius: 10px;
+}
+
+.form-info-icon {
+    color: #4da3ff;
+
+    font-size: 18px;
+}
+
+.form-info-box p {
+    margin: 0;
+
+    color: #a2b1c3;
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    margin-top: 30px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.form-btn {
+    min-width: 130px;
+
+    padding: 12px 20px;
+
+    border-radius: 9px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.form-btn-secondary {
+    background: transparent;
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    color: #a2b1c3;
+}
+
+.form-btn-secondary:hover {
+    background: rgba(255,255,255,0.05);
+
+    color: #edf5ff;
+}
+
+.form-btn-primary {
+    background: #4da3ff;
+
+    border: 1px solid #4da3ff;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 25px rgba(77,163,255,0.18);
+}
+
+.form-btn-primary:hover {
+    background: #3894f5;
+}
+
+
+/* =========================================================
+   POST DETAILS
+   ========================================================= */
+
+.post-detail-header {
+    margin-bottom: 25px;
+}
+
+.post-badge {
+    display: inline-flex;
+
+    padding: 6px 10px;
+
+    margin-bottom: 14px;
+
+    border-radius: 6px;
+
+    background: rgba(77,163,255,0.10);
+
+    color: #4da3ff;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 0.6px;
+}
+
+.post-detail-header h1 {
+    margin: 0 0 15px;
+
+    font-size: 34px;
+    line-height: 1.3;
+}
+
+.post-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: #718198;
+
+    font-size: 13px;
+}
+
+.post-author {
+    color: #a2b1c3;
+    font-weight: 600;
+}
+
+.post-detail-content {
+    margin-top: 28px;
+
+    color: #c5d1df;
+
+    font-size: 15px;
+    line-height: 1.85;
+
+    white-space: pre-wrap;
+}
+
+
+/* =========================================================
+   POST TAGS
+   ========================================================= */
+
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 25px;
+}
+
+.post-tag {
+    padding: 6px 10px;
+
+    background: rgba(77,163,255,0.08);
+
+    border: 1px solid rgba(77,163,255,0.14);
+
+    border-radius: 6px;
+
+    color: #9ecfff;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   POST STATS
+   ========================================================= */
+
+.post-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    margin-top: 30px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.rating-stars {
+    display: flex;
+    gap: 4px;
+}
+
+.rating-star {
+    border: 0;
+    background: transparent;
+
+    color: #718198;
+
+    font-size: 23px;
+
+    cursor: pointer;
+
+    padding: 2px;
+}
+
+.rating-star:hover,
+.rating-star.active {
+    color: #ffad5c;
+}
+
+
+/* =========================================================
+   COMMENTS
+   ========================================================= */
+
+.comments-section {
+    margin-top: 30px;
+}
+
+.comments-section h2 {
+    margin: 0 0 20px;
+
+    font-size: 20px;
+}
+
+.comment-card {
+    padding: 20px;
+
+    margin-bottom: 14px;
+
+    background: #0a1625;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 12px;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 12px;
+}
+
+.comment-avatar {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(77,163,255,0.14);
+
+    color: #4da3ff;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.comment-author {
+    color: #edf5ff;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.comment-time {
+    color: #718198;
+
+    font-size: 12px;
+}
+
+.comment-content {
+    color: #a2b1c3;
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .knowledge-top-nav {
+        padding: 0 18px;
+    }
+
+    .knowledge-form-page {
+        padding: 35px 16px 60px;
+    }
+
+    .knowledge-form-card {
+        padding: 22px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .form-page-header h1 {
+        font-size: 29px;
+    }
+
+    .post-detail-header h1 {
+        font-size: 28px;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .form-btn {
+        width: 100%;
+    }
+
+}

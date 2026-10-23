@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Up | Cloud Advisor</title>
+
+    <link rel="stylesheet" href="signup.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="signup-container">
+
+        <!-- Left Side -->
+        <div class="signup-left">
+
+            <div class="brand">
+                <a href="index.html" class="signup-logo">
+                  <img src="logo.png" alt="Cloudwise AI">
+                </a>
+            </div>
+
+            <div class="left-content">
+
+                <h1>
+                    Make smarter<br>
+                    <span>cloud decisions.</span>
+                </h1>
+
+                <p>
+                    Get AI-powered insights to assess, secure,
+                    optimize, and transform your cloud environment.
+                </p>
+
+                <div class="benefit">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>AI-powered cloud insights</span>
+                </div>
+
+                <div class="benefit">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>Cloud migration readiness</span>
+                </div>
+
+                <div class="benefit">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>Security & reliability analysis</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Right Side -->
+        <div class="signup-right">
+
+            <div class="signup-card">
+
+                <div class="form-header">
+                    <h2>Create your account</h2>
+
+                    <p>
+                        Start managing your cloud smarter with Cloud Advisor.
+                    </p>
+                </div>
+
+
+                <form id="signupForm">
+
+                    <!-- Name -->
+                    <div class="name-row">
+
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+
+                            <div class="input-box">
+                                <i class="fa-regular fa-user"></i>
+
+                                <input
+                                    type="text"
+                                    id="firstName"
+                                    name="firstName"
+                                    placeholder="Enter first name"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+
+                            <div class="input-box">
+                                <i class="fa-regular fa-user"></i>
+
+                                <input
+                                    type="text"
+                                    id="lastName"
+                                    name="lastName"
+                                    placeholder="Enter last name"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+
+                        <label for="email">Work Email</label>
+
+                        <div class="input-box">
+                            <i class="fa-regular fa-envelope"></i>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="name@company.com"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+
+                    <!-- Phone -->
+                    <div class="form-group">
+
+                        <label for="phone">Phone Number</label>
+
+                        <div class="input-box phone-box">
+
+                            <span class="country-code">+91</span>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                placeholder="Enter phone number"
+                                maxlength="10"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Password -->
+                    <div class="form-group">
+
+                        <label for="password">Password</label>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-lock"></i>
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Create a password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                onclick="togglePassword('password', this)"
+                            >
+                                <i class="fa-regular fa-eye"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Confirm Password -->
+                    <div class="form-group">
+
+                        <label for="confirmPassword">
+                            Confirm Password
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-lock"></i>
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                placeholder="Re-enter your password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                onclick="togglePassword('confirmPassword', this)"
+                            >
+                                <i class="fa-regular fa-eye"></i>
+                            </button>
+
+                        </div>
+
+                        <small id="passwordMessage"></small>
+
+                    </div>
+
+
+                    <!-- Terms -->
+                    <div class="terms">
+
+                        <input
+                            type="checkbox"
+                            id="terms"
+                            name="terms"
+                            required
+                        >
+
+                        <label for="terms">
+                            I agree to the
+                            <a href="#">Terms & Conditions</a>
+                            and
+                            <a href="#">Privacy Policy</a>.
+                        </label>
+
+                    </div>
+
+
+                    <!-- Sign Up -->
+                    <button type="submit" class="signup-btn">
+                        Create Account
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+
+                    <!-- Login -->
+                    <p class="login-link">
+                        Already have an account?
+                        <a href="login.html">Log in</a>
+                    </p>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<script>
+
+    const signupForm = document.getElementById("signupForm");
+
+signupForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const firstName = document.getElementById("firstName").value.trim();
+    const lastName = document.getElementById("lastName").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+    const terms = document.getElementById("terms").checked;
+
+    // Frontend validation
+    if (!firstName || !lastName || !email || !phone) {
+        alert("Please fill in all required fields.");
+        return;
+    }
+
+    if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        return;
+    }
+
+    if (!terms) {
+        alert("Please accept the terms and conditions.");
+        return;
+    }
+
+    try {
+        const response = await fetch(
+            "http://127.0.0.1:8000/api/auth/register",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    first_name: firstName,
+                    last_name: lastName,
+                    email: email,
+                    phone: phone,
+                    password: password,
+                    confirm_password: confirmPassword
+                })
+            }
+        );
+
+        const data = await response.json();
+
+if (!response.ok) {
+
+    let errorMessage = "Registration failed.";
+
+    if (Array.isArray(data.detail)) {
+        errorMessage = data.detail
+            .map(error => {
+                const field = error.loc?.[error.loc.length - 1] || "field";
+                return `${field}: ${error.msg}`;
+            })
+            .join("\n");
+    } else if (typeof data.detail === "string") {
+        errorMessage = data.detail;
+    }
+
+    alert(errorMessage);
+    return;
+}
+
+        // Save the newly created user's authentication data
+localStorage.setItem(
+    "cloudwise_access_token",
+    data.access_token
+);
+
+localStorage.setItem(
+    "cloudwise_user",
+    JSON.stringify(data.user)
+);
+
+alert("Account created successfully!");
+
+window.location.href = "onboarding.html";
+
+    } catch (error) {
+        console.error("Registration error:", error);
+
+        alert(
+            "Unable to connect to Cloudwise AI. " +
+            "Please make sure the backend is running."
+        );
+    }
+});
+
+</script>
+
+</body>
+</html>

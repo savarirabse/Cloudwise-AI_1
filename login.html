@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Cloudwise AI</title>
+
+    <link rel="stylesheet" href="login.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body class="login-page">
+
+<div class="login-container">
+
+    <!-- LEFT -->
+    <div class="login-left">
+
+        <a href="index.html" class="login-logo">
+            <img src="logo.png"
+                 alt="Cloudwise AI">
+        </a>
+
+        <div class="login-left-content">
+
+            <h1>
+                Welcome<br>
+                <span>back.</span>
+            </h1>
+
+            <p>
+                Continue managing your cloud with
+                AI-powered insights, optimization,
+                security, and reliability.
+            </p>
+
+            <div class="login-benefit">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>AI-powered cloud insights</span>
+            </div>
+
+            <div class="login-benefit">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Cloud migration readiness</span>
+            </div>
+
+            <div class="login-benefit">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Security & reliability analysis</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="login-right">
+
+        <div class="login-card">
+
+            <div class="login-header">
+
+                <h2>Log In</h2>
+
+                <p>
+                    Sign in to your CloudWise AI account.
+                </p>
+
+            </div>
+
+
+            <form id="loginForm">
+
+                <!-- EMAIL -->
+                <div class="login-form-group">
+
+                    <label for="email">
+                        Work Email
+                    </label>
+
+                    <div class="login-input">
+
+                        <i class="fa-regular fa-envelope"></i>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="name@company.com"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+                <div class="login-form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="login-input">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="login-password-toggle"
+                            onclick="toggleLoginPassword()">
+
+                            <i class="fa-regular fa-eye"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- OPTIONS -->
+                <div class="login-options">
+
+                    <label class="remember-me">
+
+                        <input type="checkbox">
+
+                        <span>Remember me</span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- BUTTON -->
+                <button type="submit" class="login-btn">
+
+                    Sign In
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+
+                <!-- SIGN UP -->
+                <p class="signup-link">
+
+                    Don't have an account?
+
+                    <a href="signup.html">
+                        Sign Up
+                    </a>
+
+                </p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+const loginForm = document.getElementById("loginForm");
+
+loginForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+
+    if (!email || !password) {
+        alert("Please enter your email and password.");
+        return;
+    }
+
+    try {
+        const response = await fetch(
+            "http://127.0.0.1:8000/api/auth/login",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            alert(data.detail || "Invalid email or password.");
+            return;
+        }
+
+        // Store authentication token
+        localStorage.setItem(
+            "cloudwise_access_token",
+            data.access_token
+        );
+
+        // Store basic user information
+        localStorage.setItem(
+            "cloudwise_user",
+            JSON.stringify(data.user)
+        );
+
+        window.location.href = "index.html";
+
+    } catch (error) {
+        console.error("Login error:", error);
+
+        alert(
+            "Unable to connect to Cloudwise AI. " +
+            "Please make sure the backend is running."
+        );
+    }
+});
+</script>
+
+</body>
+</html>
